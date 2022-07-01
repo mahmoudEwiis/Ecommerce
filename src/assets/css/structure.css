@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Oswald:200,300,400,500,600,700");
+
+/*-- Common Style --*/
+*, *::after, *::before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: #ffffff;
+    line-height: 24px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    visibility: visible;
+    font-family: "Open Sans", sans-serif;
+    color: #444444;
+    position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #202020;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 42px;
+}
+
+h2 {
+    font-size: 30px;
+    line-height: 36px;
+}
+
+h3 {
+    font-size: 24px;
+    line-height: 30px;
+}
+
+h4 {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+h5 {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+h6 {
+    font-size: 12px;
+    line-height: 14px;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+a, button {
+    color: inherit;
+    display: inline-block;
+    line-height: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a, button, img, input, span {
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+*:focus {
+    outline: none !important;
+}
+
+a:focus {
+    color: inherit;
+    outline: none;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+button, input[type="submit"] {
+    cursor: pointer;
+}
+
+ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
