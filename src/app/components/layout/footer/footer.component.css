@@ -188,7 +188,8 @@ p.contact-info span {
 }
 p.contact-info span i {
 
-    color: #fb5231;
+    /* color: #fb5231; */
+    color: #a6a6a6;
 }
 p.contact-info a {
     display: block;

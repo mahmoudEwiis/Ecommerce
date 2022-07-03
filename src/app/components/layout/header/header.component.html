@@ -1,1 +1,144 @@
-<p>header works!</p>
+<header>
+    <!-- Header Top Start -->
+    <div class="header-top header-top-one header-top-border pt-10 pb-10">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+
+                <div class="col mt-10 mb-10">
+                    <!-- Header Links Start -->
+                    <div class="header-links">
+                        <a href="track-order.html">
+                            <!-- <img src="assets/images/icon/car.png" alt="Car Icon"> -->
+                            <i class="fa-solid fa-truck-moving"></i>
+                            <span>Track your order</span>
+                        </a>
+                        <a href="store.html">
+                            <!-- <img src="assets/images/icon/marker.png" alt="Car Icon"> -->
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Locate Store</span>
+                        </a>
+                    </div><!-- Header Links End -->
+                </div>
+
+                <div class="col order-12 order-xs-12 order-lg-2 mt-10 mb-10">
+                    <!-- Header Advance Search Start -->
+                    <div class="header-advance-search">
+
+                        <!-- <form action="#">
+                            <div class="input"><input type="text" placeholder="Search your product"></div>
+                            <div class="select">
+                                <select class="nice-select">
+                                    <option>All Categories</option>
+                                    <option>Mobile</option>
+                                    <option>Computer</option>
+                                    <option>Laptop</option>
+                                    <option>Camera</option>
+                                </select>
+                            </div>
+                            <div class="submit"><button><i class="icofont icofont-search-alt-1"></i></button></div>
+                        </form> -->
+
+                    </div><!-- Header Advance Search End -->
+                </div>
+
+                <div class="col order-2 order-xs-2 order-lg-12 mt-10 mb-10">
+                    <!-- Header Account Links Start -->
+                    <div class="header-account-links">
+                        <a href="register.html">
+                            <i class="fa-solid fa-circle-question"></i>
+                            <span>Help</span>
+                        </a>
+                        <a href="login.html">
+                            <i class="fa-solid fa-right-to-bracket"></i>
+                            <span>Login</span>
+                        </a>
+                    </div><!-- Header Account Links End -->
+                </div>
+
+            </div>
+        </div>
+    </div><!-- Header Top End -->
+    <!-- Header Bottom Start -->
+    <div class="header-bottom header-bottom-one header-sticky" #headerSticky [class.is-sticky]="sticky">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+
+                <div class="col mt-15 mb-15">
+                    <!-- Logo Start -->
+                    <div class="header-logo">
+                        <a href="index.html">
+                            Store
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </div><!-- Logo End -->
+                </div>
+
+                <div class="col order-12 order-lg-2 order-xl-2 d-none d-lg-block">
+                    <!-- Main Menu Start -->
+                    <!-- <div class="menu-search">
+                        <div class="menu-search__form">
+                            <div class="ant-select menu-search__form-select ant-select-single ant-select-show-arrow"
+                                style="width: 150px;">
+                                <div class="ant-select-selector">
+                                    <span class="ant-select-selection-search">
+                                        <input autocomplete="off" class="ant-select-selection-search-input" role="combobox" aria-haspopup="listbox" aria-owns="rc_select_2_list"
+                                            aria-autocomplete="list" aria-controls="rc_select_2_list"  aria-activedescendant="rc_select_2_list_1" readonly="" unselectable="on"
+                                            value="" id="rc_select_2" style="opacity: 0;" aria-expanded="false">
+                                    </span>
+                                    <span class="ant-select-selection-item" title="furniture">furniture</span>
+                                </div>
+                                <span class="ant-select-arrow" unselectable="on" aria-hidden="true" style="user-select: none;">
+                                    <span role="img" aria-label="down" class="anticon anticon-down ant-select-suffix">
+                                        <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="down"
+                                            width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                                            <path
+                                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="menu-search__form-input">
+                                <div class="ant-select ant-select-auto-complete ant-select-single ant-select-allow-clear ant-select-show-search">
+                                    <div class="ant-select-selector">
+                                        <span class="ant-select-selection-search">
+                                            <input autocomplete="off" class="ant-select-selection-search-input" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-owns="rc_select_3_list" aria-autocomplete="list"
+                                                aria-controls="rc_select_3_list" aria-activedescendant="rc_select_3_list_0" value="" id="rc_select_3">
+                                        </span>
+                                        <span class="ant-select-selection-placeholder">
+                                            What are you looking for ?
+                                        </span>
+                                    </div>
+                                </div>
+                                <button type="button" class="ant-btn">
+                                    <i class="icon_search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- Main Menu End -->
+                </div>
+
+                <div class="col order-2 order-lg-12 order-xl-12">
+                    <!-- Header Shop Links Start -->
+                    <div class="header-shop-links">
+
+                        <!-- Compare -->
+                        <a href="compare.html" class="header-compare"><i class="ti-control-shuffle"></i></a>
+                        <!-- Wishlist -->
+                        <a href="wishlist.html" class="header-wishlist"><i class="fa-solid fa-heart"></i><span
+                                class="number">0</span></a>
+                        <!-- Cart -->
+                        <a href="cart.html" class="header-cart"><i class="fa-solid fa-bag-shopping"></i> <span
+                                class="number">0</span></a>
+
+                    </div><!-- Header Shop Links End -->
+                </div>
+
+                <!-- Mobile Menu -->
+                <div class="mobile-menu order-12 d-block d-lg-none col"></div>
+
+            </div>
+        </div>
+    </div><!-- Header Bottom End -->
+</header>
