@@ -22,7 +22,7 @@ body {
     position: relative;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/* h1, h2, h3, h4, h5, h6 {
     color: #202020;
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
@@ -57,8 +57,14 @@ h5 {
 h6 {
     font-size: 12px;
     line-height: 14px;
+} */
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    font-style: normal;
 }
-
 p:last-child {
     margin-bottom: 0;
 }
@@ -70,11 +76,16 @@ a, button {
     text-decoration: none;
     cursor: pointer;
 }
-
+/* button:focus , input:focus , .form-control:focus{
+    box-shadow: none;
+border: none;
+} */
 a, button, img, input, span {
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
+    box-shadow: none;
+
 }
 
 *:focus {
@@ -99,4 +110,18 @@ ul {
     list-style: outside none none;
     margin: 0;
     padding: 0;
+}
+
+.padding-y {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.padding-y-sm {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.btn-warning ,.bg-warning {
+    color: #fff;
+    background-color: #ff8100 !important;
+    border-color: #ff8100;
 }

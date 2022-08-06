@@ -1,0 +1,24 @@
+<div class="main-wrapper">
+    <!-- partial:header -->
+    <app-header></app-header>
+    <!-- partial -->
+  
+    <div class="page-wrapper">
+      <div class="content">
+        <!-- Spinner for lazyload modules -->
+        <div *ngIf="isLoading" class="spinner-wrapper">
+          <div class="spinner">Loading...</div>
+
+        </div>
+  
+        <div contentAnimate *ngIf="!isLoading">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+  
+      <!-- partial:footer -->
+      <app-footer></app-footer>
+      <!-- partial -->
+    </div>
+  </div>
+  
