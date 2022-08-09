@@ -1,50 +1,28 @@
 <header>
     <!-- Header Top Start -->
-    <div class="header-top header-top-one header-top-border pt-10 pb-10">
+    <div class="header-top header-top-border pt-10 pb-10">
         <div class="container">
             <div class="row align-items-center justify-content-between">
 
                 <div class="col mt-10 mb-10">
                     <!-- Header Links Start -->
                     <div class="header-links">
-                        <a href="track-order.html">
-                            <!-- <img src="assets/images/icon/car.png" alt="Car Icon"> -->
+                        <a href="#">
                             <i class="fa-solid fa-truck-moving"></i>
                             <span>Track your order</span>
                         </a>
-                        <a href="store.html">
-                            <!-- <img src="assets/images/icon/marker.png" alt="Car Icon"> -->
+                        <a href="#">
                             <i class="fa-solid fa-location-dot"></i>
                             <span>Locate Store</span>
                         </a>
-                    </div><!-- Header Links End -->
-                </div>
-
-                <div class="col order-12 order-xs-12 order-lg-2 mt-10 mb-10">
-                    <!-- Header Advance Search Start -->
-                    <div class="header-advance-search">
-
-                        <!-- <form action="#">
-                            <div class="input"><input type="text" placeholder="Search your product"></div>
-                            <div class="select">
-                                <select class="nice-select">
-                                    <option>All Categories</option>
-                                    <option>Mobile</option>
-                                    <option>Computer</option>
-                                    <option>Laptop</option>
-                                    <option>Camera</option>
-                                </select>
-                            </div>
-                            <div class="submit"><button><i class="icofont icofont-search-alt-1"></i></button></div>
-                        </form> -->
-
-                    </div><!-- Header Advance Search End -->
+                    </div>
+                    <!-- Header Links End -->
                 </div>
 
                 <div class="col order-2 order-xs-2 order-lg-12 mt-10 mb-10">
                     <!-- Header Account Links Start -->
                     <div class="header-account-links">
-                        <a href="register.html">
+                        <a href="#">
                             <i class="fa-solid fa-circle-question"></i>
                             <span>Help</span>
                         </a>
@@ -52,7 +30,8 @@
                             <i class="fa-solid fa-right-to-bracket"></i>
                             <span>Login</span>
                         </a>
-                    </div><!-- Header Account Links End -->
+                    </div>
+                    <!-- Header Account Links End -->
                 </div>
 
             </div>
@@ -63,39 +42,34 @@
         <div class="container">
             <div class="row align-items-center justify-content-between">
 
-                <div class="col mt-15 mb-15">
+                <div class="col-lg-2 col-sm-8 col-8 mt-15 mb-15">
                     <!-- Logo Start -->
                     <div class="header-logo">
-                        <a href="index.html">
+                        <a routerLink="/products">
                             Store
                             <i class="fa-solid fa-cart-shopping"></i>
                         </a>
                     </div><!-- Logo End -->
                 </div>
+                <div class="col-lg-3 col-sm-3 col-4 order-lg-last">
+                    <!-- Header Shop Links Start -->
+                    <div class="header-shop-links float-end">
 
-                <div class="col order-12 order-xs-12 order-lg-2 mt-10 mb-10">
-                    <!-- Header Advance Search Start -->
-                    <!-- <div class="header-advance-search">
+                        <!-- Wishlist -->
+                        <a href="#" class="header-wishlist">
+                            <i class="fa-solid fa-heart text-danger"></i>
+                            <span class="number">0</span>
+                        </a>
+                        <!-- Cart -->
+                        <a href="#" class="header-cart">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span class="number">0</span>
+                        </a>
 
-                        <form action="#">
-                            <div class="input">
-                                <input type="text" placeholder="Search your product">
-                            </div>
-                            <div class="select">
-                                <select class="nice-select">
-                                    <option>All Categories</option>
-                                    <option>Mobile</option>
-                                    <option>Computer</option>
-                                    <option>Laptop</option>
-                                    <option>Camera</option>
-                                </select>
-                            </div>
-                            <div class="submit">
-                                <button><i class="icofont icofont-search-alt-1"></i></button>
-                            </div>
-                        </form>
+                    </div><!-- Header Shop Links End -->
+                </div>
 
-                    </div> -->
+                <div class="col-lg-6  order-12 order-xs-12 order-lg-2 mt-10 mb-10">
                     <div class="">
                         <form action="#" class="">
                           <div class="input-group">
@@ -106,47 +80,14 @@
                               <option value="comments">Only best</option>
                               <option value="content">Latest</option>
                             </select>
-                            <button class="btn btn-primary"> <i class="fa fa-search"></i> </button>
+                            <button class="btn btn-warning">
+                                <i class="fa fa-search"></i>
+                            </button>
                           </div> <!-- input-group end.// -->
                         </form>
                     </div>
-                    <!-- Header Advance Search End -->
-                    <!-- <div class="input-group mb-3">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Separated link</a></li>
-                        </ul>
-                        <input type="text" class="form-control" placeholder=""
-                            aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon1">
-                            <i class="fa-solid fa-search"></i>
-                        </button>
-
-                    </div> -->
                 </div>
 
-                <div class="col order-2 order-lg-12 order-xl-12">
-                    <!-- Header Shop Links Start -->
-                    <div class="header-shop-links">
-
-                        <!-- Compare -->
-                        <a href="compare.html" class="header-compare"><i class="ti-control-shuffle"></i></a>
-                        <!-- Wishlist -->
-                        <a href="wishlist.html" class="header-wishlist"><i class="fa-solid fa-heart"></i><span
-                                class="number">0</span></a>
-                        <!-- Cart -->
-                        <a href="cart.html" class="header-cart"><i class="fa-solid fa-bag-shopping"></i> <span
-                                class="number">0</span></a>
-
-                    </div><!-- Header Shop Links End -->
-                </div>
 
                 <!-- Mobile Menu -->
                 <div class="mobile-menu order-12 d-block d-lg-none col"></div>
