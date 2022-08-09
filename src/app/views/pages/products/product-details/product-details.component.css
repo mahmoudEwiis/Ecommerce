@@ -77,28 +77,6 @@
     pointer-events: none;
 }
 
-/* .zoom-image .-disable-on-mobile{
-
-    &.-disable-on-mobile {
-      @include mq(md) {
-        background: none !important;
-        img {
-          opacity: 1 !important;
-        }
-      }
-    }
-  } */
 ::ng-deep .owl-carousel .owl-item.center {
     border: 1px solid #ff8100;
-}
-
-::ng-deep #controll .owl-carousel .owl-item {
-    transform: rotate(-90deg);
-}
-
-::ng-deep #controll .owl-carousel {
-    height: (16/500) * 1em;
-    transform: rotate(90deg);
-    transform-origin: 0% 0%;
-
 }

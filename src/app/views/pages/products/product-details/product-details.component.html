@@ -19,73 +19,67 @@
     <div class="container">
         <div class="row">
             <aside class="col-lg-6">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <owl-carousel-o id="controll" [options]="slider2Settings" (dragging)="callback($event)">
-                            <ng-template carouselSlide>
-                                <img class="rounded" width="180" style="width: 180px;"
+                <owl-carousel-o [options]="slider1Settings" #myCarousel>
+                    <ng-template carouselSlide>
+                        <figure class="zoom-image"
+                            style="background-image: url(https://stora-next.herokuapp.com/assets/images/products/clothes/15.png);"
+                            [style.backgroundPosition]="backgroundPos" (mousemove)="ZoomImage($event)">
+                            <img class="rounded" height="560"
                                 src="https://stora-next.herokuapp.com/assets/images/products/clothes/15.png"
                                 alt="clothes" srcset="">
-                            </ng-template>
-                            <ng-template carouselSlide>
-                                <img class="rounded" width="180" style="width: 180px;"
-                                        src="https://stora-next.herokuapp.com/assets/images/products/clothes/16.png"
-                                        alt="clothes" srcset="">
-                            </ng-template>
-                            <ng-template carouselSlide>
-                                <img class="rounded" width="180" style="width: 180px;"
-                                        src="https://stora-next.herokuapp.com/assets/images/products/clothes/17.png"
-                                        alt="clothes" srcset="">
-                            </ng-template>
-                            <ng-template carouselSlide>
-                                <img class="rounded" width="180"  style="width: 180px;"
-                                        src="https://stora-next.herokuapp.com/assets/images/products/clothes/18.png"
-                                        alt="clothes" srcset="">
-                            </ng-template>
-                        </owl-carousel-o>
-                    </div>
-                    <div class="col-lg-9">
-                        <owl-carousel-o [options]="slider1Settings" #myCarousel>
-                            <ng-template carouselSlide>
-                                <figure class="zoom-image"
-                                    style="background-image: url(https://stora-next.herokuapp.com/assets/images/products/clothes/15.png);"
-                                    [style.backgroundPosition]="backgroundPos" (mousemove)="ZoomImage($event)">
-                                    <img class="rounded" height="560"
-                                        src="https://stora-next.herokuapp.com/assets/images/products/clothes/15.png"
-                                        alt="clothes" srcset="">
-                                </figure>
-                            </ng-template>
-                            <ng-template carouselSlide>
-                                <figure class="zoom-image"
-                                    style="background-image: url(https://stora-next.herokuapp.com/assets/images/products/clothes/16.png);"
-                                    [style.backgroundPosition]="backgroundPos" (mousemove)="ZoomImage($event)">
-                                    <img class="rounded" height="560"
-                                        src="https://stora-next.herokuapp.com/assets/images/products/clothes/16.png"
-                                        alt="clothes" srcset="">
-                                </figure>
-                            </ng-template>
-                            <ng-template carouselSlide>
-                                <figure class="zoom-image"
-                                    style="background-image: url(https://stora-next.herokuapp.com/assets/images/products/clothes/17.png);"
-                                    [style.backgroundPosition]="backgroundPos" (mousemove)="ZoomImage($event)">
-                                    <img class="rounded" height="560"
-                                        src="https://stora-next.herokuapp.com/assets/images/products/clothes/17.png"
-                                        alt="clothes" srcset="">
-                                </figure>
-                            </ng-template>
-                            <ng-template carouselSlide>
-                                <figure class="zoom-image"
-                                    style="background-image: url(https://stora-next.herokuapp.com/assets/images/products/clothes/18.png);"
-                                    [style.backgroundPosition]="backgroundPos" (mousemove)="ZoomImage($event)">
-                                    <img class="rounded" height="560"
-                                        src="https://stora-next.herokuapp.com/assets/images/products/clothes/18.png"
-                                        alt="clothes" srcset="">
-                                </figure>
-                            </ng-template>
-                        </owl-carousel-o>
-                    </div>
+                        </figure>
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <figure class="zoom-image"
+                            style="background-image: url(https://stora-next.herokuapp.com/assets/images/products/clothes/16.png);"
+                            [style.backgroundPosition]="backgroundPos" (mousemove)="ZoomImage($event)">
+                            <img class="rounded" height="560"
+                                src="https://stora-next.herokuapp.com/assets/images/products/clothes/16.png"
+                                alt="clothes" srcset="">
+                        </figure>
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <figure class="zoom-image"
+                            style="background-image: url(https://stora-next.herokuapp.com/assets/images/products/clothes/17.png);"
+                            [style.backgroundPosition]="backgroundPos" (mousemove)="ZoomImage($event)">
+                            <img class="rounded" height="560"
+                                src="https://stora-next.herokuapp.com/assets/images/products/clothes/17.png"
+                                alt="clothes" srcset="">
+                        </figure>
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <figure class="zoom-image"
+                            style="background-image: url(https://stora-next.herokuapp.com/assets/images/products/clothes/18.png);"
+                            [style.backgroundPosition]="backgroundPos" (mousemove)="ZoomImage($event)">
+                            <img class="rounded" height="560"
+                                src="https://stora-next.herokuapp.com/assets/images/products/clothes/18.png"
+                                alt="clothes" srcset="">
+                        </figure>
+                    </ng-template>
+                </owl-carousel-o>
+                <owl-carousel-o id="controll" [options]="slider2Settings" (dragging)="callback($event)">
+                    <ng-template carouselSlide>
+                        <img class="rounded" width="97"
+                        src="https://stora-next.herokuapp.com/assets/images/products/clothes/15.png"
+                        alt="clothes" srcset="">
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <img class="rounded" width="97"
+                                src="https://stora-next.herokuapp.com/assets/images/products/clothes/16.png"
+                                alt="clothes" srcset="">
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <img class="rounded" width="97"
+                                src="https://stora-next.herokuapp.com/assets/images/products/clothes/17.png"
+                                alt="clothes" srcset="">
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <img class="rounded" width="97" 
+                                src="https://stora-next.herokuapp.com/assets/images/products/clothes/18.png"
+                                alt="clothes" srcset="">
+                    </ng-template>
+                </owl-carousel-o>
 
-                </div>
                 <!-- <article class="gallery-wrap">
 
 

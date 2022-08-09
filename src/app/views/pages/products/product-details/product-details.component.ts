@@ -41,7 +41,7 @@ export class ProductDetailsComponent implements OnInit {
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,
-    margin: 30,
+    margin: 10,
     dots: false,
     navSpeed: 700,
     center: true,
@@ -61,8 +61,8 @@ export class ProductDetailsComponent implements OnInit {
       }
     },
     nav: false,
-    animateOut: 'slideOutUp',
-    animateIn: 'slideInUp'
+    // animateOut: 'slideOutUp',
+    // animateIn: 'slideInUp'
   }
 
   constructor() { }

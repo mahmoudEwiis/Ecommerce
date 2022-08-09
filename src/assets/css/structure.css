@@ -125,3 +125,6 @@ ul {
     background-color: #ff8100 !important;
     border-color: #ff8100;
 }
+.form-control:focus ,.form-select:focus , .btn:focus {
+    box-shadow: none;
+}
