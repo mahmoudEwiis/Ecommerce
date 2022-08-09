@@ -80,3 +80,10 @@
 ::ng-deep .owl-carousel .owl-item.center {
     border: 1px solid #ff8100;
 }
+
+
+@media only screen and (max-width: 992px) {
+    h4.title.text-dark {
+        margin-top: 10px;
+    }
+}
