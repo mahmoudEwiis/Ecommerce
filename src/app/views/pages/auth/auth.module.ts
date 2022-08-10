@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AuthComponent } from './auth.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
         component: LoginComponent,
       },
       {
+        path: 'register',
+        component: RegisterComponent,
+      },
+      {
         path: 'forget-password',
         component: ForgetPasswordComponent,
       },
@@ -33,7 +38,8 @@ const routes: Routes = [
   declarations: [
     LoginComponent,
     AuthComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,

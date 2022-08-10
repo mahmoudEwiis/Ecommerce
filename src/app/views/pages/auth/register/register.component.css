@@ -1,0 +1,284 @@
+form {
+    padding: 0;
+    margin: 0;
+    display: inline;
+}
+
+img {
+    vertical-align: inherit;
+}
+
+a, a:focus {
+    color: #0d6efd;
+    text-decoration: none;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+a:hover, a:active {
+    color: #025bdf;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+a:focus, a:active,.btn.active.focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn:active:focus,
+.btn:focus,
+button:focus,
+button:active {
+    outline: none;
+}
+
+p {
+    line-height: 1.8;
+}
+
+iframe {
+    border: 0 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #252b33;
+}
+
+.form-login-register .text-2 {
+    font-size: 14px !important;
+    font-size: 0.875rem !important;
+}
+
+.form-login-register .text-6 {
+    font-size: 24px !important;
+    font-size: 1.50rem !important;
+}
+
+.form-login-register .text-12 {
+    font-size: calc(1.425rem + 2.1vw) !important;
+}
+
+@media (min-width: 1200px) {
+    .form-login-register .text-12 {
+        font-size: 3rem !important;
+    }
+}
+
+.form-login-register .text-13 {
+    font-size: calc(1.45rem + 2.4vw) !important;
+}
+
+@media (min-width: 1200px) {
+    .form-login-register .text-13 {
+        font-size: 3.25rem !important;
+    }
+}
+
+.form-login-register .text-12, .form-login-register .text-13 {
+    line-height: 1.3;
+}
+
+.form-login-register .fw-500 {
+    font-weight: 500 !important;
+}
+
+.form-login-register .fw-600 {
+    font-weight: 600 !important;
+}
+
+.form-login-register .opacity-8 {
+    opacity: 0.8;
+}
+
+.form-login-register hr {
+    opacity: 0.2;
+}
+
+#main-wrapper.form-login-register {
+    background: #fff;
+}
+
+.form-login-register .hero-wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.form-login-register .hero-wrap .hero-mask, .form-login-register .hero-wrap .hero-bg, .form-login-register .hero-wrap .hero-bg-slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.form-login-register .hero-wrap .hero-mask {
+    z-index: 1;
+}
+
+.form-login-register .hero-wrap .hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.form-login-register .hero-wrap .hero-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+.form-login-register .hero-wrap .hero-bg-slideshow {
+    z-index: 0;
+}
+
+.form-login-register .hero-wrap .hero-bg {
+    z-index: 0;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    transition: background-image 300ms ease-in 200ms;
+}
+
+.form-login-register .hero-wrap .hero-bg.hero-bg-scroll {
+    background-attachment: scroll;
+}
+
+.form-login-register .hero-wrap .hero-bg-slideshow .hero-bg {
+    background-attachment: inherit;
+}
+
+.form-login-register .hero-wrap .hero-bg-slideshow.owl-carousel .owl-stage-outer, .form-login-register .hero-wrap .hero-bg-slideshow.owl-carousel .owl-stage, .form-login-register .hero-wrap .hero-bg-slideshow.owl-carousel .owl-item {
+    height: 100%;
+}
+
+.form-login-register .form-control {
+    border-color: #dae1e3;
+    font-size: 16px;
+    color: #656565;
+}
+
+.form-login-register .form-control.bg-light {
+    background-color: #f5f5f6 !important;
+}
+
+.form-login-register .form-control.border-light {
+    border-color: #f5f5f6 !important;
+}
+
+.form-login-register .form-control:not(.form-control-sm) {
+    padding: .810rem .96rem;
+    height: inherit;
+}
+
+.form-login-register .form-control-sm {
+    font-size: 14px;
+}
+
+.form-login-register .icon-group {
+    position: relative;
+}
+
+.form-login-register .icon-group .form-control {
+    padding-left: 44px;
+}
+
+.form-login-register .icon-group .icon-inside {
+    position: absolute;
+    width: 50px;
+    height: 54px;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    font-size: 18px;
+    font-size: 1.125rem;
+    color: #c4c3c3;
+    z-index: 3;
+    display: flex;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
+}
+
+.form-login-register .icon-group.icon-group-end .form-control {
+    padding-right: 44px;
+    padding-left: 0.96rem;
+}
+
+.form-login-register .icon-group.icon-group-end .icon-inside {
+    left: auto;
+    right: 0;
+}
+
+.form-login-register .form-control-sm+.icon-inside {
+    font-size: 0.875rem !important;
+    font-size: 14px;
+    top: calc(50% - 13px);
+}
+
+.form-login-register select.form-control:not([size]):not([multiple]):not(.form-control-sm) {
+    height: auto;
+    padding-top: .700rem;
+    padding-bottom: .700rem;
+}
+
+.form-login-register .form-control:focus {
+    -webkit-box-shadow: 0 0 5px rgba(128, 189, 255, 0.5);
+    box-shadow: 0 0 5px rgba(128, 189, 255, 0.5);
+    border-color: #80bdff !important;
+}
+
+.form-login-register .form-control:focus[readonly] {
+    box-shadow: none;
+}
+
+.form-login-register .input-group-text {
+    border-color: #dae1e3;
+    background-color: #f1f5f6;
+    color: #656565;
+}
+
+.form-login-register .form-control::-webkit-input-placeholder {
+    color: #b1b4b6;
+}
+
+.form-login-register .form-control:-moz-placeholder {
+    color: #b1b4b6;
+}
+
+.form-login-register .form-control::-moz-placeholder {
+    color: #b1b4b6;
+}
+
+.form-login-register .form-control:-ms-input-placeholder, .form-login-register .form-control::-ms-input-placeholder {
+    color: #b1b4b6;
+}
+
+.form-login-register .btn {
+    padding: 0.8rem 2.6rem;
+    font-weight: 500;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.form-login-register .btn:not(.btn-link) {
+    -webkit-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.form-login-register .btn:not(.btn-link):hover {
+    -webkit-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+
+@media (max-width: 575.98px) {
+    .form-login-register .btn:not(.btn-sm) {
+        padding: .810rem 2rem;
+    }
+}
