@@ -21,6 +21,7 @@ export class CartComponent implements OnInit {
   ) { }
 
   openCartlist() {
+    this.getCartList();
     this.opanCartlist = true;
     document.body.style.overflowY = "hidden";
   }
