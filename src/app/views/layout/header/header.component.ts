@@ -1,4 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { CartService } from '../../pages/services/cart.service';
+import { WishlistService } from '../../pages/services/wishlist.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +10,15 @@ import { Component, HostListener, OnInit } from '@angular/core';
 
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
-
+  cartCount = 0;
+  wishCount = 0;
   sticky: boolean = false;
+
+  constructor
+    (
+      private _cartService: CartService,
+      private _wishlistService: WishlistService,
+    ) { }
 
   @HostListener('window:scroll', ['$event'])
   handleScroll() {
@@ -21,7 +29,14 @@ export class HeaderComponent implements OnInit {
       this.sticky = false;
     }
   }
+
   ngOnInit(): void {
+    this._cartService.cart$.subscribe((cart) => {
+      this.cartCount = cart?.items?.length ?? 0;
+    });
+    this._wishlistService.wishList$.subscribe((wishList) => {
+      this.wishCount = wishList?.items?.length ?? 0;
+    });
   }
 
 }

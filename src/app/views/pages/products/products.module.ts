@@ -23,7 +23,7 @@ const routes: Routes = [
         component: AllProductsComponent,
       },
       {
-        path: 'Products-details',
+        path: 'Products-details/:id',
         component: ProductDetailsComponent,
       },
     ],
@@ -42,4 +42,5 @@ const routes: Routes = [
   ]
 })
 
-export class ProductsModule { }
+export class ProductsModule {
+}

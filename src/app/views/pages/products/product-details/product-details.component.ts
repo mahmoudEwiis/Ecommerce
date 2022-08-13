@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CarouselService } from 'ngx-owl-carousel-o/lib/services/carousel.service';
+import { ProductService } from '../services/product.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-details',
@@ -64,8 +66,10 @@ export class ProductDetailsComponent implements OnInit {
     // animateOut: 'slideOutUp',
     // animateIn: 'slideInUp'
   }
+  product:any
+  productId!:number
+  constructor(private _productService: ProductService , private _route: ActivatedRoute) { }
 
-  constructor() { }
   // ZoomImage
   ZoomImage(event: any) {
     const { left, top, width, height } = event.target.getBoundingClientRect();
@@ -73,17 +77,29 @@ export class ProductDetailsComponent implements OnInit {
     const y = ((event.pageY - top) / height) * 100;
     this.backgroundPos = `${x}% ${y}%`;
   }
-  callback(event:any) {
+
+  // next Slide {{slider2}}
+  nextSlide(event:any) {
     if(event.dragging == false){
       this.startPosition = event.data.startPosition; // Position of active Slide
       const anyService = this.myCarousel as any;
       const carouselService = anyService.carouselService as CarouselService;
       carouselService.to(this.startPosition,3)
     }
+  }
 
+  // get Single Product
+  getproduct(){
+    this._route.params.subscribe(params => {
+      this.productId = params['id'];
+    }); 
+    this._productService.getSingleProduct(this.productId).subscribe((data)=>{
+      this.product = data;
+    })
   }
 
   ngOnInit(): void {
+    this.getproduct();
   }
 
 }

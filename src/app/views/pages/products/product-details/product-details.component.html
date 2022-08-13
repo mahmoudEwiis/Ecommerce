@@ -18,66 +18,24 @@
 <section class="padding-y">
     <div class="container">
         <div class="row">
-            <aside class="col-lg-6">
+            <aside class="col-lg-4">
                 <owl-carousel-o [options]="slider1Settings" #myCarousel>
-                    <ng-template carouselSlide>
-                        <figure class="zoom-image"
-                            style="background-image: url(https://stora-next.herokuapp.com/assets/images/products/clothes/15.png);"
-                            [style.backgroundPosition]="backgroundPos" (mousemove)="ZoomImage($event)">
-                            <img class="rounded" height="560"
-                                src="https://stora-next.herokuapp.com/assets/images/products/clothes/15.png"
-                                alt="clothes" srcset="">
-                        </figure>
-                    </ng-template>
-                    <ng-template carouselSlide>
-                        <figure class="zoom-image"
-                            style="background-image: url(https://stora-next.herokuapp.com/assets/images/products/clothes/16.png);"
-                            [style.backgroundPosition]="backgroundPos" (mousemove)="ZoomImage($event)">
-                            <img class="rounded" height="560"
-                                src="https://stora-next.herokuapp.com/assets/images/products/clothes/16.png"
-                                alt="clothes" srcset="">
-                        </figure>
-                    </ng-template>
-                    <ng-template carouselSlide>
-                        <figure class="zoom-image"
-                            style="background-image: url(https://stora-next.herokuapp.com/assets/images/products/clothes/17.png);"
-                            [style.backgroundPosition]="backgroundPos" (mousemove)="ZoomImage($event)">
-                            <img class="rounded" height="560"
-                                src="https://stora-next.herokuapp.com/assets/images/products/clothes/17.png"
-                                alt="clothes" srcset="">
-                        </figure>
-                    </ng-template>
-                    <ng-template carouselSlide>
-                        <figure class="zoom-image"
-                            style="background-image: url(https://stora-next.herokuapp.com/assets/images/products/clothes/18.png);"
-                            [style.backgroundPosition]="backgroundPos" (mousemove)="ZoomImage($event)">
-                            <img class="rounded" height="560"
-                                src="https://stora-next.herokuapp.com/assets/images/products/clothes/18.png"
-                                alt="clothes" srcset="">
-                        </figure>
-                    </ng-template>
+                    <ng-container *ngFor="let slide of product.images">
+                        <ng-template carouselSlide [id]="slide.id">
+                            <figure class="zoom-image"
+                                style="background-image: url({{slide}});"
+                                [style.backgroundPosition]="backgroundPos" (mousemove)="ZoomImage($event)">
+                                <img class="rounded" src="{{slide}}" alt="clothes" srcset="">
+                            </figure>
+                        </ng-template>
+                    </ng-container>
                 </owl-carousel-o>
-                <owl-carousel-o id="controll" [options]="slider2Settings" (dragging)="callback($event)">
-                    <ng-template carouselSlide>
-                        <img class="rounded" width="97"
-                        src="https://stora-next.herokuapp.com/assets/images/products/clothes/15.png"
-                        alt="clothes" srcset="">
-                    </ng-template>
-                    <ng-template carouselSlide>
-                        <img class="rounded" width="97"
-                                src="https://stora-next.herokuapp.com/assets/images/products/clothes/16.png"
-                                alt="clothes" srcset="">
-                    </ng-template>
-                    <ng-template carouselSlide>
-                        <img class="rounded" width="97"
-                                src="https://stora-next.herokuapp.com/assets/images/products/clothes/17.png"
-                                alt="clothes" srcset="">
-                    </ng-template>
-                    <ng-template carouselSlide>
-                        <img class="rounded" width="97" 
-                                src="https://stora-next.herokuapp.com/assets/images/products/clothes/18.png"
-                                alt="clothes" srcset="">
-                    </ng-template>
+                <owl-carousel-o id="controll" [options]="slider2Settings" (dragging)="nextSlide($event)">
+                    <ng-container *ngFor="let slide of product.images">
+                        <ng-template carouselSlide [id]="slide.id">
+                            <img class="rounded" width="97" src="{{slide}}" alt="clothes" srcset="">
+                        </ng-template>
+                    </ng-container>
                 </owl-carousel-o>
 
                 <!-- <article class="gallery-wrap">
@@ -89,7 +47,8 @@
             <main class="col-lg-6">
                 <article class="ps-lg-3">
                     <h4 class="title text-dark">
-                        Quality Men's Hoodie for Winter, Men's Fashion <br> Casual Hoodie
+                        {{product.title }}
+
                     </h4>
                     <div class="rating-wrap my-3">
                         <ul class="rating-stars">
@@ -112,17 +71,22 @@
                     <!-- rating-wrap.// -->
 
                     <div class="mb-3">
-                        <span class="price h5">$75.00</span>
+                        <span class="price h5">${{product.price}}</span>
                         <span class="text-muted">/per box</span>
                     </div>
 
-                    <p>Modern look and quality demo item is a streetwear-inspired collection that continues to break
-                        away from the conventions of mainstream fashion. Made in Italy, these black and brown clothing
-                        low-top shirts for men.</p>
+                    <p>
+                        {{
+                        product.description ||
+                        ' Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, quos aspernatur eum dolor
+                        reprehenderit eos et libero debitis itaque voluptatem! Laudantium modi sequi, id numquam
+                        liberosed quaerat. Eligendi, ipsum!'
+                        }}
+                    </p>
 
                     <dl class="row">
                         <dt class="col-3">Type:</dt>
-                        <dd class="col-9">Regular</dd>
+                        <dd class="col-9">{{product.category.name}}</dd>
 
                         <dt class="col-3">Color:</dt>
                         <dd class="col-9">Brown</dd>

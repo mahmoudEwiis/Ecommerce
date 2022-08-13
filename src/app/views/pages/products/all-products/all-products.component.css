@@ -293,9 +293,40 @@ main .card-banner {
     .product .product-image .btn-favourite {
         right: 0.71em;
     }    
+    .pagination{
+        flex-wrap: wrap;
+    }
 }
 /* @media only screen and (max-width: 992px)
 .product.-style-one .product-image .product-qv {
     opacity: 1;
     visibility: visible;
 } */
+@media (min-width: 992px){
+    .col-lg-2 {
+        width: 20%;
+    }
+}
+
+
+a:focus, a:active,.btn.active.focus,
+.btn.active:focus, .btn.focus,
+.btn:active.focus, .btn:active:focus,
+.btn:focus, button:focus, button:active {
+    outline: none;
+    box-shadow: none;
+}
+
+.page-item a{
+    color: #0d0d0d;
+}
+.page-item.active a{
+    background-color: #ff8100 !important;
+    border-color: #ff8100;
+    color: #f2f4f5;
+}
+.product .product-image .btn-favourite.is-favourite{
+    background-color: #fb5231;
+    color: #fff;
+    right: 0.71em;
+}

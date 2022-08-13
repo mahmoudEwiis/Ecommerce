@@ -1,0 +1,228 @@
+
+
+.mask{
+    width: 100%;
+    height: 1000%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 999;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 27vw;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    right: -27vw;
+    bottom: 0;
+    z-index: 9999;
+    transition: all 0.5s;
+}
+.sidebar.is-open{
+    right: 0;
+}
+.sidebar-header{
+    display: flex;
+    position: relative;
+    padding: 1.5625em 2.5em;
+    color: rgba(0, 0, 0, 0.65);
+    background: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    border-radius: 2px 2px 0 0;
+}
+.sidebar-title{
+    color: #0d0d0d;
+    font-size: 1.25em;
+    font-weight: 700;
+    line-height: 1;
+}
+.btn-close{
+    position: unset;
+    margin-left: auto;
+    padding: 0;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    padding: 19px;
+    color: rgba(0, 0, 0, 0.45);
+    font-weight: 700;
+    font-size: 18px;
+    font-style: normal;
+    line-height: 1;
+    text-align: center;
+    text-transform: none;
+    text-decoration: none;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: color 0.3s;
+    text-rendering: auto;
+    padding: 0;
+    margin-left: 44%;
+}
+.btn-close p {
+    color: #0d0d0d;
+    font-size: .9375em;
+    font-weight: normal;
+    line-height: 1;
+    margin-right: 0.3333333333em;
+    display: inline-block;
+}
+.icon-close {
+    display: inline-block;
+    color: inherit;
+    font-style: normal;
+    line-height: 0;
+    text-align: center;
+    text-transform: none;
+    vertical-align: -0.125em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.sidebar-body{
+    flex-grow: 1;
+    padding: 1.5625em 2.5em;
+    overflow: auto;
+    font-size: 16px;
+    line-height: 1.5715;
+    word-wrap: break-word;
+}
+.empty-sidebar{
+    margin: 0 8px;
+    font-size: 16px;
+    line-height: 1.5715;
+    text-align: center;
+}
+.empty-image {
+    height: 100px;
+    margin-bottom: 8px;
+}
+.empty-description {
+    margin: 0;
+}
+.empty-img-default-ellipse {
+    fill-opacity: 0.8;
+    fill: #f5f5f5;
+}
+.empty-img-default-path-1 {
+    fill: #aeb8c2;
+}
+.empty-img-default-path-2 {
+    fill: url(#linearGradient-1);
+}
+.empty-img-default-path-3 {
+    fill: #f5f5f7;
+}
+.empty-img-default-path-4 {
+    fill: #dce0e6;
+}
+.empty-img-default-path-5 {
+    fill: #dce0e6;
+}
+.empty-img-default-g {
+    fill: #fff;
+}
+
+.item{
+    display: flex;
+    align-items: center;
+    padding-bottom: 1.875em;
+    margin-bottom: 1.875em;
+    border-bottom: 1px solid #eff1f2;
+}
+.item:last-child{
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+.item-img img {
+    height: 5.625em;
+    width: 5.625em;
+    object-fit: cover;
+}
+.item-img {
+    margin-right: 1.5em;
+}
+.item-description{
+    margin-right: 1.5625em;
+}
+.item-description a.item-title {
+    color: #0d0d0d;
+    font-size: .9375em;
+    font-weight: normal;
+    text-decoration: none;
+    line-height: 1.6666666667em;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    margin-bottom: 1em;
+}
+.item-description h5.item-price {
+    color: #0d0d0d;
+    font-size: 1.0625em;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 1.1764705882em;
+}
+.item-description .btn-add{
+    height: 2.3076923077em;
+    letter-spacing: .1769230769em;
+    font-size: .8125em;
+    background-color: #fb5231;
+    color: #fff;
+    border: 0;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.item-description .btn-add[disabled] {
+    background-color: #f2f4f5;
+    color: #0d0d0d;
+}
+.item-description .btn-mobile-add{
+    display: none;
+}
+.sidebar-total{
+    margin-top: auto;
+    padding-top: 1.5625em;
+    border-top: 1px solid #eff1f2;
+    padding: 1.5625em 2.5em;
+}
+.sidebar-total h5.total-price {
+    margin-bottom: 1.6666666667em;
+    color: #0d0d0d;
+    font-size: .9375em;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+}
+.sidebar-total h5.total-price span {
+    float: right;
+    font-size: 1.25em;
+}
+.checkout-btn button {
+    font-size: .8125em;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    height: 3.0769230769em;
+    flex-grow: 1;
+    border: 0;
+    padding: 2.4px 16px;
+    border-radius: 32px;
+}
+.checkout-btn button:hover a{
+    color: #fff;
+}
