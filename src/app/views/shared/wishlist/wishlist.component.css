@@ -220,3 +220,13 @@
 .item-description .btn-mobile-add {
     display: none;
 }
+
+@media only screen and (max-width: 479px) {
+    .sidebar {
+        width: 80vw;
+        right: -80vw;
+    }
+    .btn-close {
+        margin-left: 32%;
+    }
+}
