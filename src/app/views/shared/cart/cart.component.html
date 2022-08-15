@@ -93,8 +93,8 @@
     <div class="sidebar-total" *ngIf="cartCount">
         <h5 class="total-price">Total: <span> ${{totalPrice}}</span></h5>
         <div class="checkout-btn d-flex">
-            <button type="button" class="btn btn-warning">
-                <a href="#" (click)="$event.preventDefault();navigateToCheckout()">Checkout</a>
+            <button type="button" class="btn btn-warning" (click)="navigateToCheckout()">
+                Checkout
             </button>
         </div>
     </div>

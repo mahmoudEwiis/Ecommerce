@@ -1,0 +1,120 @@
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(81,88,94,.12);
+    box-shadow: 0 0.05rem 0.2rem rgb(0 0 0 / 3%);
+    border-radius: 0.35rem;
+}
+
+.content-body {
+    flex: 1 1 auto;
+    padding: 1.88rem;
+}
+
+.card-title {
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    padding: 0.43rem 0.84rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #51585e;
+    background-color: #f9f9f9;
+    background-clip: padding-box;
+    border: 1px solid #dee2e6;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.35rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.form-control:focus {
+    color: #51585e;
+    background-color: #fff;
+    border-color: #ff8000b6;
+    outline: 0;
+    box-shadow: none;
+}
+.box {
+    padding: 0.8rem;
+    border-radius: 0.35rem;
+    border: 1px solid #dee2e6;
+}
+.box-check {
+    position: relative;
+    margin-right: 5px;
+}
+.box-check .border-oncheck {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: 1px solid transparent;
+    border-radius: 0.35rem;
+    z-index: 1;
+    mix-blend-mode: darken;
+}
+.box-check input:checked~.border-oncheck {
+    border-color: #ff8100;
+    background-color: rgba(255, 129, 0,.2);
+}
+.form-check-input:checked {
+    background-color: #ff8100;
+    border-color: #ff8100;
+    outline: none;
+    box-shadow: none;
+}
+.summary-body{
+    padding: 1.88rem 0 ;
+}
+.dlist-align {
+    display: flex;
+}
+.dlist-align dd {
+    flex-grow: 1;
+}
+
+.btn-light {
+    background-color: #fff;
+    border-color: #dee2e6;
+    color: #212529;
+}
+
+.itemside {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.itemside .aside {
+    position: relative;
+    flex-shrink: 0;
+}
+.itemside .aside .badge {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+}
+
+.img-sm {
+    width: 72px;
+    height: 72px;
+}
+
+.itemside .info {
+    padding-left: 0.75rem;
+    flex-grow: 1;
+}
+.itemside .title {
+    display: block;
+    margin-bottom: 0rem;
+}
