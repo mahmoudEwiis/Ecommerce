@@ -94,7 +94,7 @@
                             <img [src]="item.images[1]" alt="Product_image">
                         </a>
                         <p class="product-sale" *ngIf="(item.id)%3==0">Sale</p>
-                        <button type="button" class="btn-favourite btn-circle " [class.is-favourite] = 'isFavourite' (click)="addProductToCart(item)">
+                        <button type="button" class="btn-favourite btn-circle " [class.is-favourite] = 'isFavourite' (click)="addProductToWishList(item)">
                             <i class="fa-solid fa-heart"></i>
                         </button>
                         <button type="button" class="btn-product-quickview">
@@ -120,11 +120,11 @@
                                 <h5 class="product-price">${{item.price}}</h5>
                                 <span *ngIf="(item.id)%3==0">${{(item.price + 59.99)}}</span>
                             </div>
-                            <span class="product-atc ant-tooltip-disabled-compatible-wrapper"
-                                style="display: inline-block; cursor: not-allowed;">
-                                <button type="button" class="btn-circle text-muted" style="pointer-events: none;">
+                            <span class="product-atc rounded-circle">
+                                <button type="button" class="btn btn-circle text-muted" (click)="addProductToCart(item)">
                                     <!-- <i class="icon_bag_alt"></i> -->
-                                    <i class="fa-solid fa-clipboard"></i>
+                                    <!-- <i class="fa-solid fa-clipboard"></i> -->
+                                    <i class="fa fa-shopping-cart"></i>
                                 </button>
                             </span>
                         </div>

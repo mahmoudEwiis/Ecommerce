@@ -230,8 +230,11 @@ main .card-banner {
     background-color: #f2f4f5;
     height: 2.5em;
     width: 2.5em;
+    transition: 0.5s all;
 }
-
+.product-content__footer .product-atc:hover {
+    background-color: #ff8100;
+}
 
 .product-image:hover a img {
     transform: scale(1);
@@ -243,11 +246,14 @@ main .card-banner {
 
 .btn-circle {
     min-width: 32px;
-    padding: 3px 7px;
+    padding: 7px;
     text-align: center;
     border-radius: 50%;
     border: none;
     /* border-color: #fb5231; */
+}
+.product-content__footer .product-atc:hover .btn-circle {
+    color: #fff !important;
 }
 
 .product .product-image .product-atw:hover {
