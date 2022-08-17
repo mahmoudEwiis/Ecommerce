@@ -6,7 +6,7 @@
                 <div class="hero-wrap d-flex align-items-center h-100">
                     <div class="hero-mask opacity-8"></div>
                     <div class="hero-bg hero-bg-scroll"
-                        style="background-image:url('https://harnishdesign.net/demo/html/oxyy/images/login-bg-7.jpg');">
+                        style="background-image:url('assets/images/login-bg.jpg');">
                     </div>
                     <div class="hero-content mx-auto w-100 h-100 d-flex flex-column">
                         <div class="container">
@@ -31,6 +31,7 @@
                             <div class="logo">
                                 <a class="fw-600 text-6 text-dark" routerLink="/" title="Store">
                                     Store
+                                    <i class="fa-solid fa-cart-shopping"></i>
                                 </a>
                             </div>
                         </div>
@@ -42,27 +43,29 @@
                             <h3 class="text-12 mb-4">Sign Up</h3>
                             <form id="signupForm" method="post">
                                 <label class="form-label fw-500" for="fullName">Full Name</label>
-                                <div class="mb-3 icon-group icon-group-end">
+                                <div class="mb-3 input-group">
                                     <input type="text" class="form-control bg-light border-light" id="fullName" required
                                         placeholder="Full Name">
-                                    <span class="icon-inside text-muted">
+                                    <span class="input-group-text text-muted">
                                         <i class="fas fa-user"></i>
                                     </span>
                                 </div>
                                 <label class="form-label fw-500" for="emailAddress">Email Address</label>
-                                <div class="mb-3 icon-group icon-group-end">
+                                <div class="mb-3 input-group">
                                     <input type="email" class="form-control bg-light border-light" id="emailAddress"
                                         required placeholder="Email Address">
-                                    <span class="icon-inside text-muted">
+                                    <span class="input-group-text text-muted">
                                         <i class="fas fa-envelope"></i>
                                     </span>
                                 </div>
                                 <label class="form-label fw-500" for="loginPassword">Password</label>
-                                <div class="mb-3 icon-group icon-group-end">
-                                    <input type="text" class="form-control bg-light border-light" id="loginPassword"
+                                <div class="mb-3 input-group">
+                                    <input [type]="passwordVisible?'text':'password'"
+                                        class="form-control form-control-lg bg-light border-light" id="loginPassword"
                                         required placeholder="Password">
-                                    <span class="icon-inside text-muted">
-                                        <i class="fas fa-lock"></i>
+                                    <span class="input-group-text text-muted" (click)="visibilityToggle()"
+                                        style="cursor: pointer;">
+                                        <i [classList]="passwordVisible?'fas fa-eye':'fas fa-eye-slash'"></i>
                                     </span>
                                 </div>
                                 <div class="form-check my-4">

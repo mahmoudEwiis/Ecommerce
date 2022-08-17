@@ -8,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   constructor() { }
+  passwordVisible: boolean = false
 
+  visibilityToggle(){
+    if(this.passwordVisible == false)
+    {
+      this.passwordVisible = true
+    }
+    else{
+      this.passwordVisible = false
+    }
+  }
   ngOnInit(): void {
   }
 

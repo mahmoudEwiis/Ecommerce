@@ -94,7 +94,9 @@
                             <img [src]="item.images[1]" alt="Product_image">
                         </a>
                         <p class="product-sale" *ngIf="(item.id)%3==0">Sale</p>
-                        <button type="button" class="btn-favourite btn-circle " [class.is-favourite] = 'isFavourite' (click)="addProductToWishList(item)">
+                        <button type="button" class="btn-favourite btn-circle "
+                            [class.is-favourite]='productInWishList(item)'
+                            (click)="addProductToWishList(item , $event)">
                             <i class="fa-solid fa-heart"></i>
                         </button>
                         <button type="button" class="btn-product-quickview">
@@ -102,7 +104,8 @@
                         </button>
                     </div>
                     <div class="product-content">
-                        <a class="product-name d-flex justify-content-between" routerLink="/products/Products-details/{{item.id}}">
+                        <a class="product-name d-flex justify-content-between"
+                            routerLink="/products/Products-details/{{item.id}}">
                             {{item.title}}
                             <span class="badge badge-pill bg-warning p-1">{{item.category.name}}</span>
                         </a>
@@ -121,7 +124,8 @@
                                 <span *ngIf="(item.id)%3==0">${{(item.price + 59.99)}}</span>
                             </div>
                             <span class="product-atc rounded-circle">
-                                <button type="button" class="btn btn-circle text-muted" (click)="addProductToCart(item)">
+                                <button type="button" class="btn btn-circle text-muted"
+                                    (click)="addProductToCart(item)">
                                     <!-- <i class="icon_bag_alt"></i> -->
                                     <!-- <i class="fa-solid fa-clipboard"></i> -->
                                     <i class="fa fa-shopping-cart"></i>
@@ -136,19 +140,19 @@
                     <ul class="pagination justify-content-center">
                         <li class="page-item">
                             <a class="page-link" href="#" aria-label="Previous"
-                            (click)="$event.preventDefault(); provPage()"
-                            >
+                                (click)="$event.preventDefault(); provPage()">
                                 <span aria-hidden="true">&laquo;</span>
                                 <span class="sr-only">Previous</span>
                             </a>
                         </li>
-                        <li class="page-item" [class.active]="number == PageNumber" *ngFor="let number of numberOfPages">
-                            <a class="page-link" href="#" (click)="$event.preventDefault(); getAllProducts(number)">{{number}}</a>
+                        <li class="page-item" [class.active]="number == PageNumber"
+                            *ngFor="let number of numberOfPages">
+                            <a class="page-link" href="#"
+                                (click)="$event.preventDefault(); getAllProducts(number)">{{number}}</a>
                         </li>
                         <li class="page-item">
                             <a class="page-link" href="#" aria-label="Next"
-                            (click)="$event.preventDefault(); nextPage()"
-                            >
+                                (click)="$event.preventDefault(); nextPage()">
                                 <span aria-hidden="true">&raquo;</span>
                                 <span class="sr-only">Next</span>
                             </a>
@@ -160,3 +164,6 @@
 
     </div> <!-- container end.// -->
 </section>
+
+
+

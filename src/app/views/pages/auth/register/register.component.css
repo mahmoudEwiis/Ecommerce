@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
+
 form {
     padding: 0;
     margin: 0;
@@ -154,6 +156,16 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
 }
 
+/*-- Logo --*/
+.logo a {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 24px;
+}
+
+.logo a i {
+    color: #ff8100;
+}
+
 .form-login-register .form-control {
     border-color: #dae1e3;
     font-size: 16px;
@@ -225,11 +237,11 @@ h1, h2, h3, h4, h5, h6 {
     padding-bottom: .700rem;
 }
 
-.form-login-register .form-control:focus {
+/* .form-login-register .form-control:focus {
     -webkit-box-shadow: 0 0 5px rgba(128, 189, 255, 0.5);
     box-shadow: 0 0 5px rgba(128, 189, 255, 0.5);
     border-color: #80bdff !important;
-}
+} */
 
 .form-login-register .form-control:focus[readonly] {
     box-shadow: none;
@@ -281,4 +293,8 @@ h1, h2, h3, h4, h5, h6 {
     .form-login-register .btn:not(.btn-sm) {
         padding: .810rem 2rem;
     }
+
+}
+.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    border: none;
 }

@@ -60,15 +60,15 @@
                     {{item.product.title}}
                 </a>
                 <h5 class="item-price">${{item.product.price}}</h5>
-                <button type="button" class="btn-add btn-mobile-add">
+                <button type="button" class="btn-add btn-mobile-add" [disabled]="productInCartList(item)">
                     <i class="fa-solid fa-clipboard"></i>
                 </button>
-                <button type="button" class="btn-add">
+                <button type="button" class="btn-add" [disabled]="productInCartList(item)" (click)="addProductToCart(item.product)">
                     <span>Added to cart</span>
                 </button>
             </div>
             <div class="item-close-btn">
-                <a href="#" (click)="$event.preventDefault();deleteWishItem(item);">
+                <a href="#" (click)="$event.preventDefault(); openCofirmModal(item.product.id);">
                     <!-- <i class="icon_close"></i> -->
                     <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="close" width="1em" height="1em"
                         fill="currentColor" aria-hidden="true">
@@ -82,6 +82,32 @@
     </div>
 </div>
 
-<div class="mask" [class.d-none]="!opanWishList" (click)="closeSidebar()">
+<div class="mask" [class.d-none]="!opanWishList" (click)="closeSidebar()"></div>
 
+<!-- 
+    ----------------------------------
+    ========== Cofirm Modal ==========
+    ----------------------------------
+ -->
+ <div class="modal fade" [class.show]="isVisable" id="CofirmModal" tabindex="-1" role="dialog"
+ aria-labelledby="CofirmModalLabel" [style]="isVisable?'display: block;':''">
+ <div class="modal-dialog" role="document">
+     <div class="modal-content">
+         <div class="modal-header">
+             <h5 class="modal-title" id="CofirmModalLabel">Cofirm this action</h5>
+             <button type="button text-muted" class="close" data-dismiss="modal" aria-label="Close"
+                 (click)="closeCofirmModal()">
+                 <span aria-hidden="true">&times;</span>
+             </button>
+         </div>
+         <div class="modal-body">
+             <p>Are your sure to remove product from wishlist ?</p>
+         </div>
+         <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                 (click)="closeCofirmModal()">Cancel</button>
+             <button type="button" class="btn btn-warning" (click)="deleteWishItem()">ok</button>
+         </div>
+     </div>
+ </div>
 </div>

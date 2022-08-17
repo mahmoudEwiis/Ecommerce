@@ -252,6 +252,10 @@ main .card-banner {
     border: none;
     /* border-color: #fb5231; */
 }
+.btn-favourite.btn-circle{
+    padding: 3px 7px;
+
+}
 .product-content__footer .product-atc:hover .btn-circle {
     color: #fff !important;
 }

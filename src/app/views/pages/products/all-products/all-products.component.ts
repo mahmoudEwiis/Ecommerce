@@ -15,16 +15,16 @@ export class AllProductsComponent implements OnInit {
   products: any[] = [];
   PageNumber: number = 1;
   numberOfPages: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  isFavourite:boolean=false
+  isFavourite: boolean = false;
+  WishItems!: WishItem[];
   constructor(
     private _product: ProductService,
     private _cartService: CartService,
     private _wishlistService: WishlistService,
-    ){}
-  
+  ) { }
+
   // get Page
-  getAllProducts(number: number)
-  {
+  getAllProducts(number: number) {
     if (this.PageNumber == 1) {
       this._product.getProduct(0).subscribe((data) => {
         this.products = data
@@ -39,8 +39,7 @@ export class AllProductsComponent implements OnInit {
   }
 
   // get Next Page
-  nextPage()
-  {
+  nextPage() {
     if (this.PageNumber == 10) {
       this.PageNumber = 1;
     } else {
@@ -58,25 +57,45 @@ export class AllProductsComponent implements OnInit {
     }
     this.getAllProducts(this.PageNumber);
   }
-  
-  addProductToCart(item:any) {
+
+  addProductToCart(item: any) {
     const cartItem: CartItem = {
       product: item,
       quantity: 1
     };
     this._cartService.setCartItem(cartItem);
   }
-  
+
   // add To Wish List
-  addProductToWishList(item:any){
+  addProductToWishList(item: any, event: any) {
     const WishItem: WishItem = {
       product: item
     };
-    this._wishlistService.setWishItem(WishItem);
+    if (event.currentTarget.classList.contains("is-favourite")) 
+    {
+      event.currentTarget.classList.remove("is-favourite")
+      this._wishlistService.deleteWishItem(WishItem.product.id);
+    }
+    else
+    {
+      event.currentTarget.classList.add("is-favourite")
+      this._wishlistService.setWishItem(WishItem);
+    }
+
+  }
+  productInWishList(itm: any){
+    const cartItemExist = this.WishItems.find((item) => item.product.id === itm.id);
+    return cartItemExist;
+  }
+  getWishList() {
+    this._wishlistService.wishList$.subscribe((cart) => {
+      this.WishItems = cart.items!;
+    });
   }
 
   ngOnInit(): void {
-    this.getAllProducts(this.PageNumber)
+    this.getAllProducts(this.PageNumber);
+    this.getWishList();
   }
 
 

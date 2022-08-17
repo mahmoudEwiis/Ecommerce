@@ -212,9 +212,11 @@
     font-weight: 600;
 }
 
+
 .item-description .btn-add[disabled] {
     background-color: #f2f4f5;
     color: #0d0d0d;
+    cursor: not-allowed;
 }
 
 .item-description .btn-mobile-add {
@@ -229,4 +231,24 @@
     .btn-close {
         margin-left: 32%;
     }
+}
+
+
+/*
+    ----------------------------------------
+    ========== Cofirm Modal style ==========
+    ----------------------------------------
+*/
+.modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 99999;
+}
+
+
+.modal-header button.close {
+    border: none;
+    background: transparent;
+    font-size: 26px;
 }

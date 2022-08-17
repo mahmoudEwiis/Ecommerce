@@ -13,7 +13,9 @@ export class CartComponent implements OnInit {
   cartCount = 0;
   totalPrice!: number;
   opanCartlist: boolean = false;
-  cartList!: CartItem[]
+  isVisable: boolean = false;
+  cartList!: CartItem[];
+  deleteProductId!: string;
   constructor
     (
       private router: Router,
@@ -37,8 +39,9 @@ export class CartComponent implements OnInit {
     });
   }
 
-  deleteCartItem(cartItem: CartItem) {
-    this._cartService.deleteCartItem(cartItem.product.id);
+  deleteCartItem() {
+    this._cartService.deleteCartItem(this.deleteProductId);
+    this.closeCofirmModal()
   }
 
   getOrderSummary() {
@@ -52,7 +55,7 @@ export class CartComponent implements OnInit {
     });
   }
 
-  updateCartItemQuantity(value: number, cartItem: CartItem , operation:string) {
+  updateCartItemQuantity(value: number, cartItem: CartItem, operation: string) {
     if (operation == "+") {
       value++;
     } else {
@@ -71,7 +74,20 @@ export class CartComponent implements OnInit {
     this.closeSidebar();
     this.router.navigate(['/checkout']);
   }
+  
+  /*
+    ----------------------------------
+    ========== Cofirm Modal ==========
+    ----------------------------------
+  */
 
+  openCofirmModal(productId: string) {
+    this.isVisable = true;
+    this.deleteProductId = productId
+  }
+  closeCofirmModal() {
+    this.isVisable = false;
+  }
   ngOnInit(): void {
     this._cartService.cart$.subscribe((cart) => {
       this.cartCount = cart?.items?.length ?? 0;
