@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HotToastService } from '@ngneat/hot-toast';
 import { CartItem } from '../../pages/models/cart';
 import { CartService } from '../../pages/services/cart.service';
 
@@ -20,31 +21,62 @@ export class CartComponent implements OnInit {
     (
       private router: Router,
       private _cartService: CartService,
-  ) { }
-
+      private _toast:HotToastService
+    ) {}
+    
+  /*
+    ----------------------------------
+    ========= open Cartlist ==========
+    ----------------------------------
+  */
   openCartlist() {
     this.getCartList();
     this.opanCartlist = true;
     document.body.style.overflowY = "hidden";
   }
 
+  /*
+    ----------------------------------
+    ========= close Sidebar ==========
+    ----------------------------------
+  */
   closeSidebar() {
     this.opanCartlist = false;
     document.body.style.overflowY = "auto";
   }
 
+  /*
+    ----------------------------------
+    ========== get CartList ==========
+    ----------------------------------
+  */
   getCartList() {
     this._cartService.cart$.subscribe((cart) => {
       this.cartList = cart.items!;
     });
   }
 
+  /*
+    ----------------------------------
+    ======== delete CartItem =========
+    ----------------------------------
+  */
   deleteCartItem() {
     this._cartService.deleteCartItem(this.deleteProductId);
-    this.closeCofirmModal()
+    this.closeCofirmModal();
+    this._toast.error('Product removed from cart',
+    {
+      position: 'bottom-left'
+    });
+
   }
 
-  getOrderSummary() {
+  /*
+    ----------------------------------
+    ======== get Total Price =========
+    ----------------------------------
+  */
+  getTotalPrice() {
     this._cartService.cart$.subscribe((cart) => {
       this.totalPrice = 0;
       if (cart) {
@@ -55,6 +87,11 @@ export class CartComponent implements OnInit {
     });
   }
 
+  /*
+    ----------------------------------
+    ==== update CartItem Quantity ====
+    ----------------------------------
+  */
   updateCartItemQuantity(value: number, cartItem: CartItem, operation: string) {
     if (operation == "+") {
       value++;
@@ -68,8 +105,17 @@ export class CartComponent implements OnInit {
       },
       true
     );
+    this._toast.success('Product added to cart successfully',
+    {
+      position: 'bottom-left'
+    });
   }
 
+  /*
+    ----------------------------------
+    ====== navigate To Checkout ======
+    ----------------------------------
+  */
   navigateToCheckout() {
     this.closeSidebar();
     this.router.navigate(['/checkout']);
@@ -93,7 +139,7 @@ export class CartComponent implements OnInit {
       this.cartCount = cart?.items?.length ?? 0;
     });
     this.getCartList();
-    this.getOrderSummary();
+    this.getTotalPrice();
   }
 
 }

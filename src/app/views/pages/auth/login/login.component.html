@@ -40,25 +40,34 @@
                     <div class="row g-0">
                         <div class="col-11 col-md-10 col-lg-9 mx-auto">
                             <h3 class="text-12 mb-4">Sign In</h3>
-                            <form id="loginForm" method="post">
+                            <form id="loginForm" [formGroup]="loginFormGroup">
                                 <label class="form-label fw-500" for="emailAddress">Email Address</label>
-                                <div class="mb-3 input-group">
+                                <div  [classList]="loginForm.email.invalid && isSubmitted?'input-group':'mb-3 input-group'">
                                     <input type="email" class="form-control bg-light border-light" id="emailAddress"
-                                        required placeholder="Email or Username">
+                                        [class.is-invalid]="loginForm.email.invalid && isSubmitted"
+                                        placeholder="Email or Username" formControlName="email">
                                     <span class="input-group-text text-muted">
                                         <i class="fas fa-envelope"></i>
                                     </span>
                                 </div>
+                                <small *ngIf="loginForm.email.invalid && isSubmitted" class=" d-block text-danger">
+                                    <span *ngIf="loginForm.email.errors?.required">Email is required</span>
+                                    <span *ngIf="loginForm.email.errors?.email">Email is invalid</span>
+                                </small>
                                 <label class="form-label fw-500" for="loginPassword">Password</label>
-                                <div class="mb-3 input-group">
+                                <div [classList]="loginForm.password.invalid && isSubmitted?'input-group':'mb-3 input-group'">
                                     <input [type]="passwordVisible?'text':'password'"
                                         class="form-control form-control-lg bg-light border-light" id="loginPassword"
-                                        required placeholder="Password">
+                                        [class.is-invalid]="loginForm.password.invalid && isSubmitted" autocomplete
+                                        placeholder="Password" formControlName="password">
                                     <span class="input-group-text text-muted" (click)="visibilityToggle()"
                                         style="cursor: pointer;">
                                         <i [classList]="passwordVisible?'fas fa-eye':'fas fa-eye-slash'"></i>
                                     </span>
                                 </div>
+                                <small *ngIf="loginForm.password.invalid && isSubmitted" class="d-block text-danger">
+                                    Password is required
+                                </small>
                                 <div class="row my-4">
                                     <div class="col">
                                         <div class="form-check">
@@ -74,9 +83,12 @@
                                     </div>
                                 </div>
                                 <div class="d-grid my-4">
-                                    <button class="btn btn-dark btn-lg" type="submit">
+                                    <button class="btn btn-dark btn-lg" type="submit" (click)="onSubmit()">
                                         Sign In
                                     </button>
+                                </div>
+                                <div class="col-12" *ngIf="isSubmitted && authError">
+                                    <small class="d-block text-danger">{{ authMessage }}</small>
                                 </div>
                                 <p class="text-2 text-muted text-center">
                                     Not a member? <a routerLink="/auth/register">Sign Up now</a>

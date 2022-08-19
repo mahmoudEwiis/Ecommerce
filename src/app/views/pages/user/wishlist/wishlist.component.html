@@ -1,0 +1,54 @@
+<article class="card card-product-list" *ngFor="let item of WishItems">
+    <div class="row g-0  align-items-center">
+        <aside class="col-xl-3 col-lg-4 col-md-12 col-12">
+            <a href="#" class="img-wrap">
+                <img class=" rounded" [src]="item.product.images[0]">
+            </a>
+        </aside>
+
+        <div class="col-xl-6 col-lg col-md-7 col-sm-7">
+            <div class="card-body">
+                <a routerLink="/" class="title">
+                    {{item.product.title}}
+                </a>
+                <div class="rating-wrap mb-2">
+                    <ul class="rating-stars">
+                        <li class="stars-active" style="width: 90%;">
+                            <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/misc/stars-active.svg" alt="">
+                        </li>
+                        <li>
+                            <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/misc/starts-disable.svg" alt="">
+                        </li>
+                    </ul>
+                    <span class="label-rating text-warning">4.5</span>
+                    <i class="dot"></i>
+                    <span class="label-rating text-muted">154 orders</span>
+                </div>
+
+                <p class="text-muted">
+                    {{item.product.description}}
+                </p>
+                <p class="my-2">
+                    <span class="tag"> {{item.product.category.name}} </span>
+                    <span class="tag"> Pink Color </span>
+                </p>
+            </div> 
+        </div> 
+        <aside class="col-xl-3 col-lg-auto col-md-5 col-sm-5">
+            <div class="info-aside">
+                <div class="price-wrap">
+                    <span class="price h5"> ${{item.product.price}} </span>
+                    <del class="price-old"> ${{item.product.price + 198}}</del>
+                </div>
+                <p class="text-success">Free shipping</p>
+                <br>
+                <a href="#" class="btn btn-warning"     (click)="$event.preventDefault();">
+                    Buy this
+                </a>
+                <a href="#" class="btn btn-danger ms-2" (click)="$event.preventDefault();">
+                    <i class="fa fa-heart"></i>
+                </a>
+            </div> 
+        </aside> 
+    </div>
+</article>

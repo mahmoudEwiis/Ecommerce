@@ -4,6 +4,7 @@ import { WishItem } from '../../models/wishlist';
 import { CartService } from '../../services/cart.service';
 import { WishlistService } from '../../services/wishlist.service';
 import { ProductService } from '../services/product.service';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-all-products',
@@ -21,9 +22,14 @@ export class AllProductsComponent implements OnInit {
     private _product: ProductService,
     private _cartService: CartService,
     private _wishlistService: WishlistService,
+    private _toast: HotToastService
   ) { }
 
-  // get Page
+  /*
+    ----------------------------------
+    =========== get Page =============
+    ----------------------------------
+  */
   getAllProducts(number: number) {
     if (this.PageNumber == 1) {
       this._product.getProduct(0).subscribe((data) => {
@@ -38,7 +44,11 @@ export class AllProductsComponent implements OnInit {
     this.PageNumber = number;
   }
 
-  // get Next Page
+  /*
+    ----------------------------------
+    ========= get Next Page ==========
+    ----------------------------------
+  */
   nextPage() {
     if (this.PageNumber == 10) {
       this.PageNumber = 1;
@@ -48,7 +58,11 @@ export class AllProductsComponent implements OnInit {
     this.getAllProducts(this.PageNumber);
   }
 
-  // get Provous Page
+  /*
+    ----------------------------------
+    ======= get Provous Page =========
+    ----------------------------------
+  */
   provPage() {
     if (this.PageNumber == 1) {
       this.PageNumber = 10;
@@ -57,33 +71,59 @@ export class AllProductsComponent implements OnInit {
     }
     this.getAllProducts(this.PageNumber);
   }
-
+  
+  /*
+    ----------------------------------
+    ====== add Product To Cart =======
+    ----------------------------------
+  */
   addProductToCart(item: any) {
     const cartItem: CartItem = {
       product: item,
       quantity: 1
     };
     this._cartService.setCartItem(cartItem);
+    this._toast.success('Product added to cart successfully',
+      {
+        position: 'bottom-left'
+      });
+
   }
 
-  // add To Wish List
+  /*
+    ----------------------------------
+    ======= add To Wish List =========
+    ----------------------------------
+  */
   addProductToWishList(item: any, event: any) {
     const WishItem: WishItem = {
       product: item
     };
-    if (event.currentTarget.classList.contains("is-favourite")) 
-    {
+    if (event.currentTarget.classList.contains("is-favourite")) {
       event.currentTarget.classList.remove("is-favourite")
       this._wishlistService.deleteWishItem(WishItem.product.id);
+      this._toast.error('Product removed from wishlist',
+        {
+          position: 'bottom-left'
+        });
     }
-    else
-    {
+    else {
       event.currentTarget.classList.add("is-favourite")
       this._wishlistService.setWishItem(WishItem);
+      this._toast.success('Product added to wishlist successfully',
+        {
+          position: 'bottom-left'
+        });
     }
 
   }
-  productInWishList(itm: any){
+
+  /*
+    ----------------------------------
+    ====== Product In WishList =======
+    ----------------------------------
+  */
+  productInWishList(itm: any) {
     const cartItemExist = this.WishItems.find((item) => item.product.id === itm.id);
     return cartItemExist;
   }

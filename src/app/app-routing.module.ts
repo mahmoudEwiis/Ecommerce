@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BaseComponent } from './views/layout/base/base.component';
+import { AuthGuard } from './views/pages/auth/services/auth-guard.service';
 import { ErrorPageComponent } from './views/pages/error-page/error-page.component';
 
 const routes: Routes = [
@@ -23,9 +24,18 @@ const routes: Routes = [
       },
       {
         path: 'checkout',
+        canActivate: [AuthGuard],
         loadChildren: () =>
           import('./views/pages/checkout/checkout.module').then(
             (m) => m.CheckoutModule
+          ),
+      },
+      {
+        path: 'user',
+        canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('./views/pages/user/user.module').then(
+            (m) => m.UserModule
           ),
       },
       { path: '', redirectTo: 'products', pathMatch: 'full' },

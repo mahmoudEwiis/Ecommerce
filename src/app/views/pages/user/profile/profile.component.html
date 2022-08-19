@@ -1,0 +1,56 @@
+<article class="card">
+    <div class="content-body">
+
+        <figure class="itemside align-items-center">
+            <div class="aside">
+                <span class="bg-gray icon-md rounded-circle">
+                    <img src='https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/avatars/avatar.jpg'
+                        class="icon-md rounded-circle">
+                </span>
+            </div>
+            <figcaption class="info d-flex justify-content-between align-items-center">
+                <h6 class="title">{{profile.name}}</h6>
+                <button class="btn btn-warning rounded py-2 px-1">
+                    <i class="fa fa-pen px-2"></i>
+                </button>
+            </figcaption>
+        </figure>
+
+        <hr>
+
+        <div class="row g-2 mb-3">
+            <div class="col-md-6">
+                <article class="box bg-light">
+                    <b class="mx-2 text-muted">
+                        <i class="fa-solid fa-envelope"></i>
+                    </b>
+                    Email: {{profile.email}}
+                </article>
+            </div>
+            <div class="col-md-6">
+                <article class="box bg-light">
+                    <b class="mx-2 text-muted">
+                        <i class="fa-solid fa-phone-flip"></i>
+                    </b>
+                    Phone: +1234567890988
+                </article>
+            </div>
+            <div class="col-md-6">
+                <article class="box bg-light">
+                    <b class="mx-2 text-muted">
+                        <i class="fa-solid fa-user"></i>
+                    </b>
+                    {{profile.role}}
+                </article>
+            </div>
+            <div class="col-md-6">
+                <article class="box  bg-light">
+                    <b class="mx-2 text-muted">
+                        <i class="fa fa-map-marker-alt"></i>
+                    </b>
+                    Moscow city, Street name, Building lenin, House 77
+                </article>
+            </div>
+        </div>
+    </div>
+</article>

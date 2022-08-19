@@ -1,0 +1,50 @@
+.content-body {
+    flex: 1 1 auto;
+    padding: 1.88rem;
+}
+
+.itemside {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.itemside .aside {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.icon-xs, .icon-sm, .icon-md, .icon-lg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.icon-md {
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+}
+
+.itemside .info {
+    padding-left: 0.75rem;
+    flex-grow: 1;
+}
+
+.itemside .title {
+    display: block;
+    margin-bottom: 0rem;
+}
+
+.itemside p {
+    margin-bottom: 0;
+}
+
+.box {
+    padding: 0.8rem;
+    border-radius: 0.35rem;
+    border: 1px solid #dee2e6;
+}

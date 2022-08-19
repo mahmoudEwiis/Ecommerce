@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { AuthService } from '../../pages/auth/services/auth.service';
 import { CartService } from '../../pages/services/cart.service';
 import { WishlistService } from '../../pages/services/wishlist.service';
 
@@ -13,10 +14,11 @@ export class HeaderComponent implements OnInit {
   cartCount = 0;
   wishCount = 0;
   sticky: boolean = false;
-
+  loggedIn: boolean = false;
   constructor
     (
       private _cartService: CartService,
+      private _auth: AuthService,
       private _wishlistService: WishlistService,
     ) { }
 
@@ -37,6 +39,8 @@ export class HeaderComponent implements OnInit {
     this._wishlistService.wishList$.subscribe((wishList) => {
       this.wishCount = wishList?.items?.length ?? 0;
     });
+    this.loggedIn = this._auth.loggedIn();
+    console.log(this.loggedIn)
   }
 
 }

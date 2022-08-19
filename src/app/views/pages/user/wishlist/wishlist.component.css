@@ -1,0 +1,101 @@
+.card-product-list {
+    margin-bottom: 20px;
+}
+.card.card-product-grid, .card.card-product-list {
+    box-shadow: 0 1px 2px rgb(51 51 51 / 7%);
+}
+.card-product-list .img-wrap {
+    height: 220px;
+    padding: 0.5rem;
+}
+[class*=card-product] .img-wrap img {
+    height: 100%;
+    max-width: 100%;
+    width: auto;
+}
+[class*=card-product] a.title {
+    display: block;
+    text-decoration: none;
+}
+
+.card-product-list .title {
+    color: #212529;
+}
+.rating-stars {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    white-space: nowrap;
+    clear: both;
+}
+
+.rating-stars li {
+    display: block;
+    text-overflow: clip;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.rating-stars li.stars-active {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+.rating-stars img {
+    height: 16px;
+    max-width: none;
+}
+.label-rating {
+    margin-left: 5px;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.dot {
+    font-style: normal;
+    opacity: .5;
+}
+.dot::after {
+    content: "•";
+    display: inline-block;
+}
+.label-rating {
+    margin-left: 5px;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 1rem;
+    margin-bottom: 5px;
+    border: 1px solid #dee2e6;
+    border-radius: 20px;
+    margin-top: 4px;
+    margin-right: 2px;
+    font-size: 90%;
+}
+.card-product-list .info-aside {
+    padding: 1.25rem 1.25rem;
+    border-left: 1px solid #dee2e6;
+    height: 100%;
+}
+[class*=card-product] .price-old {
+    color: #9da1a7;
+    margin-left: 3px;
+    font-size: 90%;
+}
+[class*=card-product] p {
+    margin-bottom: 0;
+}
+
+.btn-icon {
+    width: 2.6rem;
+    padding-left: 0px;
+    padding-right: 0px;
+}

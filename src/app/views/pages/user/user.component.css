@@ -1,0 +1,10 @@
+aside{
+    padding-top: 1.88rem;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: rgba(255, 129, 0,0.7);
+}
+.nav-pills .nav-link{
+    color: #000;
+}

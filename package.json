@@ -19,6 +19,8 @@
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
     "@fortawesome/fontawesome-free": "^6.1.1",
+    "@ngneat/hot-toast": "^3.4.3",
+    "@ngneat/overview": "^2.0.2",
     "bootstrap": "^5.2.0-beta1",
     "ngx-owl-carousel-o": "^6.0.2",
     "rxjs": "~6.6.0",

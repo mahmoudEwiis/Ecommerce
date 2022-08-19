@@ -128,3 +128,6 @@ ul {
 .form-control:focus ,.form-select:focus , .btn:focus {
     box-shadow: none;
 }
+.text-warning {
+    color: #ff8100 !important;
+}

@@ -41,33 +41,46 @@
                     <div class="row g-0">
                         <div class="col-11 col-md-10 col-lg-9 mx-auto">
                             <h3 class="text-12 mb-4">Sign Up</h3>
-                            <form id="signupForm" method="post">
+                            <form id="signupForm"  [formGroup]="registerFormGroup">
                                 <label class="form-label fw-500" for="fullName">Full Name</label>
-                                <div class="mb-3 input-group">
-                                    <input type="text" class="form-control bg-light border-light" id="fullName" required
-                                        placeholder="Full Name">
+                                <div [classList]="registerForm.name.invalid && isSubmitted?'input-group':'mb-3 input-group'">
+                                    <input type="text" class="form-control bg-light border-light" id="fullName"
+                                    [class.is-invalid]="registerForm.name.invalid && isSubmitted"
+                                        placeholder="Full Name" formControlName="name">
                                     <span class="input-group-text text-muted">
                                         <i class="fas fa-user"></i>
                                     </span>
                                 </div>
+                                <small *ngIf="registerForm.name.invalid && isSubmitted" class="d-block text-danger">
+                                    Name is required
+                                </small>
                                 <label class="form-label fw-500" for="emailAddress">Email Address</label>
-                                <div class="mb-3 input-group">
+                                <div [classList]="registerForm.email.invalid && isSubmitted?'input-group':'mb-3 input-group'">
                                     <input type="email" class="form-control bg-light border-light" id="emailAddress"
-                                        required placeholder="Email Address">
+                                    [class.is-invalid]="registerForm.email.invalid && isSubmitted"
+                                         placeholder="Email Address" formControlName="email">
                                     <span class="input-group-text text-muted">
                                         <i class="fas fa-envelope"></i>
                                     </span>
                                 </div>
+                                <small *ngIf="registerForm.email.invalid && isSubmitted" class=" d-block text-danger">
+                                    <span *ngIf="registerForm.email.errors?.required">Email is required</span>
+                                    <span *ngIf="registerForm.email.errors?.email">Email is invalid</span>
+                                </small>
                                 <label class="form-label fw-500" for="loginPassword">Password</label>
-                                <div class="mb-3 input-group">
+                                <div [classList]="registerForm.password.invalid && isSubmitted?'input-group':'mb-3 input-group'">
                                     <input [type]="passwordVisible?'text':'password'"
                                         class="form-control form-control-lg bg-light border-light" id="loginPassword"
-                                        required placeholder="Password">
+                                        [class.is-invalid]="registerForm.password.invalid && isSubmitted"
+                                         placeholder="Password" formControlName="password">
                                     <span class="input-group-text text-muted" (click)="visibilityToggle()"
                                         style="cursor: pointer;">
                                         <i [classList]="passwordVisible?'fas fa-eye':'fas fa-eye-slash'"></i>
                                     </span>
                                 </div>
+                                <small *ngIf="registerForm.password.invalid && isSubmitted" class="d-block text-danger">
+                                    Password is required
+                                </small>
                                 <div class="form-check my-4">
                                     <input id="agree" name="agree" class="form-check-input" type="checkbox">
                                     <label class="form-check-label" for="agree">
@@ -75,7 +88,12 @@
                                     </label>
                                 </div>
                                 <div class="d-grid my-4">
-                                    <button class="btn btn-dark btn-lg" type="submit">Sign Up</button>
+                                    <button class="btn btn-dark btn-lg" type="submit" (click)="onSubmit()">
+                                        Sign Up
+                                    </button>
+                                </div>
+                                <div class="col-12" *ngIf="isSubmitted && authError">
+                                    <small class="d-block text-danger">{{ authMessage }}</small>
                                 </div>
                                 <p class="text-2 text-muted text-center">
                                     Already a member? <a routerLink="/auth">Sign In</a>
