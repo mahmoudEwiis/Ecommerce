@@ -1,0 +1,31 @@
+
+<section id="checkout-complete">
+    <div class="checkout-complete-header text-center">
+        <div class="rounded-circle checkmark">
+            <i>✓</i>
+        </div>
+        <h4>
+            Congratulation! You’ve completed payment.
+        </h4>
+        <p>We have recieved your order and it will be delivered in the next 3 days</p>
+    </div>
+    <div class="checkout-complete-summary text-center">
+        <div class="item">
+            <h5>Order Number</h5>
+            <p>120</p>
+        </div>
+        <div class="item">
+            <h5>Date</h5>
+            <p>{{today | date}}</p>
+        </div>
+        <div class="item">
+            <h5>Total</h5>
+            <p>$200.00</p>
+        </div>
+        <div class="item">
+            <h5>Payment methods</h5>
+            <p>Check payment</p>
+        </div>
+    </div>
+    <button class="btn btn-warning rounded mt-4" (click)="navigateToStore()">Back to store</button>
+</section>

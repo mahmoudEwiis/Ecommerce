@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HotToastModule } from '@ngneat/hot-toast';
 
@@ -30,6 +31,7 @@ import { CartComponent } from './views/shared/cart/cart.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     HotToastModule.forRoot()
   ],
   providers: [],
