@@ -105,10 +105,6 @@ export class CartComponent implements OnInit {
       },
       true
     );
-    this._toast.success('Product added to cart successfully',
-    {
-      position: 'bottom-left'
-    });
   }
 
   /*
