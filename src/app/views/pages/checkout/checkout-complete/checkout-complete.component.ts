@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-checkout-complete',
@@ -8,14 +9,41 @@ import { Router } from '@angular/router';
 })
 export class CheckoutCompleteComponent implements OnInit {
 
+  totalPrice!: number;
+  today: number = Date.now();
+
   constructor(
     private router: Router,
+    private _cartService: CartService,
+
   ) { }
-  today:number=Date.now()
-  navigateToStore(){
+
+  /*
+    ----------------------------------
+    ======= navigate To Store ========
+    ----------------------------------
+  */
+  navigateToStore() {
     this.router.navigate(['/'])
   }
+
+  /*
+    ----------------------------------
+    ======== get Total Price =========
+    ----------------------------------
+  */
+  getTotalPrice() {
+    this._cartService.cart$.subscribe((cart) => {
+      this.totalPrice = 0;
+      if (cart) {
+        cart.items?.map((item) => {
+          this.totalPrice += item.product.price! * item.quantity!;
+        });
+      }
+    });
+  }
   ngOnInit(): void {
+    this.getTotalPrice();
   }
 
 }

@@ -84,7 +84,7 @@ export class CheckoutPageComponent implements OnInit {
       return;
     }
     // notefication Thank you for Shopping with us!
-    this.router.navigate(['/'])
+    this.router.navigate(['/checkout/succuss'])
     console.log(this.checkoutForm)
   }
   ngOnInit(): void {
