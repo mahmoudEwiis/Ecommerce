@@ -41,7 +41,7 @@ export class AllProductsComponent implements OnInit {
         this.products = data
       })
     }
-
+    window.scroll(0, 500);
     this.PageNumber = number;
   }
 
@@ -57,6 +57,7 @@ export class AllProductsComponent implements OnInit {
       this.PageNumber++;
     }
     this.getAllProducts(this.PageNumber);
+
   }
 
   /*
@@ -71,6 +72,7 @@ export class AllProductsComponent implements OnInit {
       this.PageNumber--;
     }
     this.getAllProducts(this.PageNumber);
+
   }
   
   /*
