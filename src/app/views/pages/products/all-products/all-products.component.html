@@ -95,11 +95,11 @@
         </header>
 
         <div class="row">
-            <div class="col col-xs-12 col-sm-8 col-md-6 col-lg-2" style="padding: 15px 7.5px;"
+            <div class="col-6 col-sm-8 col-md-6 col-lg-2" style="padding: 15px 7.5px;"
                 *ngFor="let item of products | filter : fliterValue">
                 <div class="product">
                     <div class="product-image">
-                        <a class="" routerLink="/products/Products-details/{{item.id}}">
+                        <a style="height: 227px;" routerLink="/products/Products-details/{{item.id}}">
                             <img [src]="item.images[0]" alt="Product_image">
                             <img [src]="item.images[1]" alt="Product_image">
                         </a>
@@ -109,9 +109,9 @@
                             (click)="addProductToWishList(item , $event)">
                             <i class="fa-solid fa-heart"></i>
                         </button>
-                        <button type="button" class="btn-product-quickview">
+                        <!-- <button type="button" class="btn-product-quickview">
                             <span>Quick view</span>
-                        </button>
+                        </button> -->
                     </div>
                     <div class="product-content">
                         <a class="product-name d-flex justify-content-between"
@@ -131,7 +131,7 @@
                         <div class="product-content__footer">
                             <div class="product-content__footer-price">
                                 <h5 class="product-price">${{item.price}}</h5>
-                                <span *ngIf="(item.id)%3==0">${{(item.price + 59.99)}}</span>
+                                <span *ngIf="(item.id)%3==0">$59.99</span>
                             </div>
                             <span class="product-atc rounded-circle">
                                 <button type="button" class="btn btn-circle text-muted"
