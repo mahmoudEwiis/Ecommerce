@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { FormsModule } from '@angular/forms';
 
 import { AllProductsComponent } from './all-products/all-products.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductsComponent } from './products.component';
+import { FilterPipe } from './pipe/filter.pipe';
 
 
 const routes: Routes = [
@@ -33,11 +35,13 @@ const routes: Routes = [
   declarations: [
     AllProductsComponent,
     ProductsComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,
     CarouselModule,
+    FormsModule,
     RouterModule.forChild(routes),
   ]
 })

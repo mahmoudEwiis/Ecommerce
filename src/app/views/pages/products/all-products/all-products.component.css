@@ -61,6 +61,18 @@ main .card-banner {
     background-color: #dadada;
 }
 
+.section-heading .filter-container {
+    flex-basis: 22%;
+
+}
+
+.section-heading .filter-container p {
+    flex-basis: 50%;
+    padding-right: 15px;
+    font-size: 19px;
+    margin-top: 11px;
+}
+
 .product-image {
     margin-bottom: 1.25em;
     overflow: hidden;
@@ -185,6 +197,7 @@ main .card-banner {
 .product-content .ratting i:last-child {
     margin-right: 0;
 }
+
 .product-content .ratting .product-rate-quantity {
     color: #888;
     font-size: .8125em;
@@ -232,6 +245,7 @@ main .card-banner {
     width: 2.5em;
     transition: 0.5s all;
 }
+
 .product-content__footer .product-atc:hover {
     background-color: #ff8100;
 }
@@ -252,10 +266,12 @@ main .card-banner {
     border: none;
     /* border-color: #fb5231; */
 }
-.btn-favourite.btn-circle{
+
+.btn-favourite.btn-circle {
     padding: 3px 7px;
 
 }
+
 .product-content__footer .product-atc:hover .btn-circle {
     color: #fff !important;
 }
@@ -296,30 +312,47 @@ main .card-banner {
     .card-body {
         padding: 1.25rem 1.25rem;
     }
+
+    header.section-heading {
+        display: block !important;
+    }
+
+    .section-heading .filter-container {
+        display: block !important;
+    }
+
+    .section-heading .filter-container p {
+        margin-top: 0px;
+        margin-bottom: 6px;
+    }
+
     .product .product-image .btn-product-quickview {
         opacity: 1;
         visibility: visible;
     }
+
     .product .product-image .btn-favourite {
         right: 0.71em;
-    }    
-    .pagination{
+    }
+
+    .pagination {
         flex-wrap: wrap;
     }
 }
+
 /* @media only screen and (max-width: 992px)
 .product.-style-one .product-image .product-qv {
     opacity: 1;
     visibility: visible;
 } */
-@media (min-width: 992px){
+@media (min-width: 992px) {
     .col-lg-2 {
         width: 20%;
     }
 }
 
 
-a:focus, a:active,.btn.active.focus,
+a:focus, a:active, .btn.active.focus,
 .btn.active:focus, .btn.focus,
 .btn:active.focus, .btn:active:focus,
 .btn:focus, button:focus, button:active {
@@ -327,15 +360,17 @@ a:focus, a:active,.btn.active.focus,
     box-shadow: none;
 }
 
-.page-item a{
+.page-item a {
     color: #0d0d0d;
 }
-.page-item.active a{
+
+.page-item.active a {
     background-color: #ff8100 !important;
     border-color: #ff8100;
     color: #f2f4f5;
 }
-.product .product-image .btn-favourite.is-favourite{
+
+.product .product-image .btn-favourite.is-favourite {
     background-color: #fb5231;
     color: #fff;
     right: 0.71em;

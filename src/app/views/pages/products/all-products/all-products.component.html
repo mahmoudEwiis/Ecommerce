@@ -80,13 +80,23 @@
 <section class="padding-y">
     <div class="container">
 
-        <header class="section-heading">
+        <header class="section-heading  d-flex justify-content-between">
             <h3 class="section-title">New products</h3>
+            <div class="filter-container d-flex align-items-center">
+                <p>Filter by: </p>
+                <select class="form-select"  [(ngModel)]="fliterValue">
+                    <option value="Default">Default</option>
+                    <option value="Low to High">Price: Low to High</option>
+                    <option value="High to Low">Price: High to Low</option>
+                    <option value="A to Z">A to Z</option>
+                    <option value="Z to A">Z to A</option>
+                </select>
+            </div>
         </header>
 
         <div class="row">
             <div class="col col-xs-12 col-sm-8 col-md-6 col-lg-2" style="padding: 15px 7.5px;"
-                *ngFor="let item of products">
+                *ngFor="let item of products | filter : fliterValue">
                 <div class="product">
                     <div class="product-image">
                         <a class="" routerLink="/products/Products-details/{{item.id}}">
