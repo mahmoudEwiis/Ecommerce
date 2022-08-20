@@ -1,24 +1,28 @@
 <div class="main-wrapper">
-    <!-- partial:header -->
-    <app-header></app-header>
-    <!-- partial -->
-  
-    <div class="page-wrapper">
-      <div class="content">
-        <!-- Spinner for lazyload modules -->
-        <div *ngIf="isLoading" class="spinner-wrapper">
-          <div class="spinner">Loading...</div>
+  <!-- partial:header -->
+  <app-header></app-header>
+  <!-- partial -->
 
-        </div>
-  
-        <div contentAnimate *ngIf="!isLoading">
-          <router-outlet></router-outlet>
+  <div class="page-wrapper">
+    <div class="content">
+      <!-- Spinner for lazyload modules -->
+      <div *ngIf="isLoading" class="spinner-wrapper">
+        <div class="loader">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </div>
-  
-      <!-- partial:footer -->
-      <app-footer></app-footer>
-      <!-- partial -->
+
+      <div contentAnimate *ngIf="!isLoading">
+        <router-outlet (activate)="onActivate($event)" ></router-outlet>
+      </div>
     </div>
+
+    <!-- partial:footer -->
+    <app-footer></app-footer>
+    <!-- partial -->
   </div>
-  
+</div>
