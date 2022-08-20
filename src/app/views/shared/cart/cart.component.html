@@ -52,7 +52,7 @@
         </div>
         <div class="item" *ngFor="let cartItem of cartList">
             <div class="item-img">
-                <img [src]="cartItem.product.images[0]" alt="" srcset="">
+                <img [src]="cartItem.product.images[0]" onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'" alt="product_image">
             </div>
             <div class="item-description">
                 <a href="/product/fold-over-collar-plain-blazers-2" class="item-title">

@@ -100,8 +100,8 @@
                 <div class="product">
                     <div class="product-image">
                         <a style="height: 227px;" routerLink="/products/Products-details/{{item.id}}">
-                            <img [src]="item.images[0]" alt="Product_image">
-                            <img [src]="item.images[1]" alt="Product_image">
+                            <img [src]="item.images[0]" alt="Product_image" onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'">
+                            <img [src]="item.images[1]" alt="Product_image" onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'">
                         </a>
                         <p class="product-sale" *ngIf="(item.id)%3==0">Sale</p>
                         <button type="button" class="btn-favourite btn-circle "

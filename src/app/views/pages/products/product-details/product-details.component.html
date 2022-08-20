@@ -25,7 +25,7 @@
                             <figure class="zoom-image"
                                 style="background-image: url({{slide}});"
                                 [style.backgroundPosition]="backgroundPos" (mousemove)="ZoomImage($event)">
-                                <img class="rounded" src="{{slide}}" alt="clothes" srcset="">
+                                <img class="rounded" src="{{slide}}" alt="clothes" onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'">
                             </figure>
                         </ng-template>
                     </ng-container>
@@ -33,7 +33,7 @@
                 <owl-carousel-o id="controll" [options]="slider2Settings" (dragging)="nextSlide($event)">
                     <ng-container *ngFor="let slide of product.images">
                         <ng-template carouselSlide [id]="slide.id">
-                            <img class="rounded" width="97" src="{{slide}}" alt="clothes" srcset="">
+                            <img class="rounded" width="97" src="{{slide}}" alt="clothes" onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'">
                         </ng-template>
                     </ng-container>
                 </owl-carousel-o>
