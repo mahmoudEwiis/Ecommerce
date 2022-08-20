@@ -15,7 +15,7 @@ export class AllProductsComponent implements OnInit {
 
   products: any[] = [];
   PageNumber: number = 1;
-  numberOfPages: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  numberOfPages: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   isFavourite: boolean = false;
   WishItems!: WishItem[];
   fliterValue:string = "Default"
@@ -32,7 +32,7 @@ export class AllProductsComponent implements OnInit {
     ----------------------------------
   */
   getAllProducts(number: number) {
-    if (this.PageNumber == 1) {
+    if (number == 1) {
       this._product.getProduct(0).subscribe((data) => {
         this.products = data
       })
@@ -51,7 +51,7 @@ export class AllProductsComponent implements OnInit {
     ----------------------------------
   */
   nextPage() {
-    if (this.PageNumber == 10) {
+    if (this.PageNumber == 9) {
       this.PageNumber = 1;
     } else {
       this.PageNumber++;
@@ -66,7 +66,7 @@ export class AllProductsComponent implements OnInit {
   */
   provPage() {
     if (this.PageNumber == 1) {
-      this.PageNumber = 10;
+      this.PageNumber = 9;
     } else {
       this.PageNumber--;
     }

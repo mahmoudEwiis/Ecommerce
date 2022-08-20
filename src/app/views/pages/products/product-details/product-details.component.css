@@ -78,7 +78,8 @@
 }
 
 ::ng-deep .owl-carousel .owl-item.center {
-    border: 1px solid #ff8100;
+    border: 3px solid #ff8100;
+    border-radius: 12px;
 }
 
 
