@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalstorageService } from '../../auth/services/localstorage.service';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -7,11 +8,13 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  profile!:any
+  profile:any={
+    "name":"",
+    "email":"",
+  }
 
   constructor(
-    private _userService:UserService
-
+    private _userService:UserService,
   ) { }
 
   ngOnInit(): void {

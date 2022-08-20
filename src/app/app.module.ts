@@ -15,6 +15,7 @@ import { CartService } from './views/pages/services/cart.service';
 import { WishlistService } from './views/pages/services/wishlist.service';
 import { WishlistComponent } from './views/shared/wishlist/wishlist.component';
 import { CartComponent } from './views/shared/cart/cart.component';
+import { JwtInterceptor } from './views/pages/auth/services/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,9 @@ import { CartComponent } from './views/shared/cart/cart.component';
     ReactiveFormsModule,
     HotToastModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
