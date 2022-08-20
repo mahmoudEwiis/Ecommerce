@@ -325,7 +325,12 @@ main .card-banner {
         margin-top: 0px;
         margin-bottom: 6px;
     }
-
+    .product-name span.item-title {
+        width: 110px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
     .product .product-image .btn-product-quickview {
         opacity: 1;
         visibility: visible;
