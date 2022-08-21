@@ -60,20 +60,19 @@
                 </a>
                 <h5 class="item-price">${{cartItem.product.price}}</h5>
                 <div class="input-group input-spinner">
-                    <button class="btn btn-icon btn-light" type="button"
+                    <div class="quantity-selector">
+                        <button type="button" class="btn  btn-quantity"
                         (click)="updateCartItemQuantity(cartItem.quantity! , cartItem  , '-')"
-                        [disabled]=" cartItem.quantity == 1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#999" viewBox="0 0 24 24">
-                            <path d="M19 13H5v-2h14v2z"></path>
-                        </svg>
-                    </button>
-                    <input class="form-control text-center" placeholder="" [value]="cartItem.quantity">
-                    <button class="btn btn-icon btn-light" type="button"
+                        [disabled]=" cartItem.quantity == 1"
+                        >
+                            <span>-</span>
+                        </button>
+                        <div class="quantity-number">{{cartItem.quantity}}</div>
+                        <button type="button" class="btn btn-quantity"
                         (click)="updateCartItemQuantity(cartItem.quantity! , cartItem  , '+')">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#999" viewBox="0 0 24 24">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
-                        </svg>
-                    </button>
+                            <span>+</span>
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="item-close-btn">
