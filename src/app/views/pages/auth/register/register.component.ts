@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
     this._auth.register(this.registerForm.name.value,this.registerForm.email.value, this.registerForm.password.value).subscribe(
       (user) => {
         this.authError = false;
-        this._router.navigate(['/']);
+        this._router.navigate(['/auth']);
       },
       (error: HttpErrorResponse) => {
         console.log(error)
