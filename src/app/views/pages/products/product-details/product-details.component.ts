@@ -3,6 +3,9 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CarouselService } from 'ngx-owl-carousel-o/lib/services/carousel.service';
 import { ProductService } from '../services/product.service';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from '../../services/cart.service';
+import { CartItem } from '../../models/cart';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-product-details',
@@ -11,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailsComponent implements OnInit {
   backgroundPos: string = 'center center';
-  startPosition:number = 0; // Position of active Slide
+  startPosition: number = 0; // Position of active Slide
   @ViewChild("myCarousel") myCarousel!: ElementRef;  // slider One Big Image
   slider1Settings: OwlOptions = {
     loop: true,
@@ -36,7 +39,7 @@ export class ProductDetailsComponent implements OnInit {
       }
     },
     nav: false,
-    startPosition:this.startPosition
+    startPosition: this.startPosition
   }
   slider2Settings: OwlOptions = {
     loop: true,
@@ -66,9 +69,18 @@ export class ProductDetailsComponent implements OnInit {
     // animateOut: 'slideOutUp',
     // animateIn: 'slideInUp'
   }
-  product:any
-  productId!:number
-  constructor(private _productService: ProductService , private _route: ActivatedRoute) { }
+  product: any
+  productId!: number
+  imgNotFounded: boolean = false;
+  cartList!: CartItem[];
+  quantity!: number
+  constructor(
+    private _productService: ProductService,
+    private _cartService: CartService,
+    private _route: ActivatedRoute,
+    private _toast: HotToastService
+
+  ) { }
 
   // ZoomImage
   ZoomImage(event: any) {
@@ -79,27 +91,90 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   // next Slide {{slider2}}
-  nextSlide(event:any) {
-    if(event.dragging == false){
+  nextSlide(event: any) {
+    if (event.dragging == false) {
       this.startPosition = event.data.startPosition; // Position of active Slide
       const anyService = this.myCarousel as any;
       const carouselService = anyService.carouselService as CarouselService;
-      carouselService.to(this.startPosition,3)
+      carouselService.to(this.startPosition, 3)
     }
   }
 
   // get Single Product
-  getproduct(){
+  getproduct() {
     this._route.params.subscribe(params => {
       this.productId = params['id'];
-    }); 
-    this._productService.getSingleProduct(this.productId).subscribe((data)=>{
+    });
+    this._productService.getSingleProduct(this.productId).subscribe((data) => {
       this.product = data;
+      console.log(data)
+      if (data.images.length == 1) {
+        this.imgNotFounded = true
+      }
     })
   }
+  /*
+    ----------------------------------
+    ========= get CartList ===========
+    ----------------------------------
+  */
+  getCartList() {
+    this._cartService.cart$.subscribe((cart) => {
+      this.cartList = cart.items!;
+    });
+  }
+  /*
+    ----------------------------------
+    ====== product In CartList =======
+    ----------------------------------
+  */
+  productInCartList(product: any) {
+    // return true
+    const cartItemExist = this.cartList.find((item) => item.product.id === product.id);
+    this.quantity = cartItemExist?.quantity || 0
+    return cartItemExist;
+  }
 
+  /*
+    ----------------------------------
+    ==== update CartItem Quantity ====
+    ----------------------------------
+  */
+  updateCartItemQuantity(value: number, product:any, operation: string) {
+    if (operation == "+") {
+      value++;
+    } else {
+      value--;
+    }
+    this._cartService.setCartItem(
+      {
+        product: product,
+        quantity: value,
+      },
+      true
+    );
+  }
+
+  /*
+    ----------------------------------
+    ====== add Product To Cart =======
+    ----------------------------------
+  */
+    addProductToCart(item: any) {
+      const cartItem: CartItem = {
+        product: item,
+        quantity: 1
+      };
+      this._cartService.setCartItem(cartItem);
+      this._toast.success('Product added to cart successfully',
+        {
+          position: 'bottom-left'
+        });
+  
+    }
   ngOnInit(): void {
     this.getproduct();
+    this.getCartList();
   }
 
 }

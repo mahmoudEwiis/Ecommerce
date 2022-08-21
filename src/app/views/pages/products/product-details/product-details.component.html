@@ -25,14 +25,14 @@
                             <figure class="zoom-image"
                                 style="background-image: url({{slide}});"
                                 [style.backgroundPosition]="backgroundPos" (mousemove)="ZoomImage($event)">
-                                <img class="rounded" src="{{slide}}" alt="clothes" onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'">
+                                <img class="rounded" src="{{slide}}" alt="clothes" onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'; imgNotFounded=true">
                             </figure>
                         </ng-template>
                     </ng-container>
                 </owl-carousel-o>
-                <owl-carousel-o id="controll" [options]="slider2Settings" (dragging)="nextSlide($event)">
+                <owl-carousel-o id="controll" [options]="slider2Settings" (dragging)="nextSlide($event)" *ngIf="!imgNotFounded">
                     <ng-container *ngFor="let slide of product.images">
-                        <ng-template carouselSlide [id]="slide.id">
+                        <ng-template carouselSlide [id]="slide.id" >
                             <img class="rounded" width="97" src="{{slide}}" alt="clothes" onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'">
                         </ng-template>
                     </ng-container>
@@ -78,9 +78,7 @@
                     <p>
                         {{
                         product.description ||
-                        ' Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, quos aspernatur eum dolor
-                        reprehenderit eos et libero debitis itaque voluptatem! Laudantium modi sequi, id numquam
-                        liberosed quaerat. Eligendi, ipsum!'
+                        ' Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, quos aspernatur eum dolorr eprehenderit eos et libero debitis itaque voluptatem! Laudantium modi sequi, id numquam liberosed quaerat. Eligendi, ipsum!'
                         }}
                     </p>
 
@@ -109,28 +107,29 @@
                                 <option>Large</option>
                             </select>
                         </div> <!-- col.// -->
-                        <div class="col-md-4 col-6 mb-3">
+                        <div class="col-md-4 col-6 mb-3" *ngIf="productInCartList(product)">
                             <label class="form-label d-block">Quantity</label>
                             <div class="input-group input-spinner">
-                                <button class="btn btn-icon btn-light" type="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#999"
-                                        viewBox="0 0 24 24">
-                                        <path d="M19 13H5v-2h14v2z"></path>
-                                    </svg>
-                                </button>
-                                <input class="form-control text-center" placeholder="" value="14">
-                                <button class="btn btn-icon btn-light" type="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#999"
-                                        viewBox="0 0 24 24">
-                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
-                                    </svg>
-                                </button>
+                                <div class="quantity-selector">
+                                    <button type="button" class="btn  btn-quantity"
+                                    (click)="updateCartItemQuantity(quantity , product  , '-')"
+                                    [disabled]=" quantity == 1"
+                                    >
+                                        <span>-</span>
+                                    </button>
+                                    <div class="quantity-number">{{quantity}}</div>
+                                    <button type="button" class="btn btn-quantity"
+                                    (click)="updateCartItemQuantity(quantity! , product  , '+')">
+                                        <span>+</span>
+                                    </button>
+                                </div>
                             </div> <!-- input-group.// -->
                         </div> <!-- col.// -->
                     </div> <!-- row.// -->
 
-                    <a href="#" class="btn  btn-warning me-2"> Buy now </a>
-                    <a href="#" class="btn  btn-primary me-2"> <i class="me-1 fa fa-shopping-basket"></i> Add to cart
+                    <a href="#" class="btn  btn-warning me-2" (click)="$event.preventDefault(); addProductToCart(product)">
+                        <i class="me-1 fa fa-shopping-basket"></i>
+                        Add to cart
                     </a>
                     <a href="#" class="btn  btn-light me-2"> <i class="me-1 fa fa-heart text-danger"></i> Save </a>
 
