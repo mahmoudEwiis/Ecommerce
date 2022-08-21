@@ -1,8 +1,8 @@
 <article class="card card-product-list" *ngFor="let item of WishItems">
     <div class="row g-0  align-items-center">
-        <aside class="col-xl-3 col-lg-4 col-md-12 col-12">
+        <aside class="col-xl-3 col-lg-4 col-md-12 col-12 text-center">
             <a href="#" class="img-wrap">
-                <img class=" rounded" [src]="item.product.images[0]">
+                <img class=" rounded" [src]="item.product.images[0]" onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'">
             </a>
         </aside>
 
@@ -14,10 +14,10 @@
                 <div class="rating-wrap mb-2">
                     <ul class="rating-stars">
                         <li class="stars-active" style="width: 90%;">
-                            <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/misc/stars-active.svg" alt="">
+                            <img src="assets/images/stars-active.svg" alt="">
                         </li>
                         <li>
-                            <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/misc/starts-disable.svg" alt="">
+                            <img src="assets/images/starts-disable.svg" alt="">
                         </li>
                     </ul>
                     <span class="label-rating text-warning">4.5</span>
