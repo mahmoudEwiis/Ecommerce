@@ -300,3 +300,11 @@ h1, h2, h3, h4, h5, h6 {
 .input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
     border: none;
 }
+/*
+    ----------------
+    ===== Table ====
+    ----------------
+*/
+/* .table-sm>:not(caption)>*>* {
+    padding: 0.25rem 1.25rem;
+} */

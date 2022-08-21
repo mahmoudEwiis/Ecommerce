@@ -42,7 +42,8 @@
                             <h3 class="text-12 mb-4">Sign In</h3>
                             <form id="loginForm" [formGroup]="loginFormGroup">
                                 <label class="form-label fw-500" for="emailAddress">Email Address</label>
-                                <div  [classList]="loginForm.email.invalid && isSubmitted?'input-group':'mb-3 input-group'">
+                                <div
+                                    [classList]="loginForm.email.invalid && isSubmitted?'input-group':'mb-3 input-group'">
                                     <input type="email" class="form-control bg-light border-light" id="emailAddress"
                                         [class.is-invalid]="loginForm.email.invalid && isSubmitted"
                                         placeholder="Email or Username" formControlName="email">
@@ -55,7 +56,8 @@
                                     <span *ngIf="loginForm.email.errors?.email">Email is invalid</span>
                                 </small>
                                 <label class="form-label fw-500" for="loginPassword">Password</label>
-                                <div [classList]="loginForm.password.invalid && isSubmitted?'input-group':'mb-3 input-group'">
+                                <div
+                                    [classList]="loginForm.password.invalid && isSubmitted?'input-group':'mb-3 input-group'">
                                     <input [type]="passwordVisible?'text':'password'"
                                         class="form-control form-control-lg bg-light border-light" id="loginPassword"
                                         [class.is-invalid]="loginForm.password.invalid && isSubmitted" autocomplete
@@ -94,6 +96,18 @@
                                     Not a member? <a routerLink="/auth/register">Sign Up now</a>
                                 </p>
                             </form>
+                            <table class="table table-sm table-dark rounded mt-3">
+                                <tbody>
+                                    <tr class="p-2">
+                                        <th scope="row">Email Address</th>
+                                        <td>john@mail.com</td>                                        
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">Password</td>
+                                        <td>changeme</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
