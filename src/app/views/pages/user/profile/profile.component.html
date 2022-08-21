@@ -10,7 +10,7 @@
             </div>
             <figcaption class="info d-flex justify-content-between align-items-center">
                 <h6 class="title">{{profile.name}}</h6>
-                <button class="btn btn-warning rounded py-2 px-1">
+                <button class="btn btn-warning rounded py-2 px-1" (click)="openEditModal(profile)">
                     <i class="fa fa-pen px-2"></i>
                 </button>
             </figcaption>
@@ -54,3 +54,55 @@
         </div>
     </div>
 </article>
+
+
+<!-- 
+    ----------------------------------
+    =========== Edit Modal ===========
+    ----------------------------------
+ -->
+<div class="modal fade" [class.show]="isVisable" id="EditModal" tabindex="-1" role="dialog"
+    aria-labelledby="EditModalLabel" [style]="isVisable?'display: block;':''">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="EditModalLabel">Edit User Data</h5>
+                <button type="button text-muted" class="close" data-dismiss="modal" aria-label="Close"
+                    (click)="closeEditModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="editUserFormGroup">
+                    <div class="form-group">
+                        <label for="fullName" class="col-form-label">Full Name:</label>
+                        <input type="text" class="form-control" id="fullName" formControlName="name">
+                        <small *ngIf="editUserForm.name.invalid && isSubmitted" class="d-block text-danger">
+                            Name is required
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="emailAddress" class="col-form-label">Email Address:</label>
+                        <input type="email" class="form-control" id="emailAddress" formControlName="email">
+                        <small *ngIf="editUserForm.email.invalid && isSubmitted" class=" d-block text-danger">
+                            <span *ngIf="editUserForm.email.errors?.required">Email is required</span>
+                            <span *ngIf="editUserForm.email.errors?.email">Email is invalid</span>
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="userRole" class="col-form-label">Role:</label>
+                        <input type="text" class="form-control" id="userRole" formControlName="role">
+                        <small *ngIf="editUserForm.name.invalid && isSubmitted" class="d-block text-danger">
+                            role is required
+                        </small>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                    (click)="closeEditModal()">Cancel</button>
+                <button class="btn btn-warning" type="submit" (click)="onSubmit()">Eidt</button>
+            </div>
+        </div>
+    </div>
+</div>

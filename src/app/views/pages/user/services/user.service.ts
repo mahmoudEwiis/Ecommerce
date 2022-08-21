@@ -24,8 +24,12 @@ export class UserService {
   getUser(): Observable<any> {
     return this._http.get<any>(`${environment.api}v1/auth/profile`);
   }
-
-  updateUser(user: any): Observable<any> {
-    return this._http.put<any>(`${environment.api}/${user.id}`, user);
-  }
+  /*
+    ----------------------------
+    ===== Api Not Work =========
+    ----------------------------
+  */ 
+  // updateUser(user: any): Observable<any> {
+  //   return this._http.put<any>(`${environment.api}/v1/users/1`, user);
+  // }
 }
