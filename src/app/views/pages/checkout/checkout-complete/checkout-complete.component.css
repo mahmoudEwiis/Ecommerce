@@ -19,16 +19,19 @@
     line-height: 80px;
     margin-left: -8px;
 }
+
 .checkout-complete-header {
     margin-bottom: 1.5em;
 }
+
 .checkout-complete-header h4 {
     color: #0d0d0d;
     font-size: 1.25em;
     font-weight: 700;
     line-height: 1.5em;
 }
-.checkout-complete-header p{
+
+.checkout-complete-header p {
     font-size: 1.2rem;
 }
 
@@ -48,4 +51,29 @@
 
 #checkout-complete .checkout-complete-summary .item:first-child {
     border-left-width: 0;
+}
+
+@media only screen and (max-width: 767px) {
+
+    #checkout-complete {
+        margin-top: 0.3em;
+        text-align: center;
+        max-width: 89%;
+    }
+    .checkout-complete-header p {
+        font-size: 14px;
+    }
+    #checkout-complete .checkout-complete-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #checkout-complete .checkout-complete-summary .item {
+        padding: 0.625em 1.25em;
+    }
+
+    #checkout-complete .checkout-complete-summary .item h5 {
+        font-size: 0.83rem;
+        white-space: nowrap;
+        margin-bottom: 0;
+    }
 }

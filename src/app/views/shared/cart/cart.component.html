@@ -55,7 +55,7 @@
                 <img [src]="cartItem.product.images[0]" onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'" alt="product_image">
             </div>
             <div class="item-description">
-                <a href="/product/fold-over-collar-plain-blazers-2" class="item-title">
+                <a href="/products/Products-details/{{cartItem.product.id}}" class="item-title">
                     {{cartItem.product.title}}
                 </a>
                 <h5 class="item-price">${{cartItem.product.price}}</h5>
