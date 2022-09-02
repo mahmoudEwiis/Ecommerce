@@ -325,12 +325,14 @@ main .card-banner {
         margin-top: 0px;
         margin-bottom: 6px;
     }
+
     .product-name span.item-title {
         width: 110px;
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
     }
+
     .product .product-image .btn-product-quickview {
         opacity: 1;
         visibility: visible;
@@ -356,6 +358,49 @@ main .card-banner {
     }
 }
 
+@media(min-width: 1000px) and (max-width: 1100px) {
+
+    .card-banner.gift .card-body img {
+        margin-top: 35px;
+    }
+
+    .card-banner.gift .card-body p {
+        font-size: 12px;
+    }
+
+    .card-banner.gift .card-body a {
+        font-size: 11px;
+    }
+
+    .icon-square {
+        width: 2.8rem;
+        height: 2.8rem;
+    }
+
+    .icon-square svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .pt-2 {
+        padding-top: 0.6rem !important;
+    }
+
+    .feature p {
+        font-size: 17px;
+    }
+
+    .section-heading .filter-container {
+        flex-basis: 31%;
+    }
+
+    .product-name span.item-title {
+        width: 115px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+}
 
 a:focus, a:active, .btn.active.focus,
 .btn.active:focus, .btn.focus,

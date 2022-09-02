@@ -314,6 +314,20 @@
     font-size: .75em;
     cursor: default;
 }
+
+@media(min-width: 1000px) and (max-width: 1100px) {
+    .sidebar {
+        right: -40vw;
+        width: 40vw;
+    }
+}
+
+@media(min-width: 1200px) and (max-width: 1380px) {
+    .sidebar {
+        right: -32vw;
+        width: 32vw;
+    }
+}
 /*
     ----------------------------------------
     ========== Cofirm Modal style ==========

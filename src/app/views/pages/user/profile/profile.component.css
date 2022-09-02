@@ -67,3 +67,11 @@
     background: transparent;
     font-size: 26px;
 }
+/* 
+
+
+article.box.bg-light.Address {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} */
