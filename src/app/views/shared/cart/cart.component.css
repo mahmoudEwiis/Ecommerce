@@ -314,7 +314,16 @@
     font-size: .75em;
     cursor: default;
 }
-
+@media(min-width: 767px) and (max-width: 980px) {
+    .sidebar {
+        right: -49vw;
+        width: 49vw;
+    }
+    .btn-close {
+    
+        margin-left: 41%;
+    }
+}
 @media(min-width: 1000px) and (max-width: 1100px) {
     .sidebar {
         right: -40vw;
