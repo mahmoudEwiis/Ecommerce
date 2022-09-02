@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HotToastService } from '@ngneat/hot-toast';
 import { AuthService } from '../services/auth.service';
 import { LocalstorageService } from '../services/localstorage.service';
 
@@ -20,7 +21,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private _auth: AuthService,
-    private _localstorageService: LocalstorageService,
+    private _toast: HotToastService,
     private _router: Router
   ) { }
   initRegisterForm() {
@@ -35,7 +36,15 @@ export class RegisterComponent implements OnInit {
 
     if (this.registerFormGroup.invalid) return;
 
-    this._auth.register(this.registerForm.name.value,this.registerForm.email.value, this.registerForm.password.value).subscribe(
+    this._auth.register(this.registerForm.name.value,this.registerForm.email.value, this.registerForm.password.value).pipe(
+      this._toast.observe(
+        {
+          loading: 'Logging in...',
+          success: 'Congrats! You are registered',
+          error: ({ error }) => `There was an error: ${error.message} `
+        }
+      ),
+      ).subscribe(
       (user) => {
         this.authError = false;
         this._router.navigate(['/auth']);
@@ -44,7 +53,7 @@ export class RegisterComponent implements OnInit {
         console.log(error)
         this.authError = true;
         if (error.status !== 400) {
-          this.authMessage = 'Error in the Server, please try again later!';
+          this.authMessage = error.message;
         }
       }
     );

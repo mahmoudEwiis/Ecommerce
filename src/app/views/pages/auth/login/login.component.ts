@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { LocalstorageService } from '../services/localstorage.service';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private _auth: AuthService,
     private _localstorageService: LocalstorageService,
+    private _toast: HotToastService,
     private _router: Router
   ) {}
 
@@ -35,7 +37,15 @@ export class LoginComponent implements OnInit {
 
     if (this.loginFormGroup.invalid) return;
 
-    this._auth.login(this.loginForm.email.value, this.loginForm.password.value).subscribe(
+    this._auth.login(this.loginForm.email.value, this.loginForm.password.value).pipe(
+      this._toast.observe(
+        {
+          loading: 'Logging in...',
+          success: 'Logged in successfully',
+          error: ({ error }) => `There was an error: ${error.message} `
+        }
+      ),
+      ).subscribe(
       (user) => {
         this.authError = false;
         this._localstorageService.setToken(user.access_token);
@@ -44,7 +54,7 @@ export class LoginComponent implements OnInit {
       (error: HttpErrorResponse) => {
         this.authError = true;
         if (error.status !== 400) {
-          this.authMessage = 'Error in the Server, please try again later!';
+          this.authMessage = error.message;
         }
       }
     );
