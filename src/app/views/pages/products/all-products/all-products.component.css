@@ -47,6 +47,7 @@ main .card-banner {
 
 .feature p {
     font-size: 20px;
+    width: 240px;
 }
 
 .feature:nth-child(2):before, .feature:nth-child(3):before {
@@ -302,9 +303,7 @@ main .card-banner {
 
 @media only screen and (max-width: 767px) {
 
-    /* main .card-banner{
-        background: url("") ;
-    } */
+
     .card-banner.p-5 {
         padding: 2rem !important;
     }
@@ -316,7 +315,9 @@ main .card-banner {
     header.section-heading {
         display: block !important;
     }
-
+    .feature:nth-child(2):before, .feature:nth-child(3):before {
+        display: none;
+    }
     .section-heading .filter-container {
         display: block !important;
     }
@@ -347,11 +348,20 @@ main .card-banner {
     }
 }
 
-/* @media only screen and (max-width: 992px)
-.product.-style-one .product-image .product-qv {
-    opacity: 1;
-    visibility: visible;
-} */
+@media(min-width: 767px) and (max-width: 980px) {
+    .w-50 {
+        width: 30%!important;
+    }
+    .card-banner.gift .card-body a {
+        margin-bottom: 20px;
+    }
+    .section-heading .filter-container {
+        flex-basis: 42%;
+    }
+    .feature:nth-child(2):before, .feature:nth-child(3):before {
+        display: none;
+    }
+}
 @media (min-width: 992px) {
     .col-lg-2 {
         width: 20%;
