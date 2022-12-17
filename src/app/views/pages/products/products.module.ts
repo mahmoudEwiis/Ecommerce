@@ -17,15 +17,10 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'Products',
-        pathMatch: 'full',
-      },
-      {
-        path: 'Products',
         component: AllProductsComponent,
       },
       {
-        path: 'Products-details/:id',
+        path: 'product/:id',
         component: ProductDetailsComponent,
       },
     ],

@@ -99,7 +99,7 @@
                 *ngFor="let item of products | filter : fliterValue">
                 <div class="product">
                     <div class="product-image">
-                        <a style="height: 227px;" routerLink="/products/Products-details/{{item.id}}">
+                        <a style="height: 227px;" routerLink="/products/product/{{item.id}}">
                             <img [src]="item.images[0]" alt="Product_image"
                                 onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'">
                             <img [src]="item.images[1]" alt="Product_image"
