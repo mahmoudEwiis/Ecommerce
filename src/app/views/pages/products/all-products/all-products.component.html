@@ -1,7 +1,28 @@
+<!-- <ngx-skeleton-loader count="5" appearance="circle"></ngx-skeleton-loader>
+<ngx-skeleton-loader count="1" [theme]="{ 
+  'border-radius': '5px',
+  height: '50px',
+  'background-color': '#992929',
+  border: '1px solid white'
+}"></ngx-skeleton-loader>
+
+<ngx-skeleton-loader  [theme]="{ 'border-radius': '0', height: '40px' }"></ngx-skeleton-loader> -->
+
 <section class="section-intro pt-3">
     <div class="container">
 
         <div class="row gx-3">
+            <!-- <div class="col-md-3">
+                <ngx-skeleton-loader [theme]="{ 'border-radius': '0', height: '150px' }"></ngx-skeleton-loader>
+                <ngx-skeleton-loader count="2"  [theme]="{ 'border-radius': '0', height: '25px' }"></ngx-skeleton-loader>
+
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="w-50">
+                        <ngx-skeleton-loader  [theme]="{ 'border-radius': '0', height: '28px' }"></ngx-skeleton-loader>
+                    </div>
+                    <ngx-skeleton-loader appearance="circle" [theme]="{ width: '29px', height: '29px' , margin: '1px' }"></ngx-skeleton-loader>
+                </div>
+            </div> -->
             <main class="col-lg-9">
                 <article class="card-banner p-5 " style="height: 350px;">
                     <div style="max-width: 500px">
@@ -97,55 +118,7 @@
         <div class="row">
             <div class="col-6 col-sm-8 col-md-6 col-lg-2" style="padding: 15px 7.5px;"
                 *ngFor="let item of products | filter : fliterValue">
-                <div class="product">
-                    <div class="product-image">
-                        <a style="height: 227px;" routerLink="/products/product/{{item.id}}">
-                            <img [src]="item.images[0]" alt="Product_image"
-                                onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'">
-                            <img [src]="item.images[1]" alt="Product_image"
-                                onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'">
-                        </a>
-                        <p class="product-sale" *ngIf="(item.id)%3==0">Sale</p>
-                        <button type="button" class="btn-favourite btn-circle "
-                            [class.is-favourite]='productInWishList(item)'
-                            (click)="addProductToWishList(item , $event)">
-                            <i class="fa-solid fa-heart"></i>
-                        </button>
-                        <!-- <button type="button" class="btn-product-quickview">
-                            <span>Quick view</span>
-                        </button> -->
-                    </div>
-                    <div class="product-content">
-                        <a class="product-name d-flex justify-content-between align-items-center"
-                            routerLink="/products/Products-details/{{item.id}}">
-                            <span class="item-title">{{item.title}}</span>
-                            <span class="badge badge-pill bg-warning p-1">{{item.category.name}}</span>
-                        </a>
-                        <div class="ratting">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-
-
-                        <div class="product-content__footer">
-                            <div class="product-content__footer-price">
-                                <h5 class="product-price">${{item.price}}</h5>
-                                <span *ngIf="(item.id)%3==0">$59.99</span>
-                            </div>
-                            <span class="product-atc rounded-circle">
-                                <button type="button" class="btn btn-circle text-muted"
-                                    (click)="addProductToCart(item)">
-                                    <!-- <i class="icon_bag_alt"></i> -->
-                                    <!-- <i class="fa-solid fa-clipboard"></i> -->
-                                    <i class="fa fa-shopping-cart"></i>
-                                </button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
+                <app-product [product]="item"></app-product>
             </div>
             <div class="col-12">
                 <nav aria-label="Page navigation">
@@ -176,6 +149,3 @@
 
     </div> <!-- container end.// -->
 </section>
-
-
-

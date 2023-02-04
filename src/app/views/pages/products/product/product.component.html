@@ -1,0 +1,49 @@
+<div class="product">
+    <div class="product-image">
+        <a style="height: 227px;" routerLink="/products/product/{{product.id}}">
+            <img [src]="product.images[0]" alt="Product_image"
+                onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'">
+            <img [src]="product.images[1]" alt="Product_image"
+                onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'">
+        </a>
+        <p class="product-sale" *ngIf="(product.id)%3==0">Sale</p>
+        <button type="button" class="btn-favourite btn-circle "
+            [class.is-favourite]='productInWishList(product)'
+            (click)="addProductToWishList(product , $event)">
+            <i class="fa-solid fa-heart"></i>
+        </button>
+        <!-- <button type="button" class="btn-product-quickview">
+            <span>Quick view</span>
+        </button> -->
+    </div>
+    <div class="product-content">
+        <a class="product-name d-flex justify-content-between align-items-center"
+            routerLink="/products/Products-details/{{product.id}}">
+            <span class="item-title">{{product.title}}</span>
+            <span class="badge badge-pill bg-warning p-1">{{product.category.name}}</span>
+        </a>
+        <div class="ratting">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+        </div>
+
+
+        <div class="product-content__footer">
+            <div class="product-content__footer-price">
+                <h5 class="product-price">${{product.price}}</h5>
+                <span *ngIf="(product.id)%3==0">$59.99</span>
+            </div>
+            <span class="product-atc rounded-circle">
+                <button type="button" class="btn btn-circle text-muted"
+                    (click)="addProductToCart(product)">
+                    <!-- <i class="icon_bag_alt"></i> -->
+                    <!-- <i class="fa-solid fa-clipboard"></i> -->
+                    <i class="fa fa-shopping-cart"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>

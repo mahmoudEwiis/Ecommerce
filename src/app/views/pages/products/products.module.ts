@@ -9,6 +9,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductsComponent } from './products.component';
 import { FilterPipe } from './pipe/filter.pipe';
 
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
   {
@@ -31,13 +33,15 @@ const routes: Routes = [
     AllProductsComponent,
     ProductsComponent,
     ProductDetailsComponent,
-    FilterPipe
+    FilterPipe,
+    ProductComponent
   ],
   imports: [
     CommonModule,
     CarouselModule,
     FormsModule,
     RouterModule.forChild(routes),
+    NgxSkeletonLoaderModule
   ]
 })
 
