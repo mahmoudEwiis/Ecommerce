@@ -1,28 +1,9 @@
-<!-- <ngx-skeleton-loader count="5" appearance="circle"></ngx-skeleton-loader>
-<ngx-skeleton-loader count="1" [theme]="{ 
-  'border-radius': '5px',
-  height: '50px',
-  'background-color': '#992929',
-  border: '1px solid white'
-}"></ngx-skeleton-loader>
-
-<ngx-skeleton-loader  [theme]="{ 'border-radius': '0', height: '40px' }"></ngx-skeleton-loader> -->
 
 <section class="section-intro pt-3">
     <div class="container">
 
         <div class="row gx-3">
-            <!-- <div class="col-md-3">
-                <ngx-skeleton-loader [theme]="{ 'border-radius': '0', height: '150px' }"></ngx-skeleton-loader>
-                <ngx-skeleton-loader count="2"  [theme]="{ 'border-radius': '0', height: '25px' }"></ngx-skeleton-loader>
 
-                <div class="d-flex align-items-center justify-content-between">
-                    <div class="w-50">
-                        <ngx-skeleton-loader  [theme]="{ 'border-radius': '0', height: '28px' }"></ngx-skeleton-loader>
-                    </div>
-                    <ngx-skeleton-loader appearance="circle" [theme]="{ width: '29px', height: '29px' , margin: '1px' }"></ngx-skeleton-loader>
-                </div>
-            </div> -->
             <main class="col-lg-9">
                 <article class="card-banner p-5 " style="height: 350px;">
                     <div style="max-width: 500px">
@@ -115,7 +96,7 @@
             </div>
         </header>
 
-        <div class="row">
+        <div class="row" *ngIf="products.length">
             <div class="col-6 col-sm-8 col-md-6 col-lg-2" style="padding: 15px 7.5px;"
                 *ngFor="let item of products | filter : fliterValue">
                 <app-product [product]="item"></app-product>
@@ -145,7 +126,20 @@
                     </ul>
                 </nav>
             </div>
-        </div> <!-- row end.// -->
+        </div>
+        <div class="row"  *ngIf="!products.length" >
+            <div class="col-md-3" *ngFor="let item of items">
+                <ngx-skeleton-loader [theme]="{ 'border-radius': '0', height: '150px' }"></ngx-skeleton-loader>
+                <ngx-skeleton-loader count="2"  [theme]="{ 'border-radius': '0', height: '25px' }"></ngx-skeleton-loader>
+    
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="w-50">
+                        <ngx-skeleton-loader  [theme]="{ 'border-radius': '0', height: '28px' }"></ngx-skeleton-loader>
+                    </div>
+                    <ngx-skeleton-loader appearance="circle" [theme]="{ width: '29px', height: '29px' , margin: '1px' }"></ngx-skeleton-loader>
+                </div>
+            </div>
+        </div>
 
     </div> <!-- container end.// -->
 </section>

@@ -18,7 +18,8 @@ export class AllProductsComponent implements OnInit {
   numberOfPages: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   isFavourite: boolean = false;
   WishItems!: WishItem[];
-  fliterValue:string = "Default"
+  fliterValue:string = "Default";
+  items =[ 1 , 2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,20]
   constructor(
     private _product: ProductService,
     private _cartService: CartService,
