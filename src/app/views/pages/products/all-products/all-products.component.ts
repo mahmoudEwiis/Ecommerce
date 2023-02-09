@@ -20,6 +20,11 @@ export class AllProductsComponent implements OnInit {
   WishItems!: WishItem[];
   fliterValue:string = "Default";
   items =[ 1 , 2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,20]
+  
+  throttle = 300;
+  scrollDistance = 1;
+  scrollUpDistance = 2;
+  limit: number = 30;
   constructor(
     private _product: ProductService,
     private _cartService: CartService,
@@ -32,18 +37,22 @@ export class AllProductsComponent implements OnInit {
     =========== get Page =============
     ----------------------------------
   */
-  getAllProducts(number: number) {
-    if (number == 1) {
-      this._product.getProduct(0).subscribe((data) => {
-        this.products = data
-      })
-    } else {
-      this._product.getProduct(number * 20).subscribe((data) => {
-        this.products = data
-      })
-    }
-    window.scroll(0, 500);
-    this.PageNumber = number;
+  getAllProducts(offset: number , limit: number  ) {
+    this._product.getProduct(offset , limit).subscribe((data) => {
+
+      this.products = [...this.products , ...data]
+    })
+    // if (number == 1) {
+    //   this._product.getProduct(0).subscribe((data) => {
+    //     this.products = data
+    //   })
+    // } else {
+    //   this._product.getProduct(number * 20).subscribe((data) => {
+    //     this.products = data
+    //   })
+    // }
+    // window.scroll(0, 500);
+    // this.PageNumber = number;
   }
 
   /*
@@ -51,30 +60,30 @@ export class AllProductsComponent implements OnInit {
     ========= get Next Page ==========
     ----------------------------------
   */
-  nextPage() {
-    if (this.PageNumber == 9) {
-      this.PageNumber = 1;
-    } else {
-      this.PageNumber++;
-    }
-    this.getAllProducts(this.PageNumber);
+  // nextPage() {
+  //   if (this.PageNumber == 9) {
+  //     this.PageNumber = 1;
+  //   } else {
+  //     this.PageNumber++;
+  //   }
+  //   this.getAllProducts(this.PageNumber);
 
-  }
+  // }
 
   /*
     ----------------------------------
     ======= get Provous Page =========
     ----------------------------------
   */
-  provPage() {
-    if (this.PageNumber == 1) {
-      this.PageNumber = 9;
-    } else {
-      this.PageNumber--;
-    }
-    this.getAllProducts(this.PageNumber);
+  // provPage() {
+  //   if (this.PageNumber == 1) {
+  //     this.PageNumber = 9;
+  //   } else {
+  //     this.PageNumber--;
+  //   }
+  //   this.getAllProducts(this.PageNumber);
 
-  }
+  // }
   
   /*
     ----------------------------------
@@ -131,14 +140,21 @@ export class AllProductsComponent implements OnInit {
     const cartItemExist = this.WishItems.find((item) => item.product.id === itm.id);
     return cartItemExist;
   }
+
   getWishList() {
     this._wishlistService.wishList$.subscribe((cart) => {
       this.WishItems = cart.items!;
     });
   }
+  onScroll() {
+    const offset = this.limit; 
+    this.limit = (this.limit * 1.07) == 178 || (this.limit * 1.07) > 178 ? 178 : this.limit * 1.07;
+    console.log(Math.floor(this.limit))
+    this.getAllProducts( Math.floor(offset), Math.floor(this.limit)) ;
+  }
 
   ngOnInit(): void {
-    this.getAllProducts(this.PageNumber);
+    this.getAllProducts(0,this.limit);
     this.getWishList();
   }
 

@@ -80,7 +80,11 @@
     </div>
 </section>
 <section class="padding-y">
-    <div class="container">
+    <div class="container"      infinite-scroll
+    [infiniteScrollDistance]="scrollDistance"
+    [infiniteScrollUpDistance]="scrollUpDistance"
+    [infiniteScrollThrottle]="throttle"
+    (scrolled)="onScroll()">
 
         <header class="section-heading  d-flex justify-content-between align-items-center">
             <h4 class="section-title text-muted">Showing 1 - 20 Products</h4>
@@ -96,12 +100,12 @@
             </div>
         </header>
 
-        <div class="row" *ngIf="products.length">
+        <div class="row">
             <div class="col-6 col-sm-8 col-md-6 col-lg-2" style="padding: 15px 7.5px;"
                 *ngFor="let item of products | filter : fliterValue">
                 <app-product [product]="item"></app-product>
             </div>
-            <div class="col-12">
+            <!-- <div class="col-12">
                 <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">
                         <li class="page-item">
@@ -125,9 +129,9 @@
                         </li>
                     </ul>
                 </nav>
-            </div>
+            </div> -->
         </div>
-        <div class="row"  *ngIf="!products.length" >
+        <div class="row"  *ngIf="!products.length">
             <div class="col-md-3" *ngFor="let item of items">
                 <ngx-skeleton-loader [theme]="{ 'border-radius': '0', height: '150px' }"></ngx-skeleton-loader>
                 <ngx-skeleton-loader count="2"  [theme]="{ 'border-radius': '0', height: '25px' }"></ngx-skeleton-loader>
@@ -141,5 +145,5 @@
             </div>
         </div>
 
-    </div> <!-- container end.// -->
+    </div>
 </section>

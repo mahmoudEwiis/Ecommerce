@@ -9,8 +9,8 @@ import { environment } from 'src/environments/environment';
 export class ProductService {
 
   constructor(private _HttpClient:HttpClient) { }
-  getProduct(number:number): Observable<any> {
-    return this._HttpClient.get<any>(`${environment.api}v1/products?offset=${number}&limit=20`)
+  getProduct(offset:number , limit:number): Observable<any> {
+    return this._HttpClient.get<any>(`${environment.api}v1/products?offset=${offset}&limit=${limit}`)
   }
   getSingleProduct(id:number): Observable<any> {
     return this._HttpClient.get<any>(`${environment.api}v1/products/${id}`)
