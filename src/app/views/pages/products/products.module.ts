@@ -11,6 +11,7 @@ import { FilterPipe } from './pipe/filter.pipe';
 
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { ProductComponent } from './product/product.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 const routes: Routes = [
   {
@@ -41,7 +42,8 @@ const routes: Routes = [
     CarouselModule,
     FormsModule,
     RouterModule.forChild(routes),
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
+    InfiniteScrollModule
   ]
 })
 

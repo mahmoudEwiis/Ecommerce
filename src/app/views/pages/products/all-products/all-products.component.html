@@ -1,28 +1,9 @@
-<!-- <ngx-skeleton-loader count="5" appearance="circle"></ngx-skeleton-loader>
-<ngx-skeleton-loader count="1" [theme]="{ 
-  'border-radius': '5px',
-  height: '50px',
-  'background-color': '#992929',
-  border: '1px solid white'
-}"></ngx-skeleton-loader>
-
-<ngx-skeleton-loader  [theme]="{ 'border-radius': '0', height: '40px' }"></ngx-skeleton-loader> -->
 
 <section class="section-intro pt-3">
     <div class="container">
 
         <div class="row gx-3">
-            <!-- <div class="col-md-3">
-                <ngx-skeleton-loader [theme]="{ 'border-radius': '0', height: '150px' }"></ngx-skeleton-loader>
-                <ngx-skeleton-loader count="2"  [theme]="{ 'border-radius': '0', height: '25px' }"></ngx-skeleton-loader>
 
-                <div class="d-flex align-items-center justify-content-between">
-                    <div class="w-50">
-                        <ngx-skeleton-loader  [theme]="{ 'border-radius': '0', height: '28px' }"></ngx-skeleton-loader>
-                    </div>
-                    <ngx-skeleton-loader appearance="circle" [theme]="{ width: '29px', height: '29px' , margin: '1px' }"></ngx-skeleton-loader>
-                </div>
-            </div> -->
             <main class="col-lg-9">
                 <article class="card-banner p-5 " style="height: 350px;">
                     <div style="max-width: 500px">
@@ -99,7 +80,11 @@
     </div>
 </section>
 <section class="padding-y">
-    <div class="container">
+    <div class="container"      infinite-scroll
+    [infiniteScrollDistance]="scrollDistance"
+    [infiniteScrollUpDistance]="scrollUpDistance"
+    [infiniteScrollThrottle]="throttle"
+    (scrolled)="onScroll()">
 
         <header class="section-heading  d-flex justify-content-between align-items-center">
             <h4 class="section-title text-muted">Showing 1 - 20 Products</h4>
@@ -120,7 +105,7 @@
                 *ngFor="let item of products | filter : fliterValue">
                 <app-product [product]="item"></app-product>
             </div>
-            <div class="col-12">
+            <!-- <div class="col-12">
                 <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">
                         <li class="page-item">
@@ -144,8 +129,21 @@
                         </li>
                     </ul>
                 </nav>
+            </div> -->
+        </div>
+        <div class="row"  *ngIf="!products.length">
+            <div class="col-md-3" *ngFor="let item of items">
+                <ngx-skeleton-loader [theme]="{ 'border-radius': '0', height: '150px' }"></ngx-skeleton-loader>
+                <ngx-skeleton-loader count="2"  [theme]="{ 'border-radius': '0', height: '25px' }"></ngx-skeleton-loader>
+    
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="w-50">
+                        <ngx-skeleton-loader  [theme]="{ 'border-radius': '0', height: '28px' }"></ngx-skeleton-loader>
+                    </div>
+                    <ngx-skeleton-loader appearance="circle" [theme]="{ width: '29px', height: '29px' , margin: '1px' }"></ngx-skeleton-loader>
+                </div>
             </div>
-        </div> <!-- row end.// -->
+        </div>
 
-    </div> <!-- container end.// -->
+    </div>
 </section>
