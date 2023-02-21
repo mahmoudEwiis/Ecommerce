@@ -5,15 +5,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Description
 This is an Angular e-commerce app that fetches data from an API and allows users to login with a token that expires after 1 hour. The app also uses the ngx-skeleton-loader library to handle data loading and ngx-infinite-scroll to load more products as the user scrolls down the page.
 
-## Built with
-* [Angular](https://angular.io/).
-* [Typescript](https://www.typescriptlang.org/)
-* [Ngneat/Hot-toast](https://ngneat.github.io/hot-toast/).
-* [Bootstrap](https://getbootstrap.com/).
-* [Fontawesome](https://fontawesome.com/).
-* [ngx-skeleton-loaderngx-skeleton-loader](https://www.npmjs.com/package/ngx-skeleton-loader).
-* [ngx-infinite-scroll](https://www.npmjs.com/package/ngx-infinite-scroll).
-
 ## Features
 
 * Login.
@@ -31,6 +22,14 @@ As the user scrolls down the page, the ngx-infinite-scroll library is used to lo
 When the user clicks on a product in the list, they are taken to a page that displays the details of a product when the user clicks on the product card. The product details page displays the product name, price, description, and a list of related products.
 
 
+## Built with
+* [Angular](https://angular.io/).
+* [Typescript](https://www.typescriptlang.org/)
+* [Ngneat/Hot-toast](https://ngneat.github.io/hot-toast/).
+* [Bootstrap](https://getbootstrap.com/).
+* [Fontawesome](https://fontawesome.com/).
+* [ngx-skeleton-loaderngx-skeleton-loader](https://www.npmjs.com/package/ngx-skeleton-loader).
+* [ngx-infinite-scroll](https://www.npmjs.com/package/ngx-infinite-scroll).
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
