@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Description
 <!-- This is an Angular e-commerce app that fetches data from an API and allows users to login with a token that expires after 1 hour. The app also uses the ngx-skeleton-loader library to handle data loading and ngx-infinite-scroll to load more products as the user scrolls down the page. -->
-This is an Angular E-commerce application that allows users to browse products, add products to cart or wishlist, and checkout products. The application fetches product data through an API and uses a token-based authentication system with an expiration time of 1 hour. It also implements the concept of lazy loading with the application divided into modules, including a user module where users can view and update their personal information.
+This is an Angular E-commerce application that allows users to browse products, add products to cart or wishlist, and checkout products. The application fetches product data through an API and uses a token-based authentication system with an expiration time of 20 days, and the refresh token is valid for 10 hours. It also implements the concept of lazy loading with the application divided into modules, including a user module where users can view and update their personal information.
 
 ## Features
 
@@ -23,7 +23,7 @@ This is an Angular E-commerce application that allows users to browse products, 
 
 Once the application is running, you can browse products, add products to cart or wishlist, and checkout products. You can also sort products by price or name. The application uses ngx-infinite-scroll to load more products as the user scrolls down the page.
 
-To use the application, you will need to create an account and log in. Once logged in, you will receive a JWT token that will be valid for 1 hour. After 1 hour, the token will expire, and you will need to log in again.
+To use the application, you will need to create an account and log in. Once logged in, you will receive a JWT token that will be valid for 20 days, and the refresh token is valid for 10 hours. After 20 days, the token will expire, and you will need to log in again.
 
 The application is divided into modules, including a user module where users can view and update their personal information. Lazy loading is used to optimize the loading of modules.
 
