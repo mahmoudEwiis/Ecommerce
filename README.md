@@ -50,6 +50,7 @@ When the user clicks on a product in the list, they are taken to a page that dis
 * [Fontawesome](https://fontawesome.com/).
 * [ngx-skeleton-loaderngx-skeleton-loader](https://www.npmjs.com/package/ngx-skeleton-loader).
 * [ngx-infinite-scroll](https://www.npmjs.com/package/ngx-infinite-scroll).
+* [rxjs](https://rxjs.dev/).
 
 ## Running the project
 
