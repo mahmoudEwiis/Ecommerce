@@ -131,8 +131,8 @@
                 </nav>
             </div> -->
         </div>
-        <div class="row"  *ngIf="!products.length">
-            <div class="col-md-3" *ngFor="let item of items">
+        <div class="row"  *ngIf="Loading">
+            <div class="col-6 col-sm-8 col-md-6 col-lg-2" *ngFor="let item of items">
                 <ngx-skeleton-loader [theme]="{ 'border-radius': '0', height: '150px' }"></ngx-skeleton-loader>
                 <ngx-skeleton-loader count="2"  [theme]="{ 'border-radius': '0', height: '25px' }"></ngx-skeleton-loader>
     

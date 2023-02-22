@@ -18,13 +18,14 @@ export class AllProductsComponent implements OnInit {
   numberOfPages: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   isFavourite: boolean = false;
   WishItems!: WishItem[];
-  fliterValue:string = "Default";
-  items =[ 1 , 2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,20]
-  
+  fliterValue: string = "Default";
+  items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20]
+  Loading: boolean = false;
+
   throttle = 300;
   scrollDistance = 1;
   scrollUpDistance = 2;
-  limit: number = 30;
+  limit: number = 20;
   constructor(
     private _product: ProductService,
     private _cartService: CartService,
@@ -32,16 +33,17 @@ export class AllProductsComponent implements OnInit {
     private _toast: HotToastService
   ) { }
 
-  /*
-    ----------------------------------
-    =========== get Page =============
-    ----------------------------------
-  */
-  getAllProducts(offset: number , limit: number  ) {
-    this._product.getProduct(offset , limit).subscribe((data) => {
 
-      this.products = [...this.products , ...data]
+  getAllProducts(offset: number, limit: number) {
+    this.Loading = true;
+    this._product.getProduct(offset, limit).subscribe((data) => {
+
+      setTimeout(() => {
+        this.products = [...this.products, ...data]
+        this.Loading = false;
+      }, 4000);
     })
+
     // if (number == 1) {
     //   this._product.getProduct(0).subscribe((data) => {
     //     this.products = data
@@ -55,11 +57,6 @@ export class AllProductsComponent implements OnInit {
     // this.PageNumber = number;
   }
 
-  /*
-    ----------------------------------
-    ========= get Next Page ==========
-    ----------------------------------
-  */
   // nextPage() {
   //   if (this.PageNumber == 9) {
   //     this.PageNumber = 1;
@@ -70,11 +67,7 @@ export class AllProductsComponent implements OnInit {
 
   // }
 
-  /*
-    ----------------------------------
-    ======= get Provous Page =========
-    ----------------------------------
-  */
+
   // provPage() {
   //   if (this.PageNumber == 1) {
   //     this.PageNumber = 9;
@@ -84,12 +77,8 @@ export class AllProductsComponent implements OnInit {
   //   this.getAllProducts(this.PageNumber);
 
   // }
-  
-  /*
-    ----------------------------------
-    ====== add Product To Cart =======
-    ----------------------------------
-  */
+
+
   addProductToCart(item: any) {
     const cartItem: CartItem = {
       product: item,
@@ -103,11 +92,6 @@ export class AllProductsComponent implements OnInit {
 
   }
 
-  /*
-    ----------------------------------
-    ======= add To Wish List =========
-    ----------------------------------
-  */
   addProductToWishList(item: any, event: any) {
     const WishItem: WishItem = {
       product: item
@@ -131,11 +115,6 @@ export class AllProductsComponent implements OnInit {
 
   }
 
-  /*
-    ----------------------------------
-    ====== Product In WishList =======
-    ----------------------------------
-  */
   productInWishList(itm: any) {
     const cartItemExist = this.WishItems.find((item) => item.product.id === itm.id);
     return cartItemExist;
@@ -146,15 +125,16 @@ export class AllProductsComponent implements OnInit {
       this.WishItems = cart.items!;
     });
   }
+
+
   onScroll() {
-    const offset = this.limit; 
-    this.limit = (this.limit * 1.07) == 178 || (this.limit * 1.07) > 178 ? 178 : this.limit * 1.07;
-    console.log(Math.floor(this.limit))
-    this.getAllProducts( Math.floor(offset), Math.floor(this.limit)) ;
+    const offset = this.limit;
+    this.limit = (this.limit + 20) == 178 || (this.limit + 20) > 178 ? 178 : this.limit + 20;
+    this.getAllProducts(Math.floor(offset), Math.floor(this.limit));
   }
 
   ngOnInit(): void {
-    this.getAllProducts(0,this.limit);
+    this.getAllProducts(0, this.limit);
     this.getWishList();
   }
 

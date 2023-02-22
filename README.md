@@ -3,11 +3,27 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.6.
 
 ## Description
-This is an Angular e-commerce app that fetches data from an API and allows users to login with a token that expires after 1 hour. The app also uses the ngx-skeleton-loader library to handle data loading and ngx-infinite-scroll to load more products as the user scrolls down the page.
+<!-- This is an Angular e-commerce app that fetches data from an API and allows users to login with a token that expires after 1 hour. The app also uses the ngx-skeleton-loader library to handle data loading and ngx-infinite-scroll to load more products as the user scrolls down the page. -->
+This is an Angular E-commerce application that allows users to browse products, add products to cart or wishlist, and checkout products. The application fetches product data through an API and uses a token-based authentication system with an expiration time of 1 hour.
 
 ## Features
 
-* Login.
+* User Authentication with JWT token.
+* Data loading using ngx skeleton loader.
+* Infinite scrolling to load more products.
+* Product details page.
+* Product sorting by price and name.
+* Product filtering by category.
+* Zoom in functionality in product details page.
+* Add products to cart or wishlist.
+
+## Usage
+
+Once the application is running, you can browse products, add products to cart or wishlist, and checkout products. You can also sort products by price or name. The application uses ngx-infinite-scroll to load more products as the user scrolls down the page.
+
+To use the application, you will need to create an account and log in. Once logged in, you will receive a JWT token that will be valid for 1 hour. After 1 hour, the token will expire, and you will need to log in again.
+
+<!-- * Login.
 The app allows users to log in using a username and password. The login form validates the input fields and sends a POST request to the API to retrieve a JWT token. The token is stored in local storage and used to authenticate the user for subsequent requests.
 
 * Token Expiration.
@@ -19,7 +35,7 @@ The app displays a list of products fetched from the API. When the user first lo
 As the user scrolls down the page, the ngx-infinite-scroll library is used to load more products from the API. The app uses a pagination system to request the next page of products from the API.
 
 * Product Details.
-When the user clicks on a product in the list, they are taken to a page that displays the details of a product when the user clicks on the product card. The product details page displays the product name, price, description, and a list of related products.
+When the user clicks on a product in the list, they are taken to a page that displays the details of a product when the user clicks on the product card. The product details page displays the product name, price, description, and a list of related products. -->
 
 
 ## Built with
