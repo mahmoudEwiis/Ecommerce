@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Description
 <!-- This is an Angular e-commerce app that fetches data from an API and allows users to login with a token that expires after 1 hour. The app also uses the ngx-skeleton-loader library to handle data loading and ngx-infinite-scroll to load more products as the user scrolls down the page. -->
-This is an Angular E-commerce application that allows users to browse products, add products to cart or wishlist, and checkout products. The application fetches product data through an API and uses a token-based authentication system with an expiration time of 1 hour.
+This is an Angular E-commerce application that allows users to browse products, add products to cart or wishlist, and checkout products. The application fetches product data through an API and uses a token-based authentication system with an expiration time of 1 hour. It also implements the concept of lazy loading with the application divided into modules, including a user module where users can view and update their personal information.
 
 ## Features
 
@@ -16,12 +16,16 @@ This is an Angular E-commerce application that allows users to browse products, 
 * Product filtering by category.
 * Zoom in functionality in product details page.
 * Add products to cart or wishlist.
+* Lazy loading of modules.
+* Checkout products.
 
 ## Usage
 
 Once the application is running, you can browse products, add products to cart or wishlist, and checkout products. You can also sort products by price or name. The application uses ngx-infinite-scroll to load more products as the user scrolls down the page.
 
 To use the application, you will need to create an account and log in. Once logged in, you will receive a JWT token that will be valid for 1 hour. After 1 hour, the token will expire, and you will need to log in again.
+
+The application is divided into modules, including a user module where users can view and update their personal information. Lazy loading is used to optimize the loading of modules.
 
 <!-- * Login.
 The app allows users to log in using a username and password. The login form validates the input fields and sends a POST request to the API to retrieve a JWT token. The token is stored in local storage and used to authenticate the user for subsequent requests.
