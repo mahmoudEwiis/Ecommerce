@@ -42,6 +42,10 @@ As the user scrolls down the page, the ngx-infinite-scroll library is used to lo
 When the user clicks on a product in the list, they are taken to a page that displays the details of a product when the user clicks on the product card. The product details page displays the product name, price, description, and a list of related products. -->
 
 
+## backend API 
+
+Documentation for the backend API can be found [here](https://fakeapi.platzi.com/en/rest/introduction).
+
 ## Built with
 * [Angular](https://angular.io/).
 * [Typescript](https://www.typescriptlang.org/)

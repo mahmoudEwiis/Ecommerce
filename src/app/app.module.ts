@@ -18,6 +18,7 @@ import { CartComponent } from './views/shared/cart/cart.component';
 import { JwtInterceptor } from './views/pages/auth/services/jwt.interceptor';
 import { AuthService } from './views/pages/auth/services/auth.service';
 import { LocalstorageService } from './views/pages/auth/services/localstorage.service';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,8 @@ import { LocalstorageService } from './views/pages/auth/services/localstorage.se
     CartComponent
   ],
   imports: [
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

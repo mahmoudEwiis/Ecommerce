@@ -3,10 +3,10 @@
 
         <ol class="breadcrumb ondark mb-0">
             <li class="breadcrumb-item">
-                <a href="#">Home</a>
+                <a routerLink="/products">Home</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="#">Product</a>
+                <a routerLink="/products">Product</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 Richtan Hero
@@ -20,8 +20,8 @@
         <div class="row">
             <aside class="col-lg-4">
                 <owl-carousel-o [options]="slider1Settings" #myCarousel>
-                    <ng-container *ngFor="let slide of product.images">
-                        <ng-template carouselSlide [id]="slide.id">
+                    <ng-container *ngFor="let slide of product?.images">
+                        <ng-template carouselSlide [id]="slide?.id">
                             <figure class="zoom-image" style="background-image: url({{slide}});"
                                 [style.backgroundPosition]="backgroundPos" (mousemove)="ZoomImage($event)">
                                 <img class="rounded" src="{{slide}}" alt="clothes"
@@ -32,8 +32,8 @@
                 </owl-carousel-o>
                 <owl-carousel-o id="controll" [options]="slider2Settings" (dragging)="nextSlide($event)"
                     *ngIf="!imgNotFounded">
-                    <ng-container *ngFor="let slide of product.images">
-                        <ng-template carouselSlide [id]="slide.id">
+                    <ng-container *ngFor="let slide of product?.images">
+                        <ng-template carouselSlide [id]="slide?.id">
                             <img class="rounded" width="97" src="{{slide}}" alt="clothes"
                                 onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'">
                         </ng-template>
@@ -43,7 +43,7 @@
             <main class="col-lg-6">
                 <article class="ps-lg-3">
                     <h4 class="title text-dark">
-                        {{product.title }}
+                        {{product?.title }}
 
                     </h4>
                     <div class="rating-wrap my-3">
@@ -66,17 +66,17 @@
 
 
                     <div class="mb-3">
-                        <span class="price h5">${{product.price}}</span>
+                        <span class="price h5">${{product?.price}}</span>
                         <span class="text-muted">/per box</span>
                     </div>
 
                     <p>
-                        {{product.description || loremText }}
+                        {{product?.description || loremText }}
                     </p>
 
                     <dl class="row">
                         <dt class="col-3">Type:</dt>
-                        <dd class="col-9">{{product.category.name}}</dd>
+                        <dd class="col-9">{{product?.category?.name}}</dd>
 
                         <dt class="col-3">Color:</dt>
                         <dd class="col-9">Brown</dd>
@@ -99,7 +99,7 @@
                                 <option>Large</option>
                             </select>
                         </div>
-                        <div class="col-md-4 col-6 mb-3" *ngIf="productInCartList(product)">
+                        <div class="col-md-4 col-6 mb-3" *ngIf=" product ? productInCartList(product) : false">
                             <label class="form-label d-block">Quantity</label>
                             <div class="input-group input-spinner">
                                 <div class="quantity-selector">
@@ -129,7 +129,7 @@
             </main>
         </div>
 
-        <div class="row my-3">
+        <div class="row my-3"> 
             <owl-carousel-o [options]="slider3Settings" #myCarousel>
                 <ng-container class="col-md-2 col-6" *ngFor="let item of products">
                     <ng-template carouselSlide [id]="item.id">
@@ -139,4 +139,4 @@
             </owl-carousel-o>
         </div>
     </div>
-</section>
+</section> 
