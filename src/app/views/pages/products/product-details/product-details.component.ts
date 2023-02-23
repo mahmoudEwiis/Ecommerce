@@ -69,11 +69,156 @@ export class ProductDetailsComponent implements OnInit {
     // animateOut: 'slideOutUp',
     // animateIn: 'slideInUp'
   }
+  slider3Settings: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    margin: 10,
+    dots: true,
+    navSpeed: 700,
+    center: true,
+    // navText: ['', ''],
+    responsive: {
+      0: {
+        items: 3
+      },
+      400: {
+        items: 3
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 5
+      }
+    },
+    nav: false,
+    // animateOut: 'slideOutUp',
+    // animateIn: 'slideInUp'
+  }
   product: any
   productId!: number
   imgNotFounded: boolean = false;
   cartList!: CartItem[];
   quantity!: number
+  loremText: string = `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, quos aspernatur eum dolorr eprehenderit eos et libero debitis itaque voluptatem! Laudantium modi sequi, id numquam liberosed quaerat. Eligendi, ipsum!`;
+  products: any = [ 
+    {
+      "id": 4,
+      "title": "Handmade Fresh Table",
+      "price": 687,
+      "description": "Andy shoes are designed to keeping in...",
+      "category": {
+        "id": 5,
+        "name": "Others",
+        "image": "https://placeimg.com/640/480/any?r=0.591926261873231"
+      },
+      "images": [
+        "https://placeimg.com/640/480/any?r=0.9178516507833767",
+        "https://placeimg.com/640/480/any?r=0.9300320592588625",
+        "https://placeimg.com/640/480/any?r=0.8807778235430017"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Handmade Fresh Table",
+      "price": 687,
+      "description": "Andy shoes are designed to keeping in...",
+      "category": {
+        "id": 5,
+        "name": "Others",
+        "image": "https://placeimg.com/640/480/any?r=0.591926261873231"
+      },
+      "images": [
+        "https://placeimg.com/640/480/any?r=0.9178516507833767",
+        "https://placeimg.com/640/480/any?r=0.9300320592588625",
+        "https://placeimg.com/640/480/any?r=0.8807778235430017"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Handmade Fresh Table",
+      "price": 687,
+      "description": "Andy shoes are designed to keeping in...",
+      "category": {
+        "id": 5,
+        "name": "Others",
+        "image": "https://placeimg.com/640/480/any?r=0.591926261873231"
+      },
+      "images": [
+        "https://placeimg.com/640/480/any?r=0.9178516507833767",
+        "https://placeimg.com/640/480/any?r=0.9300320592588625",
+        "https://placeimg.com/640/480/any?r=0.8807778235430017"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Handmade Fresh Table",
+      "price": 687,
+      "description": "Andy shoes are designed to keeping in...",
+      "category": {
+        "id": 5,
+        "name": "Others",
+        "image": "https://placeimg.com/640/480/any?r=0.591926261873231"
+      },
+      "images": [
+        "https://placeimg.com/640/480/any?r=0.9178516507833767",
+        "https://placeimg.com/640/480/any?r=0.9300320592588625",
+        "https://placeimg.com/640/480/any?r=0.8807778235430017"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Handmade Fresh Table",
+      "price": 687,
+      "description": "Andy shoes are designed to keeping in...",
+      "category": {
+        "id": 5,
+        "name": "Others",
+        "image": "https://placeimg.com/640/480/any?r=0.591926261873231"
+      },
+      "images": [
+        "https://placeimg.com/640/480/any?r=0.9178516507833767",
+        "https://placeimg.com/640/480/any?r=0.9300320592588625",
+        "https://placeimg.com/640/480/any?r=0.8807778235430017"
+      ]
+    }
+    ,{
+      "id": 4,
+      "title": "Handmade Fresh Table",
+      "price": 687,
+      "description": "Andy shoes are designed to keeping in...",
+      "category": {
+        "id": 5,
+        "name": "Others",
+        "image": "https://placeimg.com/640/480/any?r=0.591926261873231"
+      },
+      "images": [
+        "https://placeimg.com/640/480/any?r=0.9178516507833767",
+        "https://placeimg.com/640/480/any?r=0.9300320592588625",
+        "https://placeimg.com/640/480/any?r=0.8807778235430017"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Handmade Fresh Table",
+      "price": 687,
+      "description": "Andy shoes are designed to keeping in...",
+      "category": {
+        "id": 5,
+        "name": "Others",
+        "image": "https://placeimg.com/640/480/any?r=0.591926261873231"
+      },
+      "images": [
+        "https://placeimg.com/640/480/any?r=0.9178516507833767",
+        "https://placeimg.com/640/480/any?r=0.9300320592588625",
+        "https://placeimg.com/640/480/any?r=0.8807778235430017"
+      ]
+    }
+  ]
+
+  
   constructor(
     private _productService: ProductService,
     private _cartService: CartService,
@@ -82,7 +227,7 @@ export class ProductDetailsComponent implements OnInit {
 
   ) { }
 
-  // ZoomImage
+ 
   ZoomImage(event: any) {
     const { left, top, width, height } = event.target.getBoundingClientRect();
     const x = ((event.pageX - left) / width) * 100;
@@ -90,17 +235,17 @@ export class ProductDetailsComponent implements OnInit {
     this.backgroundPos = `${x}% ${y}%`;
   }
 
-  // next Slide {{slider2}}
+
   nextSlide(event: any) {
     if (event.dragging == false) {
-      this.startPosition = event.data.startPosition; // Position of active Slide
+      this.startPosition = event.data.startPosition; 
       const anyService = this.myCarousel as any;
       const carouselService = anyService.carouselService as CarouselService;
       carouselService.to(this.startPosition, 3)
     }
   }
 
-  // get Single Product
+ 
   getproduct() {
     this._route.params.subscribe(params => {
       this.productId = params['id'];
@@ -113,34 +258,21 @@ export class ProductDetailsComponent implements OnInit {
       }
     })
   }
-  /*
-    ----------------------------------
-    ========= get CartList ===========
-    ----------------------------------
-  */
+
   getCartList() {
     this._cartService.cart$.subscribe((cart) => {
       this.cartList = cart.items!;
     });
   }
-  /*
-    ----------------------------------
-    ====== product In CartList =======
-    ----------------------------------
-  */
+
   productInCartList(product: any) {
-    // return true
+  
     const cartItemExist = this.cartList.find((item) => item.product.id === product.id);
     this.quantity = cartItemExist?.quantity || 0
     return cartItemExist;
   }
 
-  /*
-    ----------------------------------
-    ==== update CartItem Quantity ====
-    ----------------------------------
-  */
-  updateCartItemQuantity(value: number, product:any, operation: string) {
+  updateCartItemQuantity(value: number, product: any, operation: string) {
     if (operation == "+") {
       value++;
     } else {
@@ -155,23 +287,19 @@ export class ProductDetailsComponent implements OnInit {
     );
   }
 
-  /*
-    ----------------------------------
-    ====== add Product To Cart =======
-    ----------------------------------
-  */
-    addProductToCart(item: any) {
-      const cartItem: CartItem = {
-        product: item,
-        quantity: 1
-      };
-      this._cartService.setCartItem(cartItem);
-      this._toast.success('Product added to cart successfully',
-        {
-          position: 'bottom-left'
-        });
-  
-    }
+  addProductToCart(item: any) {
+    const cartItem: CartItem = {
+      product: item,
+      quantity: 1
+    };
+    this._cartService.setCartItem(cartItem);
+    this._toast.success('Product added to cart successfully',
+      {
+        position: 'bottom-left'
+      });
+
+  }
+
   ngOnInit(): void {
     this.getproduct();
     this.getCartList();

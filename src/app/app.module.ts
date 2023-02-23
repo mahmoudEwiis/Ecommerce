@@ -16,6 +16,9 @@ import { WishlistService } from './views/pages/services/wishlist.service';
 import { WishlistComponent } from './views/shared/wishlist/wishlist.component';
 import { CartComponent } from './views/shared/cart/cart.component';
 import { JwtInterceptor } from './views/pages/auth/services/jwt.interceptor';
+import { AuthService } from './views/pages/auth/services/auth.service';
+import { LocalstorageService } from './views/pages/auth/services/localstorage.service';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,8 @@ import { JwtInterceptor } from './views/pages/auth/services/jwt.interceptor';
     CartComponent
   ],
   imports: [
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -45,9 +50,14 @@ export class AppModule {
   (
     private _cartService: CartService,
     private _wishlistService: WishlistService,
+    private _authService: AuthService,
+    private _localstorageService: LocalstorageService
   )
   {
     _wishlistService.initWishlistLocalStorage();
     _cartService.initCartLocalStorage();
+    if(_localstorageService.getToken()) {
+      _authService.startRefreshTokenTimer();
+    }
   }
 }

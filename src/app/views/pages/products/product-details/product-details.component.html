@@ -3,10 +3,10 @@
 
         <ol class="breadcrumb ondark mb-0">
             <li class="breadcrumb-item">
-                <a href="#">Home</a>
+                <a routerLink="/products">Home</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="#">Product</a>
+                <a routerLink="/products">Product</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
                 Richtan Hero
@@ -20,34 +20,30 @@
         <div class="row">
             <aside class="col-lg-4">
                 <owl-carousel-o [options]="slider1Settings" #myCarousel>
-                    <ng-container *ngFor="let slide of product.images">
-                        <ng-template carouselSlide [id]="slide.id">
-                            <figure class="zoom-image"
-                                style="background-image: url({{slide}});"
+                    <ng-container *ngFor="let slide of product?.images">
+                        <ng-template carouselSlide [id]="slide?.id">
+                            <figure class="zoom-image" style="background-image: url({{slide}});"
                                 [style.backgroundPosition]="backgroundPos" (mousemove)="ZoomImage($event)">
-                                <img class="rounded" src="{{slide}}" alt="clothes" onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'; imgNotFounded=true">
+                                <img class="rounded" src="{{slide}}" alt="clothes"
+                                    onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'; imgNotFounded=true">
                             </figure>
                         </ng-template>
                     </ng-container>
                 </owl-carousel-o>
-                <owl-carousel-o id="controll" [options]="slider2Settings" (dragging)="nextSlide($event)" *ngIf="!imgNotFounded">
-                    <ng-container *ngFor="let slide of product.images">
-                        <ng-template carouselSlide [id]="slide.id" >
-                            <img class="rounded" width="97" src="{{slide}}" alt="clothes" onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'">
+                <owl-carousel-o id="controll" [options]="slider2Settings" (dragging)="nextSlide($event)"
+                    *ngIf="!imgNotFounded">
+                    <ng-container *ngFor="let slide of product?.images">
+                        <ng-template carouselSlide [id]="slide?.id">
+                            <img class="rounded" width="97" src="{{slide}}" alt="clothes"
+                                onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'">
                         </ng-template>
                     </ng-container>
                 </owl-carousel-o>
-
-                <!-- <article class="gallery-wrap">
-
-
-                </article>  -->
-                <!-- gallery-wrap .end// -->
             </aside>
             <main class="col-lg-6">
                 <article class="ps-lg-3">
                     <h4 class="title text-dark">
-                        {{product.title }}
+                        {{product?.title }}
 
                     </h4>
                     <div class="rating-wrap my-3">
@@ -68,23 +64,19 @@
                         <span class="label-rating text-success">In stock</span>
                     </div>
 
-                    <!-- rating-wrap.// -->
 
                     <div class="mb-3">
-                        <span class="price h5">${{product.price}}</span>
+                        <span class="price h5">${{product?.price}}</span>
                         <span class="text-muted">/per box</span>
                     </div>
 
                     <p>
-                        {{
-                        product.description ||
-                        ' Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, quos aspernatur eum dolorr eprehenderit eos et libero debitis itaque voluptatem! Laudantium modi sequi, id numquam liberosed quaerat. Eligendi, ipsum!'
-                        }}
+                        {{product?.description || loremText }}
                     </p>
 
                     <dl class="row">
                         <dt class="col-3">Type:</dt>
-                        <dd class="col-9">{{product.category.name}}</dd>
+                        <dd class="col-9">{{product?.category?.name}}</dd>
 
                         <dt class="col-3">Color:</dt>
                         <dd class="col-9">Brown</dd>
@@ -106,36 +98,45 @@
                                 <option>Medium</option>
                                 <option>Large</option>
                             </select>
-                        </div> <!-- col.// -->
-                        <div class="col-md-4 col-6 mb-3" *ngIf="productInCartList(product)">
+                        </div>
+                        <div class="col-md-4 col-6 mb-3" *ngIf=" product ? productInCartList(product) : false">
                             <label class="form-label d-block">Quantity</label>
                             <div class="input-group input-spinner">
                                 <div class="quantity-selector">
                                     <button type="button" class="btn  btn-quantity"
-                                    (click)="updateCartItemQuantity(quantity , product  , '-')"
-                                    [disabled]=" quantity == 1"
-                                    >
+                                        (click)="updateCartItemQuantity(quantity , product  , '-')"
+                                        [disabled]=" quantity == 1">
                                         <span>-</span>
                                     </button>
                                     <div class="quantity-number">{{quantity}}</div>
                                     <button type="button" class="btn btn-quantity"
-                                    (click)="updateCartItemQuantity(quantity! , product  , '+')">
+                                        (click)="updateCartItemQuantity(quantity! , product  , '+')">
                                         <span>+</span>
                                     </button>
                                 </div>
-                            </div> <!-- input-group.// -->
-                        </div> <!-- col.// -->
-                    </div> <!-- row.// -->
+                            </div>
+                        </div> 
+                    </div>
 
-                    <a href="#" class="btn  btn-warning me-2" (click)="$event.preventDefault(); addProductToCart(product)">
+                    <a href="#" class="btn  btn-warning me-2"
+                        (click)="$event.preventDefault(); addProductToCart(product)">
                         <i class="me-1 fa fa-shopping-basket"></i>
                         Add to cart
                     </a>
                     <a href="#" class="btn  btn-light me-2"> <i class="me-1 fa fa-heart text-danger"></i> Save </a>
 
-                </article> <!-- product-info-aside .// -->
-            </main> <!-- col.// -->
-        </div> <!-- row.// -->
+                </article>
+            </main>
+        </div>
 
-    </div> <!-- container .//  -->
-</section>
+        <div class="row my-3"> 
+            <owl-carousel-o [options]="slider3Settings" #myCarousel>
+                <ng-container class="col-md-2 col-6" *ngFor="let item of products">
+                    <ng-template carouselSlide [id]="item.id">
+                        <app-product [product]="item"></app-product>
+                    </ng-template>
+                </ng-container>
+            </owl-carousel-o>
+        </div>
+    </div>
+</section> 
