@@ -13,12 +13,11 @@ import { ErrorPageComponent } from './views/pages/error-page/error-page.componen
 import { BaseComponent } from './views/layout/base/base.component';
 import { CartService } from './views/pages/services/cart.service';
 import { WishlistService } from './views/pages/services/wishlist.service';
-import { WishlistComponent } from './views/shared/wishlist/wishlist.component';
-import { CartComponent } from './views/shared/cart/cart.component';
 import { JwtInterceptor } from './views/pages/auth/services/jwt.interceptor';
 import { AuthService } from './views/pages/auth/services/auth.service';
 import { LocalstorageService } from './views/pages/auth/services/localstorage.service';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from './views/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -27,8 +26,6 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
     FooterComponent,
     ErrorPageComponent,
     BaseComponent,
-    WishlistComponent,
-    CartComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -38,6 +35,7 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
     HotToastModule.forRoot()
   ],
   providers: [
