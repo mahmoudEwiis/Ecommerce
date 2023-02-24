@@ -130,7 +130,7 @@ export class AllProductsComponent implements OnInit {
   onScroll() {
     const offset = this.limit;
     this.limit = (this.limit + 20) == 178 || (this.limit + 20) > 178 ? 178 : this.limit + 20;
-    this.getAllProducts(Math.floor(offset), Math.floor(this.limit));
+    if(this.limit !== 178 ) this.getAllProducts(Math.floor(offset), Math.floor(this.limit));
   }
 
   ngOnInit(): void {

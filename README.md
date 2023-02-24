@@ -52,7 +52,7 @@ Documentation for the backend API can be found [here](https://fakeapi.platzi.com
 * [Ngneat/Hot-toast](https://ngneat.github.io/hot-toast/).
 * [Bootstrap](https://getbootstrap.com/).
 * [Fontawesome](https://fontawesome.com/).
-* [ngx-skeleton-loaderngx-skeleton-loader](https://www.npmjs.com/package/ngx-skeleton-loader).
+* [ngx-skeleton-loader](https://www.npmjs.com/package/ngx-skeleton-loader).
 * [ngx-infinite-scroll](https://www.npmjs.com/package/ngx-infinite-scroll).
 * [rxjs](https://rxjs.dev/).
 

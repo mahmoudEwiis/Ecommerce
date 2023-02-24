@@ -99,7 +99,7 @@
                                 <option>Large</option>
                             </select>
                         </div>
-                        <div class="col-md-4 col-6 mb-3" *ngIf=" product ? productInCartList(product) : false">
+                        <div class="col-md-4 col-6 mb-3" *ngIf="productInCartList">
                             <label class="form-label d-block">Quantity</label>
                             <div class="input-group input-spinner">
                                 <div class="quantity-selector">
@@ -121,17 +121,27 @@
                     <a href="#" class="btn  btn-warning me-2"
                         (click)="$event.preventDefault(); addProductToCart(product)">
                         <i class="me-1 fa fa-shopping-basket"></i>
-                        Add to cart
+                        {{productInCartList ? 'Added to cart':'Add to cart'}}
                     </a>
-                    <a href="#" class="btn  btn-light me-2"> <i class="me-1 fa fa-heart text-danger"></i> Save </a>
+                    <a href="#" (click)="$event.preventDefault(); addProductToWishList(product)" *ngIf="!isProductInWishList" class="btn  btn-light me-2">
+                        <i class="fa-regular fa-heart text-danger"></i>
+                        Save
+                    </a>
+                    <a href="#" (click)="$event.preventDefault(); addProductToWishList(product)" *ngIf="isProductInWishList" class="btn  btn-light me-2">
+                        <i  class="me-1 fa fa-heart text-danger"></i> Saved
+                    </a>
 
                 </article>
             </main>
         </div>
 
-        <div class="row my-3"> 
+        <div class="row my-5 position-relative"> 
+            <div class="title text-md-center mb-2">
+                <span>best match</span>
+                <h4 class="text-dark">Related products</h4>
+            </div>
             <owl-carousel-o [options]="slider3Settings" #myCarousel>
-                <ng-container class="col-md-2 col-6" *ngFor="let item of products">
+                <ng-container class="col-md-2 col-6" *ngFor="let item of categoryProducts">
                     <ng-template carouselSlide [id]="item.id">
                         <app-product [product]="item"></app-product>
                     </ng-template>

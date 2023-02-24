@@ -13,11 +13,6 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'checkout',
-        pathMatch: 'full',
-      },
-      {
-        path: 'checkout',
         component: CheckoutPageComponent,
       },
       {
