@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { CartItem } from '../../pages/models/cart';
 import { WishItem} from '../../pages/models/wishlist';
@@ -21,57 +22,36 @@ export class WishlistComponent implements OnInit {
   (
     private _wishlistService: WishlistService,
     private _cartService: CartService,
-    private _toast:HotToastService
+    private _toast:HotToastService,
+    private router: Router,
 
   ){}
     
-  /*
-    ----------------------------------
-    ========= open WishList ==========
-    ----------------------------------
-  */
   openWishList() {
     this.opanWishList = true;
     document.body.style.overflowY ="hidden";
   }
     
-  /*
-    ----------------------------------
-    ========= close Sidebar ==========
-    ----------------------------------
-  */
+
   closeSidebar() {
     this.opanWishList = false;
     document.body.style.overflowY ="auto";
   }
-    
-  /*
-    ----------------------------------
-    ========= get WishList ===========
-    ----------------------------------
-  */
+
   getWishList() {
     this._wishlistService.wishList$.subscribe((cart) => {
       this.WishItems = cart.items!;
     });
   }
   
-  /*
-    ----------------------------------
-    ========= get CartList ===========
-    ----------------------------------
-  */
+
   getCartList() {
     this._cartService.cart$.subscribe((cart) => {
       this.cartList = cart.items!;
     });
   }
 
-  /*
-    ----------------------------------
-    ======== delete WishItem =========
-    ----------------------------------
-  */
+
   deleteWishItem() {
     this._wishlistService.deleteWishItem(this.deleteProductId);
     this.closeCofirmModal();
@@ -81,21 +61,12 @@ export class WishlistComponent implements OnInit {
     });
   }
 
-  /*
-    ----------------------------------
-    ====== product In CartList =======
-    ----------------------------------
-  */
+
   productInCartList(product: any){
     const cartItemExist = this.cartList.find((item) => item.product.id === product.product.id);
     return cartItemExist;
   }
 
-  /*
-    ----------------------------------
-    ====== add Product To Cart =======
-    ----------------------------------
-  */
   addProductToCart(item: any) {
     console.log(item)
     const cartItem: CartItem = {
@@ -110,11 +81,10 @@ export class WishlistComponent implements OnInit {
     });
   }
   
-  /*
-    ----------------------------------
-    ========== Cofirm Modal ==========
-    ----------------------------------
-  */
+  navigateToProductDetails(productId: string) {
+    this.closeSidebar();
+    this.router.navigate(['/products', productId]);
+  }
 
   openCofirmModal(productId: string) {
     this.isVisable = true;

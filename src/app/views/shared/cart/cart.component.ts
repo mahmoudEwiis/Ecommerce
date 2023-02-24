@@ -21,61 +21,39 @@ export class CartComponent implements OnInit {
     (
       private router: Router,
       private _cartService: CartService,
-      private _toast:HotToastService
-    ) {}
-    
-  /*
-    ----------------------------------
-    ========= open Cartlist ==========
-    ----------------------------------
-  */
+      private _toast: HotToastService
+    ) { }
+
+
   openCartlist() {
     this.getCartList();
     this.opanCartlist = true;
     document.body.style.overflowY = "hidden";
   }
 
-  /*
-    ----------------------------------
-    ========= close Sidebar ==========
-    ----------------------------------
-  */
+
   closeSidebar() {
     this.opanCartlist = false;
     document.body.style.overflowY = "auto";
   }
 
-  /*
-    ----------------------------------
-    ========== get CartList ==========
-    ----------------------------------
-  */
   getCartList() {
     this._cartService.cart$.subscribe((cart) => {
       this.cartList = cart.items!;
     });
   }
 
-  /*
-    ----------------------------------
-    ======== delete CartItem =========
-    ----------------------------------
-  */
+
   deleteCartItem() {
     this._cartService.deleteCartItem(this.deleteProductId);
     this.closeCofirmModal();
     this._toast.error('Product removed from cart',
-    {
-      position: 'bottom-left'
-    });
+      {
+        position: 'bottom-left'
+      });
 
   }
 
-  /*
-    ----------------------------------
-    ======== get Total Price =========
-    ----------------------------------
-  */
   getTotalPrice() {
     this._cartService.cart$.subscribe((cart) => {
       this.totalPrice = 0;
@@ -87,11 +65,7 @@ export class CartComponent implements OnInit {
     });
   }
 
-  /*
-    ----------------------------------
-    ==== update CartItem Quantity ====
-    ----------------------------------
-  */
+
   updateCartItemQuantity(value: number, cartItem: CartItem, operation: string) {
     if (operation == "+") {
       value++;
@@ -107,21 +81,16 @@ export class CartComponent implements OnInit {
     );
   }
 
-  /*
-    ----------------------------------
-    ====== navigate To Checkout ======
-    ----------------------------------
-  */
+
   navigateToCheckout() {
     this.closeSidebar();
     this.router.navigate(['/checkout']);
   }
-  
-  /*
-    ----------------------------------
-    ========== Cofirm Modal ==========
-    ----------------------------------
-  */
+
+  navigateToProductDetails(productId: string) {
+    this.closeSidebar();
+    this.router.navigate(['/products', productId]);
+  }
 
   openCofirmModal(productId: string) {
     this.isVisable = true;
