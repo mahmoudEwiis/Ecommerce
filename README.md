@@ -56,6 +56,8 @@ Documentation for the backend API can be found [here](https://fakeapi.platzi.com
 * [ngx-infinite-scroll](https://www.npmjs.com/package/ngx-infinite-scroll).
 * [rxjs](https://rxjs.dev/).
 
+Please leave a ⭐ as motivation if you liked the implementation 😄
+
 ## Running the project
 
 In the project directory, you can run:

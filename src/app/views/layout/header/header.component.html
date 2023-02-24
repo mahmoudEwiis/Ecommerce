@@ -1,11 +1,9 @@
 <header>
-    <!-- Header Top Start -->
     <div class="header-top header-top-border pt-10 pb-10">
         <div class="container">
             <div class="row align-items-center justify-content-between">
 
                 <div class="col mt-10 mb-10">
-                    <!-- Header Links Start -->
                     <div class="header-links">
                         <a href="#">
                             <i class="fa-solid fa-truck-moving"></i>
@@ -16,11 +14,9 @@
                             <span>Locate Store</span>
                         </a>
                     </div>
-                    <!-- Header Links End -->
                 </div>
 
                 <div class="col order-2 order-xs-2 order-lg-12 mt-10 mb-10">
-                    <!-- Header Account Links Start -->
                     <div class="header-account-links">
                         <a href="#">
                             <i class="fa-solid fa-circle-question"></i>
@@ -37,42 +33,36 @@
                         </a>
 
                     </div>
-                    <!-- Header Account Links End -->
                 </div>
 
             </div>
         </div>
-    </div><!-- Header Top End -->
-    <!-- Header Bottom Start -->
+    </div>
     <div class="header-bottom header-bottom-one header-sticky" #headerSticky [class.is-sticky]="sticky">
         <div class="container">
             <div class="row align-items-center justify-content-between">
 
                 <div class="col-lg-2 col-sm-8 col-8 mt-15 mb-15">
-                    <!-- Logo Start -->
                     <div class="header-logo">
                         <a routerLink="/products">
                             Store
                             <i class="fa-solid fa-cart-shopping"></i>
                         </a>
-                    </div><!-- Logo End -->
+                    </div>
                 </div>
                 <div class="col-lg-3 col-sm-3 col-4 order-lg-last">
-                    <!-- Header Shop Links Start -->
                     <div class="header-shop-links float-end">
 
-                        <!-- Wishlist -->
                         <a href="#" class="header-wishlist" (click)="$event.preventDefault();wishlist.openWishList()">
                             <i class="fa-solid fa-heart text-danger"></i>
                             <span class="number">{{wishCount}}</span>
                         </a>
-                        <!-- Cart -->
                         <a href="#" class="header-cart" (click)="$event.preventDefault();cart.openCartlist();">
                             <i class="fa-solid fa-bag-shopping"></i>
                             <span class="number">{{cartCount}}</span>
                         </a>
 
-                    </div><!-- Header Shop Links End -->
+                    </div>
                 </div>
 
                 <div class="col-lg-6  order-12 order-xs-12 order-lg-2 mt-10 mb-10">
@@ -89,18 +79,14 @@
                                 <button class="btn btn-warning">
                                     <i class="fa fa-search"></i>
                                 </button>
-                            </div> <!-- input-group end.// -->
+                            </div>
                         </form>
                     </div>
                 </div>
-
-
-                <!-- Mobile Menu -->
                 <div class="mobile-menu order-12 d-block d-lg-none col"></div>
-
             </div>
         </div>
-    </div><!-- Header Bottom End -->
+    </div>
 </header>
 
 

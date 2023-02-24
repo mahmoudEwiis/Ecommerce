@@ -34,7 +34,7 @@ export class ProductComponent implements OnInit {
       this._wishlistService.deleteWishItem(WishItem.product.id);
       this._toast.error('Product removed from wishlist',
         {
-          position: 'top-right'
+          position: 'top-left'
         });
     }
     else {
@@ -42,7 +42,7 @@ export class ProductComponent implements OnInit {
       this._wishlistService.setWishItem(WishItem);
       this._toast.success('Product added to wishlist successfully',
         {
-          position: 'top-right'
+          position: 'top-left'
         });
     }
   }
@@ -55,7 +55,7 @@ export class ProductComponent implements OnInit {
     this._cartService.setCartItem(cartItem);
     this._toast.success('Product added to cart successfully',
       {
-        position: 'top-right'
+        position: 'top-left'
       });
 
   }

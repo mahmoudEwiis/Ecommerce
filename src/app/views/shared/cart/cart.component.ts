@@ -49,7 +49,7 @@ export class CartComponent implements OnInit {
     this.closeCofirmModal();
     this._toast.error('Product removed from cart',
       {
-        position: 'top-right'
+        position: 'top-left'
       });
 
   }
