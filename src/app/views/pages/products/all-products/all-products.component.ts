@@ -87,7 +87,7 @@ export class AllProductsComponent implements OnInit {
     this._cartService.setCartItem(cartItem);
     this._toast.success('Product added to cart successfully',
       {
-        position: 'bottom-left'
+        position: 'top-right'
       });
 
   }
@@ -101,7 +101,7 @@ export class AllProductsComponent implements OnInit {
       this._wishlistService.deleteWishItem(WishItem.product.id);
       this._toast.error('Product removed from wishlist',
         {
-          position: 'bottom-left'
+          position: 'top-right'
         });
     }
     else {
@@ -109,7 +109,7 @@ export class AllProductsComponent implements OnInit {
       this._wishlistService.setWishItem(WishItem);
       this._toast.success('Product added to wishlist successfully',
         {
-          position: 'bottom-left'
+          position: 'top-right'
         });
     }
 

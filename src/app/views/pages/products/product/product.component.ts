@@ -55,7 +55,7 @@ export class ProductComponent implements OnInit {
     this._cartService.setCartItem(cartItem);
     this._toast.success('Product added to cart successfully',
       {
-        position: 'bottom-left'
+        position: 'top-right'
       });
 
   }
