@@ -18,20 +18,10 @@ export class CheckoutCompleteComponent implements OnInit {
 
   ) { }
 
-  /*
-    ----------------------------------
-    ======= navigate To Store ========
-    ----------------------------------
-  */
   navigateToStore() {
     this.router.navigate(['/'])
   }
 
-  /*
-    ----------------------------------
-    ======== get Total Price =========
-    ----------------------------------
-  */
   getTotalPrice() {
     this._cartService.cart$.subscribe((cart) => {
       this.totalPrice = 0;

@@ -15,6 +15,7 @@ export class CheckoutPageComponent implements OnInit {
   isSubmitted = false;
   cartList!: CartItem[];
   totalPrice!: number;
+  isCartEmpty: boolean = false;
 
   constructor(
     private router: Router,
@@ -22,22 +23,14 @@ export class CheckoutPageComponent implements OnInit {
     private formBuilder: FormBuilder,
   ) { }
 
-  /*
-    ----------------------------------
-    ========== get CartList ==========
-    ----------------------------------
-  */
   getCartList() {
     this._cartService.cart$.subscribe((cart) => {
       this.cartList = cart.items!;
+      if (this.cartList.length == 0) this.isCartEmpty = true;
+      else this.isCartEmpty = false;
     });
   }
 
-  /*
-    ----------------------------------
-    ======== get Total Price =========
-    ----------------------------------
-  */
   getTotalPrice() {
     this._cartService.cart$.subscribe((cart) => {
       this.totalPrice = 0;
@@ -49,11 +42,7 @@ export class CheckoutPageComponent implements OnInit {
     });
   }
 
-  /*
-    ----------------------------------
-    ======= init Checkout Form =======
-    ----------------------------------
-  */
+
   initCheckoutForm() {
     this.checkoutFormGroup = this.formBuilder.group({
       firstName: ['', Validators.required],
@@ -70,11 +59,7 @@ export class CheckoutPageComponent implements OnInit {
     });
   }
 
-  /*
-    ----------------------------------
-    ========= Checkout Form ==========
-    ----------------------------------
-  */
+
   get checkoutForm() {
     return this.checkoutFormGroup.controls;
   }
@@ -83,10 +68,11 @@ export class CheckoutPageComponent implements OnInit {
     if (this.checkoutFormGroup.invalid) {
       return;
     }
-    // notefication Thank you for Shopping with us!
+
     this.router.navigate(['/checkout/succuss'])
     console.log(this.checkoutForm)
   }
+
   ngOnInit(): void {
     this.getCartList();
     this.getTotalPrice();
