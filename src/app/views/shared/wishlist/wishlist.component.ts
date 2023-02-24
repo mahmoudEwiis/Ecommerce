@@ -57,7 +57,7 @@ export class WishlistComponent implements OnInit {
     this.closeCofirmModal();
     this._toast.error('Product removed from wishlist',
     {
-      position: 'bottom-left'
+      position: 'top-right'
     });
   }
 
@@ -77,7 +77,7 @@ export class WishlistComponent implements OnInit {
     
     this._toast.success('Product added to cart successfully',
     {
-      position: 'bottom-left'
+      position: 'top-right'
     });
   }
   
