@@ -1,4 +1,4 @@
-<!-- is cart empty -->
+
 <div class="empty-cart" *ngIf="isCartEmpty">
     <div class="empty-cart__icon">
         <svg class="empty-img-default" width="184" height="152" viewBox="0 0 184 152"
@@ -35,7 +35,6 @@
     <a href="/products" class="btn btn-primary">Continue shopping</a>
 </div>
 
-<!-- is cart not empty -->
 
 <section class="padding-y " *ngIf="!isCartEmpty">
     <div class="container">
@@ -249,7 +248,7 @@
                         </div>
                         <figcaption class="info">
                             <a href="#" class="title">{{item.product.title}}</a>
-                            <div class="price text-muted">Price: ${{item.product.price}}</div> <!-- price .// -->
+                            <div class="price text-muted">Price: ${{item.product.price}}</div>
                         </figcaption>
                     </figure>
                 </article>

@@ -24,10 +24,10 @@
                     </div>
                 </article>
             </aside>
-        </div> <!-- row //end -->
-
-    </div> <!-- container end.// -->
+        </div>
+    </div>
 </section>
+
 <section class="pt-4">
     <div class="container px-4">
         <div class="row g-4">
@@ -105,32 +105,8 @@
                 *ngFor="let item of products | filter : fliterValue">
                 <app-product [product]="item"></app-product>
             </div>
-            <!-- <div class="col-12">
-                <nav aria-label="Page navigation">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous"
-                                (click)="$event.preventDefault(); provPage()">
-                                <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                        </li>
-                        <li class="page-item" [class.active]="number == PageNumber"
-                            *ngFor="let number of numberOfPages">
-                            <a class="page-link" href="#"
-                                (click)="$event.preventDefault(); getAllProducts(number)">{{number}}</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next"
-                                (click)="$event.preventDefault(); nextPage()">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div> -->
         </div>
+
         <div class="row"  *ngIf="Loading">
             <div class="col-6 col-sm-8 col-md-6 col-lg-2" *ngFor="let item of items">
                 <ngx-skeleton-loader [theme]="{ 'border-radius': '0', height: '150px' }"></ngx-skeleton-loader>
