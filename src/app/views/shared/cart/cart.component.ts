@@ -96,6 +96,7 @@ export class CartComponent implements OnInit {
     this.isVisable = true;
     this.deleteProductId = productId
   }
+
   closeCofirmModal() {
     this.isVisable = false;
   }

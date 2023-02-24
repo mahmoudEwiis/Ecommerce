@@ -114,6 +114,28 @@
     padding-right: 0px;
 }
 
+/* style of empty-wishlist */
+.empty-wishlist {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.empty-wishlist .empty-wishlist-icon {
+    font-size: 50px;
+    color: #ff8100;
+}
+
+.empty-wishlist .empty-wishlist-text {
+    font-size: 20px;
+    color: #212529;
+    margin-top: 10px;
+}
+
+.empty-wishlist .empty-wishlist-text a {
+    color: #ff8100;
+}
+
+
 @media only screen and (max-width: 767px) {
     .card-body {
         border-top: 1px solid #80808073;
