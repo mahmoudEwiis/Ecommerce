@@ -102,30 +102,14 @@
 
 </div>
 
-<!-- 
-    ----------------------------------
-    ========== Cofirm Modal ==========
-    ----------------------------------
- -->
-<div class="modal fade" [class.show]="isVisable" id="CofirmModal" tabindex="-1" role="dialog"
-    aria-labelledby="CofirmModalLabel" [style]="isVisable?'display: block;':''">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="CofirmModalLabel">Cofirm this action</h5>
-                <button type="button text-muted" class="close" data-dismiss="modal" aria-label="Close"
-                    (click)="closeCofirmModal()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Are your sure to remove product from cart ?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                    (click)="closeCofirmModal()">Cancel</button>
-                <button type="button" class="btn btn-warning" (click)="deleteCartItem()">ok</button>
-            </div>
-        </div>
-    </div>
-</div>
+
+ <app-confirm-model
+    (confirm)="deleteCartItem()"
+    (cancel)="closeCofirmModal()"
+    [isVisable]="isVisable"
+    [title]="'Cofirm this action'"
+    [message]="'Are your sure to remove product from cart ?'"
+    [confirmBtnText]="'ok'"
+    [cancelBtnText]="'Cancel'"
+ ></app-confirm-model>
+

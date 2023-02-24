@@ -1,29 +1,19 @@
-
-
-
-
-
-
 <section class="padding-y">
-    <div class="container">
-    
+  <div class="container">
+
     <div class="row">
-      <aside class="col-lg-3 col-xl-3  bg-light">
-        <!--  COMPONENT MENU LIST  -->
+      <aside class="col-lg-3 col-xl-3  bg-light align-self-start rounded">
         <nav class="nav flex-lg-column nav-pills mb-4">
           <a class="nav-link" routerLink="profile" routerLinkActive="active">Profile setting</a>
           <a class="nav-link" routerLink="wishlist" routerLinkActive="active">My wishlist</a>
           <a class="nav-link" href="#" (click)="logout($event)">Log out</a>
         </nav>
-        <!--   COMPONENT MENU LIST END .//   -->
       </aside>
+
       <main class="col-lg-9  col-xl-9">
         <router-outlet></router-outlet>
       </main>
-    </div> <!-- row.// -->
-    
-    <br><br>
-    
-    
-    </div> <!-- container .//  -->
-    </section>
+
+    </div>
+  </div>
+</section>

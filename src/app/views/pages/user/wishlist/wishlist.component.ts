@@ -12,6 +12,10 @@ import { WishlistService } from '../../services/wishlist.service';
 export class WishlistComponent implements OnInit {
   WishItems!: WishItem[];
   cartList!: CartItem[];
+  isVisable: boolean = false;
+  isWishItemsEmpty: boolean = false;
+  deleteProductId!: string;
+
   constructor(
     private _wishlistService: WishlistService,
     private _cartService: CartService,
@@ -19,7 +23,30 @@ export class WishlistComponent implements OnInit {
   getWishList() {
     this._wishlistService.wishList$.subscribe((cart) => {
       this.WishItems = cart.items!;
+      if (this.WishItems.length == 0) this.isWishItemsEmpty = true;
+      else this.isWishItemsEmpty = false;
     });
+  }
+ 
+
+  removeItem(id: string) {
+    this.deleteProductId = id;
+    this._wishlistService.deleteWishItem(this.deleteProductId);
+  }
+
+
+  openCofirmModal(productId: string) {
+    this.isVisable = true;
+    this.deleteProductId = productId
+  }
+
+  closeCofirmModal() {
+    this.isVisable = false;
+  }
+
+  deleteWishItem() {
+    this._wishlistService.deleteWishItem(this.deleteProductId);
+    this.closeCofirmModal();
   }
 
   ngOnInit(): void {
