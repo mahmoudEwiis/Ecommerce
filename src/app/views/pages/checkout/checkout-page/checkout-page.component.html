@@ -32,7 +32,7 @@
     </div>
     <div class="empty-cart__title">Your cart is empty</div>
     <div class="empty-cart__subtitle">Looks like you haven’t added any items to your cart yet.</div>
-    <a href="/products" class="btn btn-primary">Continue shopping</a>
+    <a routerLink="/" class="btn btn-primary">Continue shopping</a>
 </div>
 
 
@@ -50,7 +50,7 @@
                                     <label class="form-label">First name</label>
                                     <input type="text" class="form-control" placeholder="Type here"
                                         formControlName="firstName">
-                                    <small *ngIf="checkoutForm.firstName.invalid && isSubmitted"
+                                    <small *ngIf="checkoutForm?.firstName?.invalid && isSubmitted"
                                         class=" d-block text-danger">
                                         First name is required
                                     </small>
@@ -60,7 +60,7 @@
                                     <label class="form-label">Last name</label>
                                     <input type="text" class="form-control" placeholder="Type here"
                                         formControlName="lastName">
-                                    <small *ngIf="checkoutForm.lastName.invalid && isSubmitted"
+                                    <small *ngIf="checkoutForm?.lastName?.invalid && isSubmitted"
                                         class=" d-block text-danger">
                                         Last name is required
                                     </small>
@@ -71,7 +71,7 @@
                                     <input type="text" value="+998" class="form-control" placeholder=""
                                         formControlName="phone">
 
-                                    <small *ngIf="checkoutForm.phone.invalid && isSubmitted"
+                                    <small *ngIf="checkoutForm?.phone?.invalid && isSubmitted"
                                         class=" d-block text-danger">
                                         phone is required
                                     </small>
@@ -81,10 +81,10 @@
                                     <label class="form-label">Email</label>
                                     <input type="text" class="form-control" placeholder="example@gmail.com"
                                         formControlName="email">
-                                    <small *ngIf="checkoutForm.email.invalid && isSubmitted"
+                                    <small *ngIf="checkoutForm?.email?.invalid && isSubmitted"
                                         class=" d-block text-danger">
-                                        <span *ngIf="checkoutForm.email.errors!.required">email is required</span>
-                                        <span *ngIf="checkoutForm.email.errors!.email">email is invalid</span>
+                                        <span *ngIf="checkoutForm?.email?.errors!.required">email is required</span>
+                                        <span *ngIf="checkoutForm?.email?.errors!.email">email is invalid</span>
                                     </small>
                                 </div>
                             </div>
@@ -144,7 +144,7 @@
                                     <label for="" class="form-label">Address</label>
                                     <input type="text" class="form-control" placeholder="Type here"
                                         formControlName="address">
-                                    <small *ngIf="checkoutForm.address.invalid && isSubmitted"
+                                    <small *ngIf="checkoutForm?.address?.invalid && isSubmitted"
                                         class=" d-block text-danger">
                                         Address is required
                                     </small>
@@ -163,7 +163,7 @@
                                     <label for="" class="form-label">House</label>
                                     <input type="text" class="form-control" placeholder="Type here"
                                         formControlName="house">
-                                    <small *ngIf="checkoutForm.house.invalid && isSubmitted"
+                                    <small *ngIf="checkoutForm?.house?.invalid && isSubmitted"
                                         class=" d-block text-danger">
                                         House is required
                                     </small>
@@ -173,7 +173,7 @@
                                     <label for="" class="form-label">Postal code</label>
                                     <input type="text" class="form-control" placeholder="Type here"
                                         formControlName="postalcode">
-                                    <small *ngIf="checkoutForm.postalcode.invalid && isSubmitted"
+                                    <small *ngIf="checkoutForm?.postalcode?.invalid && isSubmitted"
                                         class=" d-block text-danger">
                                         Postal code is required
                                     </small>
@@ -183,7 +183,7 @@
                                     <label for="" class="form-label">Zip</label>
                                     <input type="text" class="form-control" placeholder=" Type here"
                                         formControlName="zip">
-                                    <small *ngIf="checkoutForm.zip.invalid && isSubmitted" class=" d-block text-danger">
+                                    <small *ngIf="checkoutForm?.zip?.invalid && isSubmitted" class=" d-block text-danger">
                                         Zip is required
                                     </small>
                                 </div>
@@ -243,12 +243,12 @@
 
                     <figure class="itemside align-items-center mb-4" *ngFor="let item of cartList">
                         <div class="aside">
-                            <b class="badge bg-secondary rounded-pill">{{item.quantity}}</b>
-                            <img [src]="item.product.images[0]" class="img-sm rounded border">
+                            <b class="badge bg-secondary rounded-pill">{{item?.quantity}}</b>
+                            <img [src]="item?.product?.images[0]" class="img-sm rounded border">
                         </div>
                         <figcaption class="info">
-                            <a href="#" class="title">{{item.product.title}}</a>
-                            <div class="price text-muted">Price: ${{item.product.price}}</div>
+                            <a routerLink="/products/{{item?.product?.id}}" class="title">{{item?.product?.title}}</a>
+                            <div class="price text-muted">Price: ${{item?.product?.price}}</div>
                         </figcaption>
                     </figure>
                 </article>
