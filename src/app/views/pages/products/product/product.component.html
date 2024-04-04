@@ -1,6 +1,6 @@
 <div class="product">
     <div class="product-image">
-        <a style="height: 227px;" routerLink="/products/{{product?.id}}" *ngFor="let image of product?.images | json">
+        <a style="height: 227px;" routerLink="/products/{{product?.id}}" *ngFor="let image of product?.images|json">
           
             <img [src]="image" alt="Product_image"
                 onerror="this.onerror = null;this.src='assets/images/ImageNotFound.png'">
