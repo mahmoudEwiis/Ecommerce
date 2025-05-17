@@ -21,7 +21,7 @@ import { SharedModule } from './views/shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent, 
     HeaderComponent,
     FooterComponent,
     ErrorPageComponent,

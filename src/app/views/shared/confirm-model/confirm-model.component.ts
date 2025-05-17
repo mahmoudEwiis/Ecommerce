@@ -16,7 +16,7 @@ export class ConfirmModelComponent implements OnInit {
   @Output() confirm = new EventEmitter<boolean>();
   @Output() cancel = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor() { } 
 
   ngOnInit(): void {
   }
