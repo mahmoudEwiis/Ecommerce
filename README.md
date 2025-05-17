@@ -18,7 +18,7 @@ This is an Angular E-commerce application that allows users to browse products, 
 * Add products to cart or wishlist.
 * Lazy loading of modules.
 * Checkout products.
-
+ 
 ## Usage
 
 Once the application is running, you can browse products, add products to cart or wishlist, and checkout products. You can also sort products by price or name. The application uses ngx-infinite-scroll to load more products as the user scrolls down the page.
