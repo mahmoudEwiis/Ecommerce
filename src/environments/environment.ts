@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api: 'https://api.escuelajs.co/api/',
+  api: 'https://api.escuelajs.co/api/', 
 };
 
 /*
